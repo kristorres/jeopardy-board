@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "302655542605564500CB1D2A"
-               BuildableName = "Jeopardy! Board.app"
+               BuildableName = "JeopardyBoard.app"
                BlueprintName = "JeopardyBoard"
                ReferencedContainer = "container:JeopardyBoard.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "302655542605564500CB1D2A"
-            BuildableName = "Jeopardy! Board.app"
+            BuildableName = "JeopardyBoard.app"
             BlueprintName = "JeopardyBoard"
             ReferencedContainer = "container:JeopardyBoard.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "302655542605564500CB1D2A"
-            BuildableName = "Jeopardy! Board.app"
+            BuildableName = "JeopardyBoard.app"
             BlueprintName = "JeopardyBoard"
             ReferencedContainer = "container:JeopardyBoard.xcodeproj">
          </BuildableReference>
