@@ -11,10 +11,11 @@
 		3026555B2605564500CB1D2A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026555A2605564500CB1D2A /* ContentView.swift */; };
 		3026555D2605564600CB1D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555C2605564600CB1D2A /* Assets.xcassets */; };
 		302655602605564600CB1D2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555F2605564600CB1D2A /* Preview Assets.xcassets */; };
+		30C0ADC3260BC1330063D58F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30C0ADC2260BC1330063D58F /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		302655552605564500CB1D2A /* Jeopardy! Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jeopardy! Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		302655552605564500CB1D2A /* JeopardyBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JeopardyBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		302655582605564500CB1D2A /* JeopardyBoardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeopardyBoardApp.swift; sourceTree = "<group>"; };
 		3026555A2605564500CB1D2A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3026555C2605564600CB1D2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -22,6 +23,7 @@
 		302655612605564600CB1D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		302655622605564600CB1D2A /* JeopardyBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JeopardyBoard.entitlements; sourceTree = "<group>"; };
 		3026556A26056DA600CB1D2A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		30C0ADC2260BC1330063D58F /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		30C4C71F2608501E00AC46B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,7 +51,7 @@
 		302655562605564500CB1D2A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				302655552605564500CB1D2A /* Jeopardy! Board.app */,
+				302655552605564500CB1D2A /* JeopardyBoard.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +88,7 @@
 			children = (
 				3026555C2605564600CB1D2A /* Assets.xcassets */,
 				302655612605564600CB1D2A /* Info.plist */,
+				30C0ADC2260BC1330063D58F /* InfoPlist.strings */,
 				302655622605564600CB1D2A /* JeopardyBoard.entitlements */,
 			);
 			name = "Supporting Files";
@@ -108,7 +111,7 @@
 			);
 			name = JeopardyBoard;
 			productName = JeopardyBoard;
-			productReference = 302655552605564500CB1D2A /* Jeopardy! Board.app */;
+			productReference = 302655552605564500CB1D2A /* JeopardyBoard.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3026555D2605564600CB1D2A /* Assets.xcassets in Resources */,
+				30C0ADC3260BC1330063D58F /* InfoPlist.strings in Resources */,
 				302655602605564600CB1D2A /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,7 +307,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.kristorres.JeopardyBoard;
-				PRODUCT_NAME = "Jeopardy! Board";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -328,7 +332,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.kristorres.JeopardyBoard;
-				PRODUCT_NAME = "Jeopardy! Board";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
