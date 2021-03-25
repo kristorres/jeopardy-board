@@ -27,25 +27,6 @@ final class JeopardyGameTests: XCTestCase {
         XCTAssertFalse(clue.isDone)
     }
     
-    func testFinalJeopardyClueDecoding() {
-        let jsonData = """
-        {
-            "answer": "\(answer)",
-            "correctResponse": "\(correctResponse)",
-            "isDailyDouble": false,
-            "isDone": false
-        }
-        """.data(using: .utf8)!
-        let decoder = JSONDecoder()
-        let clue = try! decoder.decode(JeopardyGame.Clue.self, from: jsonData)
-        XCTAssertTrue(clue.id.hasPrefix("CLUE-"))
-        XCTAssertNil(clue.pointValue)
-        XCTAssertEqual(clue.answer, answer)
-        XCTAssertEqual(clue.correctResponse, correctResponse)
-        XCTAssertFalse(clue.isDailyDouble)
-        XCTAssertFalse(clue.isDone)
-    }
-    
     func testCategoryDecoding() {
         let jsonData = """
         {

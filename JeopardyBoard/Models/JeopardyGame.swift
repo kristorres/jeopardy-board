@@ -99,16 +99,10 @@ struct JeopardyGame: Codable {
         let clue = jeopardyRoundCategories[categoryIndex].clues[clueIndex]
         let expectedPointValue = (clueIndex + 1) * 200
         
-        if let pointValue = clue.pointValue, pointValue != expectedPointValue {
+        if clue.pointValue != expectedPointValue {
             throw APIError.invalidPointValue(
-                pointValue,
+                clue.pointValue,
                 expectedPointValue: expectedPointValue,
-                categoryIndex: categoryIndex,
-                clueIndex: clueIndex
-            )
-        }
-        if clue.isDailyDouble && clue.pointValue == nil {
-            throw APIError.missingDailyDoublePointValue(
                 categoryIndex: categoryIndex,
                 clueIndex: clueIndex
             )
@@ -187,7 +181,7 @@ struct JeopardyGame: Codable {
         let id = "CLUE-\(UUID())"
         
         /// The point value of this clue.
-        let pointValue: Int?
+        let pointValue: Int
         
         /// The “answer.”
         let answer: String
@@ -200,22 +194,6 @@ struct JeopardyGame: Codable {
         
         /// Indicates whether this clue is marked as “done.”
         var isDone: Bool = false
-        
-        /// Creates a Final Jeopardy! clue with the specified answer and correct
-        /// response.
-        ///
-        /// This initializer stores trimmed versions of both `String` arguments.
-        ///
-        /// - Parameter answer:          The answer.
-        /// - Parameter correctResponse: The correct response.
-        init(answer: String, correctResponse: String) {
-            self.pointValue = nil
-            self.answer = answer
-                .trimmingCharacters(in: .whitespacesAndNewlines)
-            self.correctResponse = correctResponse
-                .trimmingCharacters(in: .whitespacesAndNewlines)
-            self.isDailyDouble = false
-        }
         
         /// Creates a clue with the specified point value, answer, and correct
         /// response.
@@ -244,7 +222,7 @@ struct JeopardyGame: Codable {
         init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             pointValue = try container
-                .decodeIfPresent(Int.self, forKey: .pointValue)
+                .decode(Int.self, forKey: .pointValue)
             answer = try container
                 .decode(String.self, forKey: .answer)
                 .trimmingCharacters(in: .whitespacesAndNewlines)
@@ -349,9 +327,6 @@ struct JeopardyGame: Codable {
             categoryIndex: Int,
             clueIndex: Int
         )
-        
-        /// The point value of a Daily Double is missing.
-        case missingDailyDoublePointValue(categoryIndex: Int, clueIndex: Int)
         
         /// An empty “answer.”
         case emptyAnswer(categoryIndex: Int, clueIndex: Int)
