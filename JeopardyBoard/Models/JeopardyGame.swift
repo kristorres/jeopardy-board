@@ -1,7 +1,135 @@
 import Foundation
 
 /// A game of *Jeopardy!*
-struct JeopardyGame {
+struct JeopardyGame: Codable {
+    
+    // -------------------------------------------------------------------------
+    // MARK:- Stored property
+    // -------------------------------------------------------------------------
+    
+    /// The categories in the Jeopardy! round.
+    private(set) var jeopardyRoundCategories: [Category]
+    
+    // -------------------------------------------------------------------------
+    // MARK:- Initializer
+    // -------------------------------------------------------------------------
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        jeopardyRoundCategories = try container
+            .decode([Category].self, forKey: .jeopardyRoundCategories)
+        try validateGame()
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK:- Method
+    // -------------------------------------------------------------------------
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container
+            .encode(jeopardyRoundCategories, forKey: .jeopardyRoundCategories)
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK:- Private methods
+    // -------------------------------------------------------------------------
+    
+    /// Validates this game.
+    private func validateGame() throws {
+        
+        let categoryCount = jeopardyRoundCategories.count
+        if categoryCount != 6 {
+            throw APIError.invalidCategoryCount(categoryCount)
+        }
+        for index in jeopardyRoundCategories.indices {
+            try validateCategory(at: index)
+        }
+        
+        var dailyDoubleCount = 0
+        for category in jeopardyRoundCategories {
+            for clue in category.clues {
+                if clue.isDailyDouble {
+                    dailyDoubleCount += 1
+                }
+            }
+        }
+        if dailyDoubleCount != 2 {
+            throw APIError.invalidDailyDoubleCount(dailyDoubleCount)
+        }
+    }
+    
+    /// Validates the category at the specified index.
+    ///
+    /// - Parameter index: The category index.
+    private func validateCategory(at index: Int) throws {
+        
+        let category = jeopardyRoundCategories[index]
+        
+        if category.title.isEmpty {
+            throw APIError.emptyCategoryTitle(categoryIndex: index)
+        }
+        
+        let clueCount = category.clues.count
+        if clueCount != 5 {
+            throw APIError.invalidClueCount(clueCount, categoryIndex: index)
+        }
+        
+        var dailyDoubleCount = 0
+        for clue in category.clues {
+            if clue.isDailyDouble {
+                dailyDoubleCount += 1
+            }
+        }
+        if dailyDoubleCount > 1 {
+            throw APIError.multipleDailyDoubles(categoryIndex: index)
+        }
+        
+        for clueIndex in category.clues.indices {
+            try validateClue(at: clueIndex, categoryIndex: index)
+        }
+    }
+    
+    /// Validates the clue at the specified index and category.
+    ///
+    /// - Parameter clueIndex:     The clue index.
+    /// - Parameter categoryIndex: The category index.
+    private func validateClue(at clueIndex: Int, categoryIndex: Int) throws {
+        
+        let clue = jeopardyRoundCategories[categoryIndex].clues[clueIndex]
+        let expectedPointValue = (clueIndex + 1) * 200
+        
+        if let pointValue = clue.pointValue, pointValue != expectedPointValue {
+            throw APIError.invalidPointValue(
+                pointValue,
+                expectedPointValue: expectedPointValue,
+                categoryIndex: categoryIndex,
+                clueIndex: clueIndex
+            )
+        }
+        if clue.isDailyDouble && clue.pointValue == nil {
+            throw APIError.missingDailyDoublePointValue(
+                categoryIndex: categoryIndex,
+                clueIndex: clueIndex
+            )
+        }
+        if clue.answer.isEmpty {
+            throw APIError.emptyAnswer(
+                categoryIndex: categoryIndex,
+                clueIndex: clueIndex
+            )
+        }
+        if clue.correctResponse.isEmpty {
+            throw APIError.emptyCorrectResponse(
+                categoryIndex: categoryIndex,
+                clueIndex: clueIndex
+            )
+        }
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK:- Nested structs
+    // -------------------------------------------------------------------------
     
     /// A category on the game board.
     ///
@@ -195,19 +323,47 @@ struct JeopardyGame {
         }
     }
     
+    // -------------------------------------------------------------------------
+    // MARK:- Nested enums
+    // -------------------------------------------------------------------------
+    
     /// An API error.
     enum APIError: Error {
         
+        /// An invalid number of categories.
+        case invalidCategoryCount(Int)
+        
+        /// An empty category title.
+        case emptyCategoryTitle(categoryIndex: Int)
+        
+        /// An invalid number of clues in a category.
+        case invalidClueCount(Int, categoryIndex: Int)
+        
+        /// A category has more than one Daily Double.
+        case multipleDailyDoubles(categoryIndex: Int)
+        
         /// An invalid point value.
-        case invalidPointValue(Int)
+        case invalidPointValue(
+            Int,
+            expectedPointValue: Int,
+            categoryIndex: Int,
+            clueIndex: Int
+        )
         
         /// The point value of a Daily Double is missing.
-        case missingDailyDoublePointValue
+        case missingDailyDoublePointValue(categoryIndex: Int, clueIndex: Int)
         
         /// An empty “answer.”
-        case emptyAnswer
+        case emptyAnswer(categoryIndex: Int, clueIndex: Int)
         
         /// An empty correct response.
-        case emptyCorrectResponse
+        case emptyCorrectResponse(categoryIndex: Int, clueIndex: Int)
+        
+        /// An invalid number of Daily Doubles.
+        case invalidDailyDoubleCount(Int)
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case jeopardyRoundCategories
     }
 }
