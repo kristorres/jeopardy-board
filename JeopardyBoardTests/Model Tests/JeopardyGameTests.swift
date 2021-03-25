@@ -64,8 +64,24 @@ final class JeopardyGameTests: XCTestCase {
         let decoder = JSONDecoder()
         let category = try! decoder
             .decode(JeopardyGame.Category.self, from: jsonData)
-        XCTAssertTrue(category.id.hasPrefix("CATEGORY"))
+        XCTAssertTrue(category.id.hasPrefix("CATEGORY-"))
         XCTAssertEqual(category.title, categoryTitle)
         XCTAssertEqual(category.clues.count, 1)
+    }
+    
+    func testPlayerDecoding() {
+        let jsonData = """
+        {
+            "name": "James Holzhauer",
+            "score": 131127,
+            "canSelectClue": true
+        }
+        """.data(using: .utf8)!
+        let decoder = JSONDecoder()
+        let player = try! decoder.decode(JeopardyGame.Player.self, from: jsonData)
+        XCTAssertTrue(player.id.hasPrefix("PLAYER-"))
+        XCTAssertEqual(player.name, "James Holzhauer")
+        XCTAssertEqual(player.score, 131127)
+        XCTAssertTrue(player.canSelectClue)
     }
 }
