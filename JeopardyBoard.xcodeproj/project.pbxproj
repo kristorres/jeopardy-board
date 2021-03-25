@@ -13,7 +13,7 @@
 		302655602605564600CB1D2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555F2605564600CB1D2A /* Preview Assets.xcassets */; };
 		30C0ADC3260BC1330063D58F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30C0ADC2260BC1330063D58F /* InfoPlist.strings */; };
 		30C0ADCE260BE46F0063D58F /* JeopardyGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0ADCD260BE46F0063D58F /* JeopardyGame.swift */; };
-		30C0ADD7260C05DA0063D58F /* ClueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0ADD6260C05DA0063D58F /* ClueTests.swift */; };
+		30C0ADD7260C05DA0063D58F /* JeopardyGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0ADD6260C05DA0063D58F /* JeopardyGameTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,7 @@
 		30C0ADC2260BC1330063D58F /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		30C0ADCD260BE46F0063D58F /* JeopardyGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JeopardyGame.swift; sourceTree = "<group>"; };
 		30C0ADD4260C05DA0063D58F /* JeopardyBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JeopardyBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		30C0ADD6260C05DA0063D58F /* ClueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueTests.swift; sourceTree = "<group>"; };
+		30C0ADD6260C05DA0063D58F /* JeopardyGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeopardyGameTests.swift; sourceTree = "<group>"; };
 		30C0ADD8260C05DA0063D58F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30C4C71F2608501E00AC46B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,7 +129,7 @@
 		30C0ADE0260C3BD40063D58F /* Model Tests */ = {
 			isa = PBXGroup;
 			children = (
-				30C0ADD6260C05DA0063D58F /* ClueTests.swift */,
+				30C0ADD6260C05DA0063D58F /* JeopardyGameTests.swift */,
 			);
 			path = "Model Tests";
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30C0ADD7260C05DA0063D58F /* ClueTests.swift in Sources */,
+				30C0ADD7260C05DA0063D58F /* JeopardyGameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

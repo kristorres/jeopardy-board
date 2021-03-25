@@ -3,6 +3,51 @@ import Foundation
 /// A game of *Jeopardy!*
 struct JeopardyGame {
     
+    /// A category on the game board.
+    ///
+    /// A category contains five clues which are valued by difficulty. Its title
+    /// often features puns, wordplay, or shared themes.
+    struct Category: Codable, Identifiable {
+        
+        let id = "CATEGORY-\(UUID())"
+        
+        /// The title of this category.
+        let title: String
+        
+        /// The clues in this category.
+        let clues: [Clue]
+        
+        /// Creates a category with the specified title and clues.
+        ///
+        /// This initializer stores a trimmed version of the `title`.
+        ///
+        /// - Parameter title: The title.
+        /// - Parameter clues: The clues.
+        init(title: String, clues: [Clue]) {
+            self.title = title.trimmingCharacters(in: .whitespacesAndNewlines)
+            self.clues = clues
+        }
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            title = try container
+                .decode(String.self, forKey: .title)
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+            clues = try container.decode([Clue].self, forKey: .clues)
+        }
+        
+        func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(title, forKey: .title)
+            try container.encode(clues, forKey: .clues)
+        }
+        
+        private enum CodingKeys: String, CodingKey {
+            case title
+            case clues
+        }
+    }
+    
     /// A clue on the game board.
     ///
     /// All clues are presented as “answers,” and responses must be phrased in
@@ -35,14 +80,13 @@ struct JeopardyGame {
         ///
         /// - Parameter answer:          The answer.
         /// - Parameter correctResponse: The correct response.
-        init(answer: String, correctResponse: String) throws {
+        init(answer: String, correctResponse: String) {
             self.pointValue = nil
             self.answer = answer
                 .trimmingCharacters(in: .whitespacesAndNewlines)
             self.correctResponse = correctResponse
                 .trimmingCharacters(in: .whitespacesAndNewlines)
             self.isDailyDouble = false
-            try validateProperties()
         }
         
         /// Creates a clue with the specified point value, answer, and correct
@@ -60,14 +104,13 @@ struct JeopardyGame {
             answer: String,
             correctResponse: String,
             isDailyDouble: Bool = false
-        ) throws {
+        ) {
             self.pointValue = pointValue
             self.answer = answer
                 .trimmingCharacters(in: .whitespacesAndNewlines)
             self.correctResponse = correctResponse
                 .trimmingCharacters(in: .whitespacesAndNewlines)
             self.isDailyDouble = isDailyDouble
-            try validateProperties()
         }
         
         init(from decoder: Decoder) throws {
@@ -83,7 +126,6 @@ struct JeopardyGame {
             isDailyDouble = try container
                 .decode(Bool.self, forKey: .isDailyDouble)
             isDone = try container.decode(Bool.self, forKey: .isDone)
-            try validateProperties()
         }
         
         func encode(to encoder: Encoder) throws {
@@ -93,22 +135,6 @@ struct JeopardyGame {
             try container.encode(correctResponse, forKey: .correctResponse)
             try container.encode(isDailyDouble, forKey: .isDailyDouble)
             try container.encode(isDone, forKey: .isDone)
-        }
-        
-        /// Validates all properties of this clue.
-        private func validateProperties() throws {
-            if let pointValue = pointValue, pointValue <= 0 {
-                throw APIError.invalidPointValue(pointValue)
-            }
-            if isDailyDouble && pointValue == nil {
-                throw APIError.missingDailyDoublePointValue
-            }
-            if answer.isEmpty {
-                throw APIError.emptyAnswer
-            }
-            if correctResponse.isEmpty {
-                throw APIError.emptyCorrectResponse
-            }
         }
         
         private enum CodingKeys: String, CodingKey {
