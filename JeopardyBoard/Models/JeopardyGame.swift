@@ -13,6 +13,9 @@ struct JeopardyGame: Codable {
     /// The Final Jeopardy! clue.
     let finalJeopardyClue: FinalJeopardyClue
     
+    /// The contestants in this game of *Jeopardy!*
+    private(set) var players: [Player]
+    
     // -------------------------------------------------------------------------
     // MARK:- Initializer
     // -------------------------------------------------------------------------
@@ -23,6 +26,7 @@ struct JeopardyGame: Codable {
             .decode([Category].self, forKey: .jeopardyRoundCategories)
         finalJeopardyClue = try container
             .decode(FinalJeopardyClue.self, forKey: .finalJeopardyClue)
+        players = try container.decode([Player].self, forKey: .players)
         try validateGame()
     }
     
@@ -34,8 +38,8 @@ struct JeopardyGame: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container
             .encode(jeopardyRoundCategories, forKey: .jeopardyRoundCategories)
-        try container
-            .encode(finalJeopardyClue, forKey: .finalJeopardyClue)
+        try container.encode(finalJeopardyClue, forKey: .finalJeopardyClue)
+        try container.encode(players, forKey: .players)
     }
     
     // -------------------------------------------------------------------------
@@ -141,6 +145,16 @@ struct JeopardyGame: Codable {
         }
         
         try validateFinalJeopardyClue()
+        
+        let playerCount = players.count
+        if playerCount < 3 {
+            throw APIError.invalidPlayerCount
+        }
+        for index in players.indices {
+            if players[index].name.isEmpty {
+                throw APIError.emptyPlayerName(index: index)
+            }
+        }
     }
     
     // -------------------------------------------------------------------------
@@ -429,10 +443,17 @@ struct JeopardyGame: Codable {
         
         /// An empty Final Jeopardy! correct response.
         case emptyFinalJeopardyCorrectResponse
+        
+        /// An invalid number of contestants.
+        case invalidPlayerCount
+        
+        /// An empty contestant name.
+        case emptyPlayerName(index: Int)
     }
     
     private enum CodingKeys: String, CodingKey {
         case jeopardyRoundCategories
         case finalJeopardyClue
+        case players
     }
 }
