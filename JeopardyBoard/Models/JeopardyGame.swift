@@ -35,30 +35,6 @@ struct JeopardyGame: Codable {
     // MARK:- Private methods
     // -------------------------------------------------------------------------
     
-    /// Validates this game.
-    private func validateGame() throws {
-        
-        let categoryCount = jeopardyRoundCategories.count
-        if categoryCount != 6 {
-            throw APIError.invalidCategoryCount(categoryCount)
-        }
-        for index in jeopardyRoundCategories.indices {
-            try validateCategory(at: index)
-        }
-        
-        var dailyDoubleCount = 0
-        for category in jeopardyRoundCategories {
-            for clue in category.clues {
-                if clue.isDailyDouble {
-                    dailyDoubleCount += 1
-                }
-            }
-        }
-        if dailyDoubleCount != 2 {
-            throw APIError.invalidDailyDoubleCount(dailyDoubleCount)
-        }
-    }
-    
     /// Validates the category at the specified index.
     ///
     /// - Parameter index: The category index.
@@ -118,6 +94,30 @@ struct JeopardyGame: Codable {
                 categoryIndex: categoryIndex,
                 clueIndex: clueIndex
             )
+        }
+    }
+    
+    /// Validates this game.
+    private func validateGame() throws {
+        
+        let categoryCount = jeopardyRoundCategories.count
+        if categoryCount != 6 {
+            throw APIError.invalidCategoryCount(categoryCount)
+        }
+        for index in jeopardyRoundCategories.indices {
+            try validateCategory(at: index)
+        }
+        
+        var dailyDoubleCount = 0
+        for category in jeopardyRoundCategories {
+            for clue in category.clues {
+                if clue.isDailyDouble {
+                    dailyDoubleCount += 1
+                }
+            }
+        }
+        if dailyDoubleCount != 2 {
+            throw APIError.invalidDailyDoubleCount(dailyDoubleCount)
         }
     }
     
