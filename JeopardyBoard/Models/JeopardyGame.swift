@@ -4,11 +4,14 @@ import Foundation
 struct JeopardyGame: Codable {
     
     // -------------------------------------------------------------------------
-    // MARK:- Stored property
+    // MARK:- Stored properties
     // -------------------------------------------------------------------------
     
     /// The categories in the Jeopardy! round.
     private(set) var jeopardyRoundCategories: [Category]
+    
+    /// The Final Jeopardy! clue.
+    let finalJeopardyClue: FinalJeopardyClue
     
     // -------------------------------------------------------------------------
     // MARK:- Initializer
@@ -18,6 +21,8 @@ struct JeopardyGame: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         jeopardyRoundCategories = try container
             .decode([Category].self, forKey: .jeopardyRoundCategories)
+        finalJeopardyClue = try container
+            .decode(FinalJeopardyClue.self, forKey: .finalJeopardyClue)
         try validateGame()
     }
     
@@ -29,6 +34,8 @@ struct JeopardyGame: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container
             .encode(jeopardyRoundCategories, forKey: .jeopardyRoundCategories)
+        try container
+            .encode(finalJeopardyClue, forKey: .finalJeopardyClue)
     }
     
     // -------------------------------------------------------------------------
@@ -97,6 +104,19 @@ struct JeopardyGame: Codable {
         }
     }
     
+    /// Validates the Final Jeopardy! clue.
+    private func validateFinalJeopardyClue() throws {
+        if finalJeopardyClue.categoryTitle.isEmpty {
+            throw APIError.emptyFinalJeopardyCategoryTitle
+        }
+        if finalJeopardyClue.answer.isEmpty {
+            throw APIError.emptyFinalJeopardyAnswer
+        }
+        if finalJeopardyClue.correctResponse.isEmpty {
+            throw APIError.emptyFinalJeopardyCorrectResponse
+        }
+    }
+    
     /// Validates this game.
     private func validateGame() throws {
         
@@ -119,6 +139,8 @@ struct JeopardyGame: Codable {
         if dailyDoubleCount != 2 {
             throw APIError.invalidDailyDoubleCount(dailyDoubleCount)
         }
+        
+        try validateFinalJeopardyClue()
     }
     
     // -------------------------------------------------------------------------
@@ -398,9 +420,19 @@ struct JeopardyGame: Codable {
         
         /// An invalid number of Daily Doubles.
         case invalidDailyDoubleCount(Int)
+        
+        /// An empty Final Jeopardy! category title.
+        case emptyFinalJeopardyCategoryTitle
+        
+        /// An empty Final Jeopardy! “answer.”
+        case emptyFinalJeopardyAnswer
+        
+        /// An empty Final Jeopardy! correct response.
+        case emptyFinalJeopardyCorrectResponse
     }
     
     private enum CodingKeys: String, CodingKey {
         case jeopardyRoundCategories
+        case finalJeopardyClue
     }
 }
