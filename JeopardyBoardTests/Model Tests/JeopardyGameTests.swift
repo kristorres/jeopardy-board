@@ -50,6 +50,24 @@ final class JeopardyGameTests: XCTestCase {
         XCTAssertEqual(category.clues.count, 1)
     }
     
+    func testFinalJeopardyClueDecoding() {
+        let jsonData = """
+        {
+            "categoryTitle": "\(categoryTitle)",
+            "answer": "\(answer)",
+            "correctResponse": "\(correctResponse)",
+            "isDone": false
+        }
+        """.data(using: .utf8)!
+        let decoder = JSONDecoder()
+        let finalJeopardyClue = try! decoder
+            .decode(JeopardyGame.FinalJeopardyClue.self, from: jsonData)
+        XCTAssertEqual(finalJeopardyClue.categoryTitle, categoryTitle)
+        XCTAssertEqual(finalJeopardyClue.answer, answer)
+        XCTAssertEqual(finalJeopardyClue.correctResponse, correctResponse)
+        XCTAssertFalse(finalJeopardyClue.isDone)
+    }
+    
     func testPlayerDecoding() {
         let jsonData = """
         {
