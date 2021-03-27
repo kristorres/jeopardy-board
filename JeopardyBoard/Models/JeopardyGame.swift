@@ -16,6 +16,9 @@ struct JeopardyGame: Codable {
     /// The contestants in this game of *Jeopardy!*
     private(set) var players: [Player]
     
+    /// The current round in this game of *Jeopardy!*
+    private(set) var currentRound: Round
+    
     // -------------------------------------------------------------------------
     // MARK:- Initializer
     // -------------------------------------------------------------------------
@@ -27,6 +30,7 @@ struct JeopardyGame: Codable {
         finalJeopardyClue = try container
             .decode(FinalJeopardyClue.self, forKey: .finalJeopardyClue)
         players = try container.decode([Player].self, forKey: .players)
+        currentRound = try container.decode(Round.self, forKey: .currentRound)
         try validateGame()
     }
     
@@ -40,6 +44,7 @@ struct JeopardyGame: Codable {
             .encode(jeopardyRoundCategories, forKey: .jeopardyRoundCategories)
         try container.encode(finalJeopardyClue, forKey: .finalJeopardyClue)
         try container.encode(players, forKey: .players)
+        try container.encode(currentRound, forKey: .currentRound)
     }
     
     // -------------------------------------------------------------------------
@@ -406,6 +411,16 @@ struct JeopardyGame: Codable {
     // MARK:- Nested enums
     // -------------------------------------------------------------------------
     
+    /// An internal type that represents a round in a game of *Jeopardy!*
+    enum Round: String, Codable {
+        
+        /// A value that represents the Jeopardy! round.
+        case jeopardy = "Jeopardy!"
+        
+        /// A value that represents the Final Jeopardy! round.
+        case finalJeopardy = "Final Jeopardy!"
+    }
+    
     /// An API error.
     enum APIError: Error {
         
@@ -458,5 +473,6 @@ struct JeopardyGame: Codable {
         case jeopardyRoundCategories
         case finalJeopardyClue
         case players
+        case currentRound
     }
 }
