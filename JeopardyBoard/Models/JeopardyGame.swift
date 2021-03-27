@@ -17,7 +17,10 @@ struct JeopardyGame: Codable {
     private(set) var players: [Player]
     
     /// The current round in this game of *Jeopardy!*
-    private(set) var currentRound: Round
+    var currentRound: Round
+    
+    /// The wager for a Daily Double clue by a contestant.
+    private(set) var dailyDoubleWager: Int?
     
     // -------------------------------------------------------------------------
     // MARK:- Initializer
