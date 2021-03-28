@@ -13,9 +13,6 @@ struct JeopardyGame: Codable {
     /// The Final Jeopardy! clue.
     let finalJeopardyClue: FinalJeopardyClue
     
-    /// The contestants in this game of *Jeopardy!*
-    private(set) var players: [Player]
-    
     /// The current round in this game of *Jeopardy!*
     var currentRound: Round
     
@@ -32,7 +29,6 @@ struct JeopardyGame: Codable {
             .decode([Category].self, forKey: .jeopardyRoundCategories)
         finalJeopardyClue = try container
             .decode(FinalJeopardyClue.self, forKey: .finalJeopardyClue)
-        players = try container.decode([Player].self, forKey: .players)
         currentRound = try container.decode(Round.self, forKey: .currentRound)
         try validateGame()
     }
@@ -46,7 +42,6 @@ struct JeopardyGame: Codable {
         try container
             .encode(jeopardyRoundCategories, forKey: .jeopardyRoundCategories)
         try container.encode(finalJeopardyClue, forKey: .finalJeopardyClue)
-        try container.encode(players, forKey: .players)
         try container.encode(currentRound, forKey: .currentRound)
     }
     
@@ -153,16 +148,6 @@ struct JeopardyGame: Codable {
         }
         
         try validateFinalJeopardyClue()
-        
-        let playerCount = players.count
-        if playerCount < 3 {
-            throw APIError.invalidPlayerCount
-        }
-        for index in players.indices {
-            if players[index].name.isEmpty {
-                throw APIError.emptyPlayerName(index: index)
-            }
-        }
     }
     
     // -------------------------------------------------------------------------
@@ -464,18 +449,11 @@ struct JeopardyGame: Codable {
         
         /// An empty Final Jeopardy! correct response.
         case emptyFinalJeopardyCorrectResponse
-        
-        /// An invalid number of contestants.
-        case invalidPlayerCount
-        
-        /// An empty contestant name.
-        case emptyPlayerName(index: Int)
     }
     
     private enum CodingKeys: String, CodingKey {
         case jeopardyRoundCategories
         case finalJeopardyClue
-        case players
         case currentRound
     }
 }
