@@ -84,4 +84,266 @@ final class JeopardyGameTests: XCTestCase {
         XCTAssertEqual(player.score, 131127)
         XCTAssertTrue(player.canSelectClue)
     }
+    
+    func testInvalidCategoryCount() {
+        let bundle = Bundle(for: type(of: self))
+        let jsonURL = bundle.url(
+            forResource: "game_with_invalid_category_count",
+            withExtension: "json"
+        )!
+        let jsonData = try! Data(contentsOf: jsonURL)
+        let decoder = JSONDecoder()
+        var errorIsCaught = false
+        do {
+            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+        }
+        catch JeopardyGame.APIError.invalidCategoryCount(let categoryCount) {
+            errorIsCaught = true
+            XCTAssertEqual(categoryCount, 1)
+        }
+        catch {
+        }
+        XCTAssertTrue(errorIsCaught)
+    }
+    
+    func testEmptyCategoryTitle() {
+        let bundle = Bundle(for: type(of: self))
+        let jsonURL = bundle.url(
+            forResource: "game_with_empty_category_title",
+            withExtension: "json"
+        )!
+        let jsonData = try! Data(contentsOf: jsonURL)
+        let decoder = JSONDecoder()
+        var errorIsCaught = false
+        do {
+            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+        }
+        catch JeopardyGame.APIError.emptyCategoryTitle(let categoryIndex) {
+            errorIsCaught = true
+            XCTAssertEqual(categoryIndex, 3)
+        }
+        catch {
+        }
+        XCTAssertTrue(errorIsCaught)
+    }
+    
+    func testInvalidClueCount() {
+        let bundle = Bundle(for: type(of: self))
+        let jsonURL = bundle.url(
+            forResource: "game_with_invalid_clue_count",
+            withExtension: "json"
+        )!
+        let jsonData = try! Data(contentsOf: jsonURL)
+        let decoder = JSONDecoder()
+        var errorIsCaught = false
+        do {
+            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+        }
+        catch JeopardyGame.APIError.invalidClueCount(
+            let clueCount,
+            let categoryIndex
+        ) {
+            errorIsCaught = true
+            XCTAssertEqual(clueCount, 6)
+            XCTAssertEqual(categoryIndex, 3)
+        }
+        catch {
+        }
+        XCTAssertTrue(errorIsCaught)
+    }
+    
+    func testMultipleDailyDoublesInCategory() {
+        let bundle = Bundle(for: type(of: self))
+        let jsonURL = bundle.url(
+            forResource: "game_with_multiple_daily_doubles_in_category",
+            withExtension: "json"
+        )!
+        let jsonData = try! Data(contentsOf: jsonURL)
+        let decoder = JSONDecoder()
+        var errorIsCaught = false
+        do {
+            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+        }
+        catch JeopardyGame.APIError.multipleDailyDoubles(let categoryIndex) {
+            errorIsCaught = true
+            XCTAssertEqual(categoryIndex, 4)
+        }
+        catch {
+        }
+        XCTAssertTrue(errorIsCaught)
+    }
+    
+    func testInvalidPointValue() {
+        let bundle = Bundle(for: type(of: self))
+        let jsonURL = bundle.url(
+            forResource: "game_with_invalid_point_value",
+            withExtension: "json"
+        )!
+        let jsonData = try! Data(contentsOf: jsonURL)
+        let decoder = JSONDecoder()
+        var errorIsCaught = false
+        do {
+            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+        }
+        catch JeopardyGame.APIError.invalidPointValue(
+            let pointValue,
+            let expectedPointValue,
+            let categoryIndex,
+            let clueIndex
+        ) {
+            errorIsCaught = true
+            XCTAssertEqual(pointValue, 2000)
+            XCTAssertEqual(expectedPointValue, 800)
+            XCTAssertEqual(categoryIndex, 4)
+            XCTAssertEqual(clueIndex, 3)
+        }
+        catch {
+        }
+        XCTAssertTrue(errorIsCaught)
+    }
+    
+    func testEmptyAnswer() {
+        let bundle = Bundle(for: type(of: self))
+        let jsonURL = bundle.url(
+            forResource: "game_with_empty_answer",
+            withExtension: "json"
+        )!
+        let jsonData = try! Data(contentsOf: jsonURL)
+        let decoder = JSONDecoder()
+        var errorIsCaught = false
+        do {
+            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+        }
+        catch JeopardyGame.APIError.emptyAnswer(
+            let categoryIndex,
+            let clueIndex
+        ) {
+            errorIsCaught = true
+            XCTAssertEqual(categoryIndex, 3)
+            XCTAssertEqual(clueIndex, 2)
+        }
+        catch {
+        }
+        XCTAssertTrue(errorIsCaught)
+    }
+    
+    func testEmptyCorrectResponse() {
+        let bundle = Bundle(for: type(of: self))
+        let jsonURL = bundle.url(
+            forResource: "game_with_empty_correct_response",
+            withExtension: "json"
+        )!
+        let jsonData = try! Data(contentsOf: jsonURL)
+        let decoder = JSONDecoder()
+        var errorIsCaught = false
+        do {
+            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+        }
+        catch JeopardyGame.APIError.emptyCorrectResponse(
+            let categoryIndex,
+            let clueIndex
+        ) {
+            errorIsCaught = true
+            XCTAssertEqual(categoryIndex, 3)
+            XCTAssertEqual(clueIndex, 2)
+        }
+        catch {
+        }
+        XCTAssertTrue(errorIsCaught)
+    }
+    
+    func testInvalidDailyDoubleCount() {
+        let bundle = Bundle(for: type(of: self))
+        let jsonURL = bundle.url(
+            forResource: "game_with_invalid_daily_double_count",
+            withExtension: "json"
+        )!
+        let jsonData = try! Data(contentsOf: jsonURL)
+        let decoder = JSONDecoder()
+        var errorIsCaught = false
+        do {
+            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+        }
+        catch JeopardyGame.APIError.invalidDailyDoubleCount(let clueCount) {
+            errorIsCaught = true
+            XCTAssertEqual(clueCount, 3)
+        }
+        catch {
+        }
+        XCTAssertTrue(errorIsCaught)
+    }
+    
+    func testEmptyFinalJeopardyCategoryTitle() {
+        let bundle = Bundle(for: type(of: self))
+        let jsonURL = bundle.url(
+            forResource: "game_with_empty_final_jeopardy_category_title",
+            withExtension: "json"
+        )!
+        let jsonData = try! Data(contentsOf: jsonURL)
+        let decoder = JSONDecoder()
+        var errorIsCaught = false
+        do {
+            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+        }
+        catch JeopardyGame.APIError.emptyFinalJeopardyCategoryTitle {
+            errorIsCaught = true
+        }
+        catch {
+        }
+        XCTAssertTrue(errorIsCaught)
+    }
+    
+    func testEmptyFinalJeopardyAnswer() {
+        let bundle = Bundle(for: type(of: self))
+        let jsonURL = bundle.url(
+            forResource: "game_with_empty_final_jeopardy_answer",
+            withExtension: "json"
+        )!
+        let jsonData = try! Data(contentsOf: jsonURL)
+        let decoder = JSONDecoder()
+        var errorIsCaught = false
+        do {
+            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+        }
+        catch JeopardyGame.APIError.emptyFinalJeopardyAnswer {
+            errorIsCaught = true
+        }
+        catch {
+        }
+        XCTAssertTrue(errorIsCaught)
+    }
+    
+    func testEmptyFinalJeopardyCorrectResponse() {
+        let bundle = Bundle(for: type(of: self))
+        let jsonURL = bundle.url(
+            forResource: "game_with_empty_final_jeopardy_correct_response",
+            withExtension: "json"
+        )!
+        let jsonData = try! Data(contentsOf: jsonURL)
+        let decoder = JSONDecoder()
+        var errorIsCaught = false
+        do {
+            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+        }
+        catch JeopardyGame.APIError.emptyFinalJeopardyCorrectResponse {
+            errorIsCaught = true
+        }
+        catch {
+        }
+        XCTAssertTrue(errorIsCaught)
+    }
+    
+    func testValidGame() {
+        let bundle = Bundle(for: type(of: self))
+        let jsonURL = bundle.url(
+            forResource: "game_2021-01-08",
+            withExtension: "json"
+        )!
+        let jsonData = try! Data(contentsOf: jsonURL)
+        let decoder = JSONDecoder()
+        let game = try! decoder.decode(JeopardyGame.self, from: jsonData)
+        XCTAssertEqual(game.jeopardyRoundCategories.count, 6)
+        XCTAssertEqual(game.currentRound, .jeopardy)
+        XCTAssertNil(game.dailyDoubleWager)
+    }
 }
