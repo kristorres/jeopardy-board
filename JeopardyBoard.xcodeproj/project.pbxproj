@@ -11,12 +11,12 @@
 		3026555B2605564500CB1D2A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026555A2605564500CB1D2A /* ContentView.swift */; };
 		3026555D2605564600CB1D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555C2605564600CB1D2A /* Assets.xcassets */; };
 		302655602605564600CB1D2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555F2605564600CB1D2A /* Preview Assets.xcassets */; };
-		30BC64AE2612582600AF0BC2 /* game_with_invalid_clue_count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64AD2612582600AF0BC2 /* game_with_invalid_clue_count.json */; };
+		30BC64AE2612582600AF0BC2 /* game_with_incorrect_clue_count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64AD2612582600AF0BC2 /* game_with_incorrect_clue_count.json */; };
 		30BC64B226125AB900AF0BC2 /* game_with_multiple_daily_doubles_in_category.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B126125AB900AF0BC2 /* game_with_multiple_daily_doubles_in_category.json */; };
-		30BC64B826125D2C00AF0BC2 /* game_with_invalid_point_value.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B726125D2C00AF0BC2 /* game_with_invalid_point_value.json */; };
+		30BC64B826125D2C00AF0BC2 /* game_with_incorrect_point_value.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B726125D2C00AF0BC2 /* game_with_incorrect_point_value.json */; };
 		30BC64BE26125F0F00AF0BC2 /* game_with_empty_answer.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64BD26125F0F00AF0BC2 /* game_with_empty_answer.json */; };
 		30BC64C42612725300AF0BC2 /* game_with_empty_correct_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64C32612725300AF0BC2 /* game_with_empty_correct_response.json */; };
-		30BC64CA2612742800AF0BC2 /* game_with_invalid_daily_double_count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64C92612742800AF0BC2 /* game_with_invalid_daily_double_count.json */; };
+		30BC64CA2612742800AF0BC2 /* game_with_incorrect_daily_double_count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64C92612742800AF0BC2 /* game_with_incorrect_daily_double_count.json */; };
 		30BC64D02612766C00AF0BC2 /* game_with_empty_final_jeopardy_category_title.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64CF2612766C00AF0BC2 /* game_with_empty_final_jeopardy_category_title.json */; };
 		30BC64D62612791800AF0BC2 /* game_with_empty_final_jeopardy_answer.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64D52612791800AF0BC2 /* game_with_empty_final_jeopardy_answer.json */; };
 		30BC64DC26127C4400AF0BC2 /* game_with_empty_final_jeopardy_correct_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64DB26127C4400AF0BC2 /* game_with_empty_final_jeopardy_correct_response.json */; };
@@ -24,7 +24,7 @@
 		30C0ADC3260BC1330063D58F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30C0ADC2260BC1330063D58F /* InfoPlist.strings */; };
 		30C0ADCE260BE46F0063D58F /* JeopardyGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0ADCD260BE46F0063D58F /* JeopardyGame.swift */; };
 		30C0ADD7260C05DA0063D58F /* JeopardyGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0ADD6260C05DA0063D58F /* JeopardyGameTests.swift */; };
-		30C0AE0826101C920063D58F /* game_with_invalid_category_count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30C0AE0726101C920063D58F /* game_with_invalid_category_count.json */; };
+		30C0AE0826101C920063D58F /* game_with_incorrect_category_count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30C0AE0726101C920063D58F /* game_with_incorrect_category_count.json */; };
 		30C0AE112610225F0063D58F /* game_with_empty_category_title.json in Resources */ = {isa = PBXBuildFile; fileRef = 30C0AE102610225F0063D58F /* game_with_empty_category_title.json */; };
 /* End PBXBuildFile section */
 
@@ -47,12 +47,12 @@
 		302655612605564600CB1D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		302655622605564600CB1D2A /* JeopardyBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JeopardyBoard.entitlements; sourceTree = "<group>"; };
 		3026556A26056DA600CB1D2A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		30BC64AD2612582600AF0BC2 /* game_with_invalid_clue_count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_invalid_clue_count.json; sourceTree = "<group>"; };
+		30BC64AD2612582600AF0BC2 /* game_with_incorrect_clue_count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_incorrect_clue_count.json; sourceTree = "<group>"; };
 		30BC64B126125AB900AF0BC2 /* game_with_multiple_daily_doubles_in_category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_multiple_daily_doubles_in_category.json; sourceTree = "<group>"; };
-		30BC64B726125D2C00AF0BC2 /* game_with_invalid_point_value.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_invalid_point_value.json; sourceTree = "<group>"; };
+		30BC64B726125D2C00AF0BC2 /* game_with_incorrect_point_value.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_incorrect_point_value.json; sourceTree = "<group>"; };
 		30BC64BD26125F0F00AF0BC2 /* game_with_empty_answer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_empty_answer.json; sourceTree = "<group>"; };
 		30BC64C32612725300AF0BC2 /* game_with_empty_correct_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_empty_correct_response.json; sourceTree = "<group>"; };
-		30BC64C92612742800AF0BC2 /* game_with_invalid_daily_double_count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_invalid_daily_double_count.json; sourceTree = "<group>"; };
+		30BC64C92612742800AF0BC2 /* game_with_incorrect_daily_double_count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_incorrect_daily_double_count.json; sourceTree = "<group>"; };
 		30BC64CF2612766C00AF0BC2 /* game_with_empty_final_jeopardy_category_title.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_empty_final_jeopardy_category_title.json; sourceTree = "<group>"; };
 		30BC64D52612791800AF0BC2 /* game_with_empty_final_jeopardy_answer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_empty_final_jeopardy_answer.json; sourceTree = "<group>"; };
 		30BC64DB26127C4400AF0BC2 /* game_with_empty_final_jeopardy_correct_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_empty_final_jeopardy_correct_response.json; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 		30C0ADD4260C05DA0063D58F /* JeopardyBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JeopardyBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C0ADD6260C05DA0063D58F /* JeopardyGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeopardyGameTests.swift; sourceTree = "<group>"; };
 		30C0ADD8260C05DA0063D58F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30C0AE0726101C920063D58F /* game_with_invalid_category_count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_invalid_category_count.json; sourceTree = "<group>"; };
+		30C0AE0726101C920063D58F /* game_with_incorrect_category_count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_incorrect_category_count.json; sourceTree = "<group>"; };
 		30C0AE102610225F0063D58F /* game_with_empty_category_title.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_empty_category_title.json; sourceTree = "<group>"; };
 		30C4C71F2608501E00AC46B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,10 +169,10 @@
 				30BC64D52612791800AF0BC2 /* game_with_empty_final_jeopardy_answer.json */,
 				30BC64CF2612766C00AF0BC2 /* game_with_empty_final_jeopardy_category_title.json */,
 				30BC64DB26127C4400AF0BC2 /* game_with_empty_final_jeopardy_correct_response.json */,
-				30C0AE0726101C920063D58F /* game_with_invalid_category_count.json */,
-				30BC64AD2612582600AF0BC2 /* game_with_invalid_clue_count.json */,
-				30BC64C92612742800AF0BC2 /* game_with_invalid_daily_double_count.json */,
-				30BC64B726125D2C00AF0BC2 /* game_with_invalid_point_value.json */,
+				30C0AE0726101C920063D58F /* game_with_incorrect_category_count.json */,
+				30BC64AD2612582600AF0BC2 /* game_with_incorrect_clue_count.json */,
+				30BC64C92612742800AF0BC2 /* game_with_incorrect_daily_double_count.json */,
+				30BC64B726125D2C00AF0BC2 /* game_with_incorrect_point_value.json */,
 				30BC64B126125AB900AF0BC2 /* game_with_multiple_daily_doubles_in_category.json */,
 			);
 			path = Examples;
@@ -286,10 +286,10 @@
 				30BC64D62612791800AF0BC2 /* game_with_empty_final_jeopardy_answer.json in Resources */,
 				30BC64D02612766C00AF0BC2 /* game_with_empty_final_jeopardy_category_title.json in Resources */,
 				30BC64DC26127C4400AF0BC2 /* game_with_empty_final_jeopardy_correct_response.json in Resources */,
-				30C0AE0826101C920063D58F /* game_with_invalid_category_count.json in Resources */,
-				30BC64AE2612582600AF0BC2 /* game_with_invalid_clue_count.json in Resources */,
-				30BC64CA2612742800AF0BC2 /* game_with_invalid_daily_double_count.json in Resources */,
-				30BC64B826125D2C00AF0BC2 /* game_with_invalid_point_value.json in Resources */,
+				30C0AE0826101C920063D58F /* game_with_incorrect_category_count.json in Resources */,
+				30BC64AE2612582600AF0BC2 /* game_with_incorrect_clue_count.json in Resources */,
+				30BC64CA2612742800AF0BC2 /* game_with_incorrect_daily_double_count.json in Resources */,
+				30BC64B826125D2C00AF0BC2 /* game_with_incorrect_point_value.json in Resources */,
 				30BC64B226125AB900AF0BC2 /* game_with_multiple_daily_doubles_in_category.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

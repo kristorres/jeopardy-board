@@ -57,12 +57,15 @@ struct JeopardyGame: Codable {
         let category = jeopardyRoundCategories[index]
         
         if category.title.isEmpty {
-            throw APIError.emptyCategoryTitle(categoryIndex: index)
+            throw ValidationError.emptyCategoryTitle(categoryIndex: index)
         }
         
         let clueCount = category.clues.count
         if clueCount != 5 {
-            throw APIError.invalidClueCount(clueCount, categoryIndex: index)
+            throw ValidationError.incorrectClueCount(
+                clueCount,
+                categoryIndex: index
+            )
         }
         
         var dailyDoubleCount = 0
@@ -72,7 +75,9 @@ struct JeopardyGame: Codable {
             }
         }
         if dailyDoubleCount > 1 {
-            throw APIError.multipleDailyDoubles(categoryIndex: index)
+            throw ValidationError.multipleDailyDoublesInCategory(
+                categoryIndex: index
+            )
         }
         
         for clueIndex in category.clues.indices {
@@ -90,7 +95,7 @@ struct JeopardyGame: Codable {
         let expectedPointValue = (clueIndex + 1) * 200
         
         if clue.pointValue != expectedPointValue {
-            throw APIError.invalidPointValue(
+            throw ValidationError.incorrectPointValue(
                 clue.pointValue,
                 expectedPointValue: expectedPointValue,
                 categoryIndex: categoryIndex,
@@ -98,13 +103,13 @@ struct JeopardyGame: Codable {
             )
         }
         if clue.answer.isEmpty {
-            throw APIError.emptyAnswer(
+            throw ValidationError.emptyAnswer(
                 categoryIndex: categoryIndex,
                 clueIndex: clueIndex
             )
         }
         if clue.correctResponse.isEmpty {
-            throw APIError.emptyCorrectResponse(
+            throw ValidationError.emptyCorrectResponse(
                 categoryIndex: categoryIndex,
                 clueIndex: clueIndex
             )
@@ -114,13 +119,13 @@ struct JeopardyGame: Codable {
     /// Validates the Final Jeopardy! clue.
     private func validateFinalJeopardyClue() throws {
         if finalJeopardyClue.categoryTitle.isEmpty {
-            throw APIError.emptyFinalJeopardyCategoryTitle
+            throw ValidationError.emptyFinalJeopardyCategoryTitle
         }
         if finalJeopardyClue.answer.isEmpty {
-            throw APIError.emptyFinalJeopardyAnswer
+            throw ValidationError.emptyFinalJeopardyAnswer
         }
         if finalJeopardyClue.correctResponse.isEmpty {
-            throw APIError.emptyFinalJeopardyCorrectResponse
+            throw ValidationError.emptyFinalJeopardyCorrectResponse
         }
     }
     
@@ -129,7 +134,7 @@ struct JeopardyGame: Codable {
         
         let categoryCount = jeopardyRoundCategories.count
         if categoryCount != 6 {
-            throw APIError.invalidCategoryCount(categoryCount)
+            throw ValidationError.incorrectCategoryCount(categoryCount)
         }
         for index in jeopardyRoundCategories.indices {
             try validateCategory(at: index)
@@ -144,7 +149,7 @@ struct JeopardyGame: Codable {
             }
         }
         if dailyDoubleCount != 2 {
-            throw APIError.invalidDailyDoubleCount(dailyDoubleCount)
+            throw ValidationError.incorrectDailyDoubleCount(dailyDoubleCount)
         }
         
         try validateFinalJeopardyClue()
@@ -409,45 +414,45 @@ struct JeopardyGame: Codable {
         case finalJeopardy = "Final Jeopardy!"
     }
     
-    /// An API error.
-    enum APIError: Error {
+    /// A validation error.
+    enum ValidationError: Error {
         
-        /// An invalid number of categories.
-        case invalidCategoryCount(Int)
+        /// An error that denotes an incorrect number of categories.
+        case incorrectCategoryCount(Int)
         
-        /// An empty category title.
+        /// An error that denotes an empty category title.
         case emptyCategoryTitle(categoryIndex: Int)
         
-        /// An invalid number of clues in a category.
-        case invalidClueCount(Int, categoryIndex: Int)
+        /// An error that denotes an incorrect number of clues in a category.
+        case incorrectClueCount(Int, categoryIndex: Int)
         
-        /// A category has more than one Daily Double.
-        case multipleDailyDoubles(categoryIndex: Int)
+        /// An error that denotes a category with more than one Daily Double.
+        case multipleDailyDoublesInCategory(categoryIndex: Int)
         
-        /// An invalid point value.
-        case invalidPointValue(
+        /// An error that denotes an incorrect point value.
+        case incorrectPointValue(
             Int,
             expectedPointValue: Int,
             categoryIndex: Int,
             clueIndex: Int
         )
         
-        /// An empty “answer.”
+        /// An error that denotes an empty “answer.”
         case emptyAnswer(categoryIndex: Int, clueIndex: Int)
         
-        /// An empty correct response.
+        /// An error that denotes an empty correct response.
         case emptyCorrectResponse(categoryIndex: Int, clueIndex: Int)
         
-        /// An invalid number of Daily Doubles.
-        case invalidDailyDoubleCount(Int)
+        /// An error that denotes an incorrect number of Daily Doubles.
+        case incorrectDailyDoubleCount(Int)
         
-        /// An empty Final Jeopardy! category title.
+        /// An error that denotes an empty Final Jeopardy! category title.
         case emptyFinalJeopardyCategoryTitle
         
-        /// An empty Final Jeopardy! “answer.”
+        /// An error that denotes an empty Final Jeopardy! “answer.”
         case emptyFinalJeopardyAnswer
         
-        /// An empty Final Jeopardy! correct response.
+        /// An error that denotes an empty Final Jeopardy! correct response.
         case emptyFinalJeopardyCorrectResponse
     }
     
