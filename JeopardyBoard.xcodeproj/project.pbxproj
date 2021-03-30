@@ -21,6 +21,8 @@
 		30BC64D62612791800AF0BC2 /* game_with_empty_final_jeopardy_answer.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64D52612791800AF0BC2 /* game_with_empty_final_jeopardy_answer.json */; };
 		30BC64DC26127C4400AF0BC2 /* game_with_empty_final_jeopardy_correct_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64DB26127C4400AF0BC2 /* game_with_empty_final_jeopardy_correct_response.json */; };
 		30BC64E426127F7A00AF0BC2 /* game_2021-01-08.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64E326127F7A00AF0BC2 /* game_2021-01-08.json */; };
+		30BC64F02612A17A00AF0BC2 /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC64EF2612A17A00AF0BC2 /* Array+Identifiable.swift */; };
+		30BC64F6261385B200AF0BC2 /* ArrayFirstIndexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC64F5261385B200AF0BC2 /* ArrayFirstIndexTests.swift */; };
 		30C0ADC3260BC1330063D58F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30C0ADC2260BC1330063D58F /* InfoPlist.strings */; };
 		30C0ADCE260BE46F0063D58F /* JeopardyGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0ADCD260BE46F0063D58F /* JeopardyGame.swift */; };
 		30C0ADD7260C05DA0063D58F /* JeopardyGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0ADD6260C05DA0063D58F /* JeopardyGameTests.swift */; };
@@ -57,6 +59,8 @@
 		30BC64D52612791800AF0BC2 /* game_with_empty_final_jeopardy_answer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_empty_final_jeopardy_answer.json; sourceTree = "<group>"; };
 		30BC64DB26127C4400AF0BC2 /* game_with_empty_final_jeopardy_correct_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_with_empty_final_jeopardy_correct_response.json; sourceTree = "<group>"; };
 		30BC64E326127F7A00AF0BC2 /* game_2021-01-08.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "game_2021-01-08.json"; sourceTree = "<group>"; };
+		30BC64EF2612A17A00AF0BC2 /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
+		30BC64F5261385B200AF0BC2 /* ArrayFirstIndexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayFirstIndexTests.swift; sourceTree = "<group>"; };
 		30C0ADC2260BC1330063D58F /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		30C0ADCD260BE46F0063D58F /* JeopardyGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JeopardyGame.swift; sourceTree = "<group>"; };
 		30C0ADD4260C05DA0063D58F /* JeopardyBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JeopardyBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				302655582605564500CB1D2A /* JeopardyBoardApp.swift */,
+				30BC64EF2612A17A00AF0BC2 /* Array+Identifiable.swift */,
 				30C0ADCC260BE3F60063D58F /* Models */,
 				3026556C2605715F00CB1D2A /* Views */,
 				30C4C71626059DC900AC46B6 /* Supporting Files */,
@@ -144,6 +149,7 @@
 		30C0ADD5260C05DA0063D58F /* JeopardyBoardTests */ = {
 			isa = PBXGroup;
 			children = (
+				30BC64F5261385B200AF0BC2 /* ArrayFirstIndexTests.swift */,
 				30C0ADE0260C3BD40063D58F /* Model Tests */,
 				30C0AE0B26101CB30063D58F /* Examples */,
 				30C0ADD8260C05DA0063D58F /* Info.plist */,
@@ -302,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				302655592605564500CB1D2A /* JeopardyBoardApp.swift in Sources */,
+				30BC64F02612A17A00AF0BC2 /* Array+Identifiable.swift in Sources */,
 				30C0ADCE260BE46F0063D58F /* JeopardyGame.swift in Sources */,
 				3026555B2605564500CB1D2A /* ContentView.swift in Sources */,
 			);
@@ -311,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30BC64F6261385B200AF0BC2 /* ArrayFirstIndexTests.swift in Sources */,
 				30C0ADD7260C05DA0063D58F /* JeopardyGameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
