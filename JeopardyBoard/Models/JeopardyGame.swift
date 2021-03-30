@@ -45,6 +45,33 @@ struct JeopardyGame: Codable {
         try container.encode(currentRound, forKey: .currentRound)
     }
     
+    /// Marks the selected clue as “done.”
+    ///
+    /// If there is currently no selected clue, or this game is currently in
+    /// Final Jeopardy!, then this method will do nothing.
+    mutating func markSelectedClueAsDone() {
+        switch currentRound {
+        case .jeopardy:
+            for categoryIndex in jeopardyRoundCategories.indices {
+                let currentCategory = jeopardyRoundCategories[categoryIndex]
+                for clueIndex in currentCategory.clues.indices {
+                    let currentClue = currentCategory.clues[clueIndex]
+                    if currentClue.isSelected && !currentClue.isDone {
+                        jeopardyRoundCategories[categoryIndex]
+                            .clues[clueIndex]
+                            .isSelected = false
+                        jeopardyRoundCategories[categoryIndex]
+                            .clues[clueIndex]
+                            .isDone = true
+                        return
+                    }
+                }
+            }
+        case .finalJeopardy:
+            return
+        }
+    }
+    
     /// Selects the specified clue.
     ///
     /// Only one clue on the game board may be selected at a time. If the
