@@ -34,7 +34,7 @@ struct JeopardyGame: Codable {
     }
     
     // -------------------------------------------------------------------------
-    // MARK:- Method
+    // MARK:- Methods
     // -------------------------------------------------------------------------
     
     func encode(to encoder: Encoder) throws {
@@ -43,6 +43,35 @@ struct JeopardyGame: Codable {
             .encode(jeopardyRoundCategories, forKey: .jeopardyRoundCategories)
         try container.encode(finalJeopardyClue, forKey: .finalJeopardyClue)
         try container.encode(currentRound, forKey: .currentRound)
+    }
+    
+    /// Selects the specified clue.
+    ///
+    /// Only one clue on the game board may be selected at a time. If the
+    /// selected clue is already marked as “done,” or this game is currently in
+    /// Final Jeopardy!, then this method will do nothing.
+    ///
+    /// - Parameter clue: The clue to be selected.
+    mutating func selectClue(_ clue: Clue) {
+        if clue.isDone {
+            return
+        }
+        switch currentRound {
+        case .jeopardy:
+            for categoryIndex in jeopardyRoundCategories.indices {
+                let currentCategory = jeopardyRoundCategories[categoryIndex]
+                for clueIndex in currentCategory.clues.indices {
+                    let currentClue = currentCategory.clues[clueIndex]
+                    if !currentClue.isDone {
+                        jeopardyRoundCategories[categoryIndex]
+                            .clues[clueIndex]
+                            .isSelected = (currentClue.id == clue.id)
+                    }
+                }
+            }
+        case .finalJeopardy:
+            return
+        }
     }
     
     // -------------------------------------------------------------------------
@@ -171,7 +200,7 @@ struct JeopardyGame: Codable {
         let title: String
         
         /// The clues in this category.
-        let clues: [Clue]
+        var clues: [Clue]
         
         /// Creates a category with the specified title and clues.
         ///
