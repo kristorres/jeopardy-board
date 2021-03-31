@@ -23,6 +23,10 @@
 		30BC64E426127F7A00AF0BC2 /* game_2021-01-08.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64E326127F7A00AF0BC2 /* game_2021-01-08.json */; };
 		30BC64F02612A17A00AF0BC2 /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC64EF2612A17A00AF0BC2 /* Array+Identifiable.swift */; };
 		30BC64F6261385B200AF0BC2 /* ArrayFirstIndexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC64F5261385B200AF0BC2 /* ArrayFirstIndexTests.swift */; };
+		30BC65022613CAC600AF0BC2 /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC65012613CAC600AF0BC2 /* Clue.swift */; };
+		30BC65082613D82E00AF0BC2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC65072613D82E00AF0BC2 /* Category.swift */; };
+		30BC650E2613DE8400AF0BC2 /* FinalJeopardyClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC650D2613DE8400AF0BC2 /* FinalJeopardyClue.swift */; };
+		30BC65122613E3F600AF0BC2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC65112613E3F600AF0BC2 /* Player.swift */; };
 		30C0ADC3260BC1330063D58F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30C0ADC2260BC1330063D58F /* InfoPlist.strings */; };
 		30C0ADCE260BE46F0063D58F /* JeopardyGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0ADCD260BE46F0063D58F /* JeopardyGame.swift */; };
 		30C0ADD7260C05DA0063D58F /* JeopardyGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0ADD6260C05DA0063D58F /* JeopardyGameTests.swift */; };
@@ -61,6 +65,10 @@
 		30BC64E326127F7A00AF0BC2 /* game_2021-01-08.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "game_2021-01-08.json"; sourceTree = "<group>"; };
 		30BC64EF2612A17A00AF0BC2 /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
 		30BC64F5261385B200AF0BC2 /* ArrayFirstIndexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayFirstIndexTests.swift; sourceTree = "<group>"; };
+		30BC65012613CAC600AF0BC2 /* Clue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
+		30BC65072613D82E00AF0BC2 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		30BC650D2613DE8400AF0BC2 /* FinalJeopardyClue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalJeopardyClue.swift; sourceTree = "<group>"; };
+		30BC65112613E3F600AF0BC2 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		30C0ADC2260BC1330063D58F /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		30C0ADCD260BE46F0063D58F /* JeopardyGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JeopardyGame.swift; sourceTree = "<group>"; };
 		30C0ADD4260C05DA0063D58F /* JeopardyBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JeopardyBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,7 +149,11 @@
 		30C0ADCC260BE3F60063D58F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				30BC65072613D82E00AF0BC2 /* Category.swift */,
+				30BC65012613CAC600AF0BC2 /* Clue.swift */,
+				30BC650D2613DE8400AF0BC2 /* FinalJeopardyClue.swift */,
 				30C0ADCD260BE46F0063D58F /* JeopardyGame.swift */,
+				30BC65112613E3F600AF0BC2 /* Player.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,7 +321,11 @@
 			files = (
 				302655592605564500CB1D2A /* JeopardyBoardApp.swift in Sources */,
 				30BC64F02612A17A00AF0BC2 /* Array+Identifiable.swift in Sources */,
+				30BC65082613D82E00AF0BC2 /* Category.swift in Sources */,
+				30BC65022613CAC600AF0BC2 /* Clue.swift in Sources */,
+				30BC650E2613DE8400AF0BC2 /* FinalJeopardyClue.swift in Sources */,
 				30C0ADCE260BE46F0063D58F /* JeopardyGame.swift in Sources */,
+				30BC65122613E3F600AF0BC2 /* Player.swift in Sources */,
 				3026555B2605564500CB1D2A /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
