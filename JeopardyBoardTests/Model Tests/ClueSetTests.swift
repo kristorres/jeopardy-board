@@ -1,7 +1,7 @@
 import XCTest
 @testable import JeopardyBoard
 
-final class JeopardyGameTests: XCTestCase {
+final class ClueSetTests: XCTestCase {
     
     private let categoryTitle = "Category Title"
     private let answer = "This is the answer."
@@ -93,9 +93,9 @@ final class JeopardyGameTests: XCTestCase {
         let decoder = JSONDecoder()
         var errorIsCaught = false
         do {
-            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+            let _ = try decoder.decode(ClueSet.self, from: jsonData)
         }
-        catch JeopardyGame.ValidationError.incorrectCategoryCount(let count) {
+        catch ClueSet.ValidationError.incorrectCategoryCount(let count) {
             errorIsCaught = true
             XCTAssertEqual(count, 1)
         }
@@ -114,11 +114,11 @@ final class JeopardyGameTests: XCTestCase {
         let decoder = JSONDecoder()
         var errorIsCaught = false
         do {
-            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+            let _ = try decoder.decode(ClueSet.self, from: jsonData)
         }
-        catch JeopardyGame.ValidationError.emptyCategoryTitle(let index) {
+        catch ClueSet.ValidationError.emptyCategoryTitle(let categoryIndex) {
             errorIsCaught = true
-            XCTAssertEqual(index, 3)
+            XCTAssertEqual(categoryIndex, 3)
         }
         catch {
         }
@@ -135,9 +135,9 @@ final class JeopardyGameTests: XCTestCase {
         let decoder = JSONDecoder()
         var errorIsCaught = false
         do {
-            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+            let _ = try decoder.decode(ClueSet.self, from: jsonData)
         }
-        catch JeopardyGame.ValidationError.incorrectClueCount(
+        catch ClueSet.ValidationError.incorrectClueCount(
             let clueCount,
             let categoryIndex
         ) {
@@ -160,9 +160,9 @@ final class JeopardyGameTests: XCTestCase {
         let decoder = JSONDecoder()
         var errorIsCaught = false
         do {
-            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+            let _ = try decoder.decode(ClueSet.self, from: jsonData)
         }
-        catch JeopardyGame.ValidationError.multipleDailyDoublesInCategory(
+        catch ClueSet.ValidationError.multipleDailyDoublesInCategory(
             let categoryIndex
         ) {
             errorIsCaught = true
@@ -183,9 +183,9 @@ final class JeopardyGameTests: XCTestCase {
         let decoder = JSONDecoder()
         var errorIsCaught = false
         do {
-            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+            let _ = try decoder.decode(ClueSet.self, from: jsonData)
         }
-        catch JeopardyGame.ValidationError.incorrectPointValue(
+        catch ClueSet.ValidationError.incorrectPointValue(
             let pointValue,
             let expectedPointValue,
             let categoryIndex,
@@ -212,9 +212,9 @@ final class JeopardyGameTests: XCTestCase {
         let decoder = JSONDecoder()
         var errorIsCaught = false
         do {
-            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+            let _ = try decoder.decode(ClueSet.self, from: jsonData)
         }
-        catch JeopardyGame.ValidationError.emptyAnswer(
+        catch ClueSet.ValidationError.emptyAnswer(
             let categoryIndex,
             let clueIndex
         ) {
@@ -237,9 +237,34 @@ final class JeopardyGameTests: XCTestCase {
         let decoder = JSONDecoder()
         var errorIsCaught = false
         do {
-            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+            let _ = try decoder.decode(ClueSet.self, from: jsonData)
         }
-        catch JeopardyGame.ValidationError.emptyCorrectResponse(
+        catch ClueSet.ValidationError.emptyCorrectResponse(
+            let categoryIndex,
+            let clueIndex
+        ) {
+            errorIsCaught = true
+            XCTAssertEqual(categoryIndex, 3)
+            XCTAssertEqual(clueIndex, 2)
+        }
+        catch {
+        }
+        XCTAssertTrue(errorIsCaught)
+    }
+    
+    func testClueIsDone() {
+        let bundle = Bundle(for: type(of: self))
+        let jsonURL = bundle.url(
+            forResource: "game_with_finished_clue",
+            withExtension: "json"
+        )!
+        let jsonData = try! Data(contentsOf: jsonURL)
+        let decoder = JSONDecoder()
+        var errorIsCaught = false
+        do {
+            let _ = try decoder.decode(ClueSet.self, from: jsonData)
+        }
+        catch ClueSet.ValidationError.clueIsDone(
             let categoryIndex,
             let clueIndex
         ) {
@@ -262,13 +287,11 @@ final class JeopardyGameTests: XCTestCase {
         let decoder = JSONDecoder()
         var errorIsCaught = false
         do {
-            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+            let _ = try decoder.decode(ClueSet.self, from: jsonData)
         }
-        catch JeopardyGame.ValidationError.incorrectDailyDoubleCount(
-            let dailyDoubleCount
-        ) {
+        catch ClueSet.ValidationError.incorrectDailyDoubleCount(let count) {
             errorIsCaught = true
-            XCTAssertEqual(dailyDoubleCount, 3)
+            XCTAssertEqual(count, 3)
         }
         catch {
         }
@@ -285,9 +308,9 @@ final class JeopardyGameTests: XCTestCase {
         let decoder = JSONDecoder()
         var errorIsCaught = false
         do {
-            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+            let _ = try decoder.decode(ClueSet.self, from: jsonData)
         }
-        catch JeopardyGame.ValidationError.emptyFinalJeopardyCategoryTitle {
+        catch ClueSet.ValidationError.emptyFinalJeopardyCategoryTitle {
             errorIsCaught = true
         }
         catch {
@@ -305,9 +328,9 @@ final class JeopardyGameTests: XCTestCase {
         let decoder = JSONDecoder()
         var errorIsCaught = false
         do {
-            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+            let _ = try decoder.decode(ClueSet.self, from: jsonData)
         }
-        catch JeopardyGame.ValidationError.emptyFinalJeopardyAnswer {
+        catch ClueSet.ValidationError.emptyFinalJeopardyAnswer {
             errorIsCaught = true
         }
         catch {
@@ -325,9 +348,9 @@ final class JeopardyGameTests: XCTestCase {
         let decoder = JSONDecoder()
         var errorIsCaught = false
         do {
-            let _ = try decoder.decode(JeopardyGame.self, from: jsonData)
+            let _ = try decoder.decode(ClueSet.self, from: jsonData)
         }
-        catch JeopardyGame.ValidationError.emptyFinalJeopardyCorrectResponse {
+        catch ClueSet.ValidationError.emptyFinalJeopardyCorrectResponse {
             errorIsCaught = true
         }
         catch {
@@ -335,7 +358,7 @@ final class JeopardyGameTests: XCTestCase {
         XCTAssertTrue(errorIsCaught)
     }
     
-    func testValidGame() {
+    func testValidClueSet() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(
             forResource: "game_2021-01-08",
@@ -343,9 +366,7 @@ final class JeopardyGameTests: XCTestCase {
         )!
         let jsonData = try! Data(contentsOf: jsonURL)
         let decoder = JSONDecoder()
-        let game = try! decoder.decode(JeopardyGame.self, from: jsonData)
-        XCTAssertEqual(game.jeopardyRoundCategories.count, 6)
-        XCTAssertEqual(game.currentRound, .jeopardy)
-        XCTAssertNil(game.dailyDoubleWager)
+        let clueSet = try! decoder.decode(ClueSet.self, from: jsonData)
+        XCTAssertEqual(clueSet.jeopardyRoundCategories.count, 6)
     }
 }
