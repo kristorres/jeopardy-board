@@ -244,8 +244,6 @@
     "finalJeopardyClue": {
         "categoryTitle": "Women & Science",
         "answer": "Dr. Margaret Todd gave science this word for different forms of one basic substance; it’s from the Greek for “equal” and “place.”",
-        "correctResponse": "What is isotope?",
-        "isDone": false
-    },
-    "currentRound": "Jeopardy!"
+        "correctResponse": "What is isotope?"
+    }
 }

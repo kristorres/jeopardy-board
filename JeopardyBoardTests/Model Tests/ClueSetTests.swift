@@ -86,7 +86,7 @@ final class ClueSetTests: XCTestCase {
     func testIncorrectCategoryCount() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(
-            forResource: "game_with_incorrect_category_count",
+            forResource: "clue-set_incorrect-category-count",
             withExtension: "json"
         )!
         let jsonData = try! Data(contentsOf: jsonURL)
@@ -107,7 +107,7 @@ final class ClueSetTests: XCTestCase {
     func testEmptyCategoryTitle() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(
-            forResource: "game_with_empty_category_title",
+            forResource: "clue-set_empty-category-title",
             withExtension: "json"
         )!
         let jsonData = try! Data(contentsOf: jsonURL)
@@ -128,7 +128,7 @@ final class ClueSetTests: XCTestCase {
     func testIncorrectClueCount() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(
-            forResource: "game_with_incorrect_clue_count",
+            forResource: "clue-set_incorrect-clue-count",
             withExtension: "json"
         )!
         let jsonData = try! Data(contentsOf: jsonURL)
@@ -153,7 +153,7 @@ final class ClueSetTests: XCTestCase {
     func testMultipleDailyDoublesInCategory() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(
-            forResource: "game_with_multiple_daily_doubles_in_category",
+            forResource: "clue-set_multiple-daily-doubles-in-category",
             withExtension: "json"
         )!
         let jsonData = try! Data(contentsOf: jsonURL)
@@ -176,7 +176,7 @@ final class ClueSetTests: XCTestCase {
     func testIncorrectPointValue() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(
-            forResource: "game_with_incorrect_point_value",
+            forResource: "clue-set_incorrect-point-value",
             withExtension: "json"
         )!
         let jsonData = try! Data(contentsOf: jsonURL)
@@ -205,7 +205,7 @@ final class ClueSetTests: XCTestCase {
     func testEmptyAnswer() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(
-            forResource: "game_with_empty_answer",
+            forResource: "clue-set_empty-answer",
             withExtension: "json"
         )!
         let jsonData = try! Data(contentsOf: jsonURL)
@@ -230,7 +230,7 @@ final class ClueSetTests: XCTestCase {
     func testEmptyCorrectResponse() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(
-            forResource: "game_with_empty_correct_response",
+            forResource: "clue-set_empty-correct-response",
             withExtension: "json"
         )!
         let jsonData = try! Data(contentsOf: jsonURL)
@@ -255,7 +255,7 @@ final class ClueSetTests: XCTestCase {
     func testClueIsDone() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(
-            forResource: "game_with_finished_clue",
+            forResource: "clue-set_finished-clue",
             withExtension: "json"
         )!
         let jsonData = try! Data(contentsOf: jsonURL)
@@ -280,7 +280,7 @@ final class ClueSetTests: XCTestCase {
     func testIncorrectDailyDoubleCount() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(
-            forResource: "game_with_incorrect_daily_double_count",
+            forResource: "clue-set_incorrect-daily-double-count",
             withExtension: "json"
         )!
         let jsonData = try! Data(contentsOf: jsonURL)
@@ -301,7 +301,7 @@ final class ClueSetTests: XCTestCase {
     func testEmptyFinalJeopardyCategoryTitle() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(
-            forResource: "game_with_empty_final_jeopardy_category_title",
+            forResource: "clue-set_empty-final-jeopardy-category-title",
             withExtension: "json"
         )!
         let jsonData = try! Data(contentsOf: jsonURL)
@@ -321,7 +321,7 @@ final class ClueSetTests: XCTestCase {
     func testEmptyFinalJeopardyAnswer() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(
-            forResource: "game_with_empty_final_jeopardy_answer",
+            forResource: "clue-set_empty-final-jeopardy-answer",
             withExtension: "json"
         )!
         let jsonData = try! Data(contentsOf: jsonURL)
@@ -341,7 +341,7 @@ final class ClueSetTests: XCTestCase {
     func testEmptyFinalJeopardyCorrectResponse() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(
-            forResource: "game_with_empty_final_jeopardy_correct_response",
+            forResource: "clue-set_empty-final-jeopardy-correct-response",
             withExtension: "json"
         )!
         let jsonData = try! Data(contentsOf: jsonURL)
@@ -361,7 +361,7 @@ final class ClueSetTests: XCTestCase {
     func testValidClueSet() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(
-            forResource: "game_2021-01-08",
+            forResource: "clue-set_2021-01-08",
             withExtension: "json"
         )!
         let jsonData = try! Data(contentsOf: jsonURL)

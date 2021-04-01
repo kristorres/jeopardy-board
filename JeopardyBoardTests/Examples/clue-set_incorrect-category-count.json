@@ -44,8 +44,6 @@
     "finalJeopardyClue": {
         "categoryTitle": "Final Jeopardy! Category",
         "answer": "Final Jeopardy! Clue",
-        "correctResponse": "What is the correct response?",
-        "isDone": false
-    },
-    "currentRound": "Jeopardy!"
+        "correctResponse": "What is the correct response?"
+    }
 }

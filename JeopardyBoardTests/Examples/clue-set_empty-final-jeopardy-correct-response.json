@@ -141,7 +141,7 @@
                     "pointValue": 600,
                     "answer": "Clue 4C",
                     "correctResponse": "What is the correct response?",
-                    "isDailyDouble": true,
+                    "isDailyDouble": false,
                     "isDone": false
                 },
                 {
@@ -244,8 +244,6 @@
     "finalJeopardyClue": {
         "categoryTitle": "Final Jeopardy! Category",
         "answer": "Final Jeopardy! Clue",
-        "correctResponse": "What is the correct response?",
-        "isDone": false
-    },
-    "currentRound": "Jeopardy!"
+        "correctResponse": ""
+    }
 }

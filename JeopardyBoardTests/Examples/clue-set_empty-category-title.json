@@ -121,7 +121,7 @@
             ]
         },
         {
-            "title": "Category 4",
+            "title": "",
             "clues": [
                 {
                     "pointValue": 200,
@@ -244,8 +244,6 @@
     "finalJeopardyClue": {
         "categoryTitle": "Final Jeopardy! Category",
         "answer": "Final Jeopardy! Clue",
-        "correctResponse": "",
-        "isDone": false
-    },
-    "currentRound": "Jeopardy!"
+        "correctResponse": "What is the correct response?"
+    }
 }

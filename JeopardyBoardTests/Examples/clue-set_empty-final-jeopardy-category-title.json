@@ -242,10 +242,8 @@
         }
     ],
     "finalJeopardyClue": {
-        "categoryTitle": "Final Jeopardy! Category",
-        "answer": "",
-        "correctResponse": "What is the correct response?",
-        "isDone": false
-    },
-    "currentRound": "Jeopardy!"
+        "categoryTitle": "",
+        "answer": "Final Jeopardy! Clue",
+        "correctResponse": "What is the correct response?"
+    }
 }

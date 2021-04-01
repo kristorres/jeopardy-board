@@ -185,7 +185,7 @@
                     "isDone": false
                 },
                 {
-                    "pointValue": 2000,
+                    "pointValue": 800,
                     "answer": "Clue 5D",
                     "correctResponse": "What is the correct response?",
                     "isDailyDouble": true,
@@ -243,9 +243,7 @@
     ],
     "finalJeopardyClue": {
         "categoryTitle": "Final Jeopardy! Category",
-        "answer": "Final Jeopardy! Clue",
-        "correctResponse": "What is the correct response?",
-        "isDone": false
-    },
-    "currentRound": "Jeopardy!"
+        "answer": "",
+        "correctResponse": "What is the correct response?"
+    }
 }

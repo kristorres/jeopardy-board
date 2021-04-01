@@ -142,7 +142,7 @@
                     "answer": "Clue 4C",
                     "correctResponse": "What is the correct response?",
                     "isDailyDouble": false,
-                    "isDone": true
+                    "isDone": false
                 },
                 {
                     "pointValue": 800,
@@ -185,7 +185,7 @@
                     "isDone": false
                 },
                 {
-                    "pointValue": 800,
+                    "pointValue": 2000,
                     "answer": "Clue 5D",
                     "correctResponse": "What is the correct response?",
                     "isDailyDouble": true,
@@ -244,8 +244,6 @@
     "finalJeopardyClue": {
         "categoryTitle": "Final Jeopardy! Category",
         "answer": "Final Jeopardy! Clue",
-        "correctResponse": "What is the correct response?",
-        "isDone": false
-    },
-    "currentRound": "Jeopardy!"
+        "correctResponse": "What is the correct response?"
+    }
 }
