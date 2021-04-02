@@ -24,7 +24,6 @@ final class ClueSetTests: XCTestCase {
         XCTAssertEqual(clue.answer, answer)
         XCTAssertEqual(clue.correctResponse, correctResponse)
         XCTAssertFalse(clue.isDailyDouble)
-        XCTAssertFalse(clue.isSelected)
         XCTAssertFalse(clue.isDone)
     }
     
