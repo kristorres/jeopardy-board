@@ -19,6 +19,9 @@ struct JeopardyGame: Codable {
     /// The current round in this game of *Jeopardy!*
     var currentRound: Round = .jeopardy
     
+    /// The selected clue.
+    private(set) var selectedClue: Clue?
+    
     /// The wager for a Daily Double clue by a contestant.
     private(set) var dailyDoubleWager: Int?
     
@@ -64,16 +67,17 @@ struct JeopardyGame: Codable {
     /// If there is currently no selected clue, or this game is currently in
     /// Final Jeopardy!, then this method will do nothing.
     mutating func markSelectedClueAsDone() {
+        if selectedClue == nil {
+            return
+        }
         switch currentRound {
         case .jeopardy:
+            selectedClue = nil
             for categoryIndex in jeopardyRoundCategories.indices {
-                let currentCategory = jeopardyRoundCategories[categoryIndex]
-                for clueIndex in currentCategory.clues.indices {
-                    let currentClue = currentCategory.clues[clueIndex]
-                    if currentClue.isSelected && !currentClue.isDone {
-                        jeopardyRoundCategories[categoryIndex]
-                            .clues[clueIndex]
-                            .isSelected = false
+                let category = jeopardyRoundCategories[categoryIndex]
+                for clueIndex in category.clues.indices {
+                    let clue = category.clues[clueIndex]
+                    if !clue.isDone {
                         jeopardyRoundCategories[categoryIndex]
                             .clues[clueIndex]
                             .isDone = true
@@ -99,17 +103,7 @@ struct JeopardyGame: Codable {
         }
         switch currentRound {
         case .jeopardy:
-            for categoryIndex in jeopardyRoundCategories.indices {
-                let currentCategory = jeopardyRoundCategories[categoryIndex]
-                for clueIndex in currentCategory.clues.indices {
-                    let currentClue = currentCategory.clues[clueIndex]
-                    if !currentClue.isDone {
-                        jeopardyRoundCategories[categoryIndex]
-                            .clues[clueIndex]
-                            .isSelected = (currentClue.id == clue.id)
-                    }
-                }
-            }
+            selectedClue = clue
         case .finalJeopardy:
             return
         }

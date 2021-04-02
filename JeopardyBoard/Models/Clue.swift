@@ -22,9 +22,6 @@ struct Clue: Codable, Identifiable {
     /// Indicates whether this clue is a Daily Double.
     let isDailyDouble: Bool
     
-    /// Indicates whether this clue is selected.
-    var isSelected: Bool = false
-    
     /// Indicates whether this clue is marked as “done.”
     var isDone: Bool = false
     
