@@ -53,6 +53,32 @@ struct JeopardyGame: Codable {
     // MARK:- Methods
     // -------------------------------------------------------------------------
     
+    /// Adds the contestant’s Final Jeopardy! wager to his/her score.
+    ///
+    /// If this game is currently in the Jeopardy! round, then this method will
+    /// do nothing.
+    ///
+    /// - Parameter wager:  The Final Jeopardy! wager.
+    /// - Parameter player: The contestant who gave the correct response to the
+    ///                     Final Jeopardy! clue.
+    mutating func award(_ wager: Int, to player: Player) throws {
+        switch currentRound {
+        case .jeopardy:
+            return
+        case .finalJeopardy:
+            if Self.forbiddenWagers.contains(wager) {
+                throw InvalidWagerError.forbidden
+            }
+            if wager < 0 || wager > player.score {
+                throw InvalidWagerError.outOfRange(
+                    minimumWager: 0,
+                    maximumWager: player.score
+                )
+            }
+            setScore(to: player.score + wager, for: player)
+        }
+    }
+    
     /// Adds the selected clue’s point value to the specified contestant’s
     /// score.
     ///
@@ -60,7 +86,7 @@ struct JeopardyGame: Codable {
     /// his/her score instead. After this method is called, he/she can select
     /// the next clue.
     ///
-    /// - Parameter player: The player who gave the correct response to the
+    /// - Parameter player: The contestant who gave the correct response to the
     ///                     selected clue.
     mutating func awardPoints(to player: Player) {
         if let playerIndex = players.firstIndex(matching: player) {
@@ -87,7 +113,7 @@ struct JeopardyGame: Codable {
     /// If the clue is a Daily Double, then the contestant’s wager is subtracted
     /// from his/her score instead.
     ///
-    /// - Parameter player: The player who gave an incorrect response to the
+    /// - Parameter player: The contestant who gave an incorrect response to the
     ///                     selected clue.
     mutating func deductPoints(from player: Player) {
         if let playerIndex = players.firstIndex(matching: player) {
@@ -116,8 +142,8 @@ struct JeopardyGame: Codable {
     
     /// Marks the selected clue as “done.”
     ///
-    /// If there is currently no selected clue, or this game is currently in
-    /// Final Jeopardy!, then this method will do nothing.
+    /// If there is currently no selected clue, or this game is currently in the
+    /// Final Jeopardy! round, then this method will do nothing.
     mutating func markSelectedClueAsDone() {
         if selectedClue == nil {
             return
@@ -146,7 +172,7 @@ struct JeopardyGame: Codable {
     ///
     /// Only one clue on the game board may be selected at a time. If the
     /// selected clue is already marked as “done,” or this game is currently in
-    /// Final Jeopardy!, then this method will do nothing.
+    /// the Final Jeopardy! round, then this method will do nothing.
     ///
     /// - Parameter clue: The clue to be selected.
     mutating func selectClue(_ clue: Clue) {
@@ -182,7 +208,7 @@ struct JeopardyGame: Codable {
         if let playerIndex = players.firstIndex(where: { $0.canSelectClue }) {
             let player = players[playerIndex]
             let maximumWager = max(player.score, 1000)
-            if (wager < Self.minimumDailyDoubleWager || wager > maximumWager) {
+            if wager < Self.minimumDailyDoubleWager || wager > maximumWager {
                 throw InvalidWagerError.outOfRange(
                     minimumWager: Self.minimumDailyDoubleWager,
                     maximumWager: maximumWager
