@@ -161,6 +161,47 @@ struct JeopardyGame: Codable {
         }
     }
     
+    /// Sets the wager for a Daily Double clue.
+    ///
+    /// Only the contestant who selected the Daily Double can declare a wager.
+    /// The minimum wager allowed is 5 points, and the maximum wager allowed is
+    /// his/her entire score (known as a “true Daily Double”) or 1,000 points,
+    /// whichever is greater.
+    ///
+    /// If there is currently no selected clue, or the selected clue is not a
+    /// Daily Double, then this method will do nothing.
+    ///
+    /// - Parameter wager: The contestant’s wager.
+    mutating func setDailyDoubleWager(to wager: Int) throws {
+        guard let clue = selectedClue, clue.isDailyDouble else {
+            return
+        }
+        if Self.forbiddenWagers.contains(wager) {
+            throw InvalidWagerError.forbidden
+        }
+        if let playerIndex = players.firstIndex(where: { $0.canSelectClue }) {
+            let player = players[playerIndex]
+            let maximumWager = max(player.score, 1000)
+            if (wager < Self.minimumDailyDoubleWager || wager > maximumWager) {
+                throw InvalidWagerError.outOfRange(
+                    minimumWager: Self.minimumDailyDoubleWager,
+                    maximumWager: maximumWager
+                )
+            }
+            dailyDoubleWager = wager
+        }
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK:- Type properties
+    // -------------------------------------------------------------------------
+    
+    /// The minimum wager allowed for a Daily Double clue.
+    static let minimumDailyDoubleWager = 5
+    
+    /// The forbidden wagers.
+    static let forbiddenWagers = [69, 666, 14, 88, 1488]
+    
     // -------------------------------------------------------------------------
     // MARK:- Nested enums
     // -------------------------------------------------------------------------
@@ -175,6 +216,17 @@ struct JeopardyGame: Codable {
         case finalJeopardy = "Final Jeopardy!"
     }
     
+    /// An error on invalid wagering.
+    enum InvalidWagerError: Error {
+        
+        /// An error that denotes an out-of-range wager.
+        case outOfRange(minimumWager: Int, maximumWager: Int)
+        
+        /// An error that denotes a wager that is deemed inappropriate.
+        case forbidden
+    }
+    
+    /// An internal type that contains the keys for encoding and decoding.
     private enum CodingKeys: String, CodingKey {
         case jeopardyRoundCategories
         case finalJeopardyClue
