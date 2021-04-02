@@ -192,6 +192,16 @@ struct JeopardyGame: Codable {
         }
     }
     
+    /// Sets the score of the specified contestant.
+    ///
+    /// - Parameter newScore: The new score.
+    /// - Parameter player:   The affected player.
+    mutating func setScore(to newScore: Int, for player: Player) {
+        if let playerIndex = players.firstIndex(matching: player) {
+            players[playerIndex].score = newScore
+        }
+    }
+    
     // -------------------------------------------------------------------------
     // MARK:- Type properties
     // -------------------------------------------------------------------------
