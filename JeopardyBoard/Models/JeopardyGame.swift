@@ -53,6 +53,34 @@ struct JeopardyGame: Codable {
     // MARK:- Methods
     // -------------------------------------------------------------------------
     
+    /// Adds the selected clue’s point value to the specified contestant’s
+    /// score.
+    ///
+    /// If the clue is a Daily Double, then the contestant’s wager is added to
+    /// his/her score instead. After this method is called, he/she can select
+    /// the next clue.
+    ///
+    /// - Parameter player: The player who gave the correct response to the
+    ///                     selected clue.
+    mutating func awardPoints(to player: Player) {
+        if let playerIndex = players.firstIndex(matching: player) {
+            if let wager = dailyDoubleWager {
+                if !players[playerIndex].canSelectClue {
+                    return
+                }
+                players[playerIndex].score += wager
+                dailyDoubleWager = nil
+                return
+            }
+            if let clue = selectedClue {
+                players[playerIndex].score += clue.pointValue
+                for index in players.indices {
+                    players[index].canSelectClue = (index == playerIndex)
+                }
+            }
+        }
+    }
+    
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container
