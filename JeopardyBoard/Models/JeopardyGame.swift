@@ -81,6 +81,30 @@ struct JeopardyGame: Codable {
         }
     }
     
+    /// Subtracts the selected clue’s point value from the specified
+    /// contestant’s score.
+    ///
+    /// If the clue is a Daily Double, then the contestant’s wager is subtracted
+    /// from his/her score instead.
+    ///
+    /// - Parameter player: The player who gave an incorrect response to the
+    ///                     selected clue.
+    mutating func deductPoints(from player: Player) {
+        if let playerIndex = players.firstIndex(matching: player) {
+            if let wager = dailyDoubleWager {
+                if !players[playerIndex].canSelectClue {
+                    return
+                }
+                players[playerIndex].score -= wager
+                dailyDoubleWager = nil
+                return
+            }
+            if let clue = selectedClue {
+                players[playerIndex].score -= clue.pointValue
+            }
+        }
+    }
+    
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container
