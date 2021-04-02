@@ -17,14 +17,24 @@ struct JeopardyGame: Codable {
     private(set) var players: [Player]
     
     /// The current round in this game of *Jeopardy!*
-    var currentRound: Round
+    var currentRound: Round = .jeopardy
     
     /// The wager for a Daily Double clue by a contestant.
     private(set) var dailyDoubleWager: Int?
     
     // -------------------------------------------------------------------------
-    // MARK:- Initializer
+    // MARK:- Initializers
     // -------------------------------------------------------------------------
+    
+    /// Creates a game with the specified clue set and contestants.
+    ///
+    /// - Parameter clueSet: The clue set.
+    /// - Parameter players: The contestants.
+    init(clueSet: ClueSet, players: [Player]) {
+        self.jeopardyRoundCategories = clueSet.jeopardyRoundCategories
+        self.finalJeopardyClue = clueSet.finalJeopardyClue
+        self.players = players
+    }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
