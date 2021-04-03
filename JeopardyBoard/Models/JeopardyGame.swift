@@ -107,6 +107,32 @@ struct JeopardyGame: Codable {
         }
     }
     
+    /// Subtracts the contestant’s Final Jeopardy! wager from his/her score.
+    ///
+    /// If this game is currently in the Jeopardy! round, then this method will
+    /// do nothing.
+    ///
+    /// - Parameter wager:  The Final Jeopardy! wager.
+    /// - Parameter player: The contestant who gave an incorrect response to the
+    ///                     Final Jeopardy! clue.
+    mutating func deduct(_ wager: Int, from player: Player) throws {
+        switch currentRound {
+        case .jeopardy:
+            return
+        case .finalJeopardy:
+            if Self.forbiddenWagers.contains(wager) {
+                throw InvalidWagerError.forbidden
+            }
+            if wager < 0 || wager > player.score {
+                throw InvalidWagerError.outOfRange(
+                    minimumWager: 0,
+                    maximumWager: player.score
+                )
+            }
+            setScore(to: player.score - wager, for: player)
+        }
+    }
+    
     /// Subtracts the selected clue’s point value from the specified
     /// contestant’s score.
     ///
