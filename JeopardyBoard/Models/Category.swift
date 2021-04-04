@@ -14,6 +14,11 @@ struct Category: Codable, Identifiable {
     /// The clues in this category.
     var clues: [Clue]
     
+    /// Indicates whether this category is marked as “done.”
+    private var isDone: Bool {
+        clues.allSatisfy { $0.isDone }
+    }
+    
     /// Creates a category with the specified title and clues.
     ///
     /// This initializer stores a trimmed version of `title`.
