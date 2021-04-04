@@ -29,14 +29,22 @@ struct JeopardyGame: Codable {
     // MARK:- Initializers
     // -------------------------------------------------------------------------
     
-    /// Creates a game with the specified clue set and contestants.
+    /// Creates a new game with the specified clue set and contestants.
+    ///
+    /// The starting player is chosen randomly.
     ///
     /// - Parameter clueSet: The clue set.
     /// - Parameter players: The contestants.
     init(clueSet: ClueSet, players: [Player]) {
+        
         self.jeopardyRoundCategories = clueSet.jeopardyRoundCategories
         self.finalJeopardyClue = clueSet.finalJeopardyClue
         self.players = players
+        
+        let startingPlayerIndex = Int.random(in: self.players.indices)
+        for index in players.indices {
+            self.players[index].canSelectClue = (index == startingPlayerIndex)
+        }
     }
     
     init(from decoder: Decoder) throws {
