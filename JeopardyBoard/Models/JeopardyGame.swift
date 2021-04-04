@@ -53,58 +53,6 @@ struct JeopardyGame: Codable {
     // MARK:- Methods
     // -------------------------------------------------------------------------
     
-    /// Adds the contestant’s Final Jeopardy! wager to his/her score.
-    ///
-    /// If this game is currently in the Jeopardy! round, then this method will
-    /// do nothing.
-    ///
-    /// - Parameter wager:  The Final Jeopardy! wager.
-    /// - Parameter player: The contestant who gave the correct response to the
-    ///                     Final Jeopardy! clue.
-    mutating func award(_ wager: Int, to player: Player) throws {
-        switch currentRound {
-        case .jeopardy:
-            return
-        case .finalJeopardy:
-            if Self.forbiddenWagers.contains(wager) {
-                throw InvalidWagerError.forbidden
-            }
-            if wager < 0 || wager > player.score {
-                throw InvalidWagerError.outOfRange(
-                    minimumWager: 0,
-                    maximumWager: player.score
-                )
-            }
-            setScore(to: player.score + wager, for: player)
-        }
-    }
-    
-    /// Subtracts the contestant’s Final Jeopardy! wager from his/her score.
-    ///
-    /// If this game is currently in the Jeopardy! round, then this method will
-    /// do nothing.
-    ///
-    /// - Parameter wager:  The Final Jeopardy! wager.
-    /// - Parameter player: The contestant who gave an incorrect response to the
-    ///                     Final Jeopardy! clue.
-    mutating func deduct(_ wager: Int, from player: Player) throws {
-        switch currentRound {
-        case .jeopardy:
-            return
-        case .finalJeopardy:
-            if Self.forbiddenWagers.contains(wager) {
-                throw InvalidWagerError.forbidden
-            }
-            if wager < 0 || wager > player.score {
-                throw InvalidWagerError.outOfRange(
-                    minimumWager: 0,
-                    maximumWager: player.score
-                )
-            }
-            setScore(to: player.score - wager, for: player)
-        }
-    }
-    
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container
@@ -144,7 +92,45 @@ struct JeopardyGame: Codable {
             return
         }
     }
-        
+    
+    /// Responds to the Final Jeopardy! clue.
+    ///
+    /// If the contestant’s response is correct, then his/her wager is added to
+    /// his/her score. An incorrect response deducts the amount from his/her
+    /// score.
+    ///
+    /// If the contestant has already given a response to the clue, or this game
+    /// is currently in the Jeopardy! round, then this method will do nothing.
+    ///
+    /// - Parameter player:            The contestant who responded to the clue.
+    /// - Parameter wager:             The Final Jeopardy! wager.
+    /// - Parameter responseIsCorrect: `true` if the contestant’s response is
+    ///                                correct, or `false` otherwise.
+    mutating func respondToFinalJeopardyClue(
+        for player: Player,
+        wager: Int,
+        correct responseIsCorrect: Bool
+    ) throws {
+        if player.hasRespondedToCurrentClue {
+            return
+        }
+        switch currentRound {
+        case .jeopardy:
+            return
+        case .finalJeopardy:
+            if Self.forbiddenWagers.contains(wager) {
+                throw InvalidWagerError.forbidden
+            }
+            if wager < 0 || wager > player.score {
+                throw InvalidWagerError.outOfRange(
+                    minimumWager: 0,
+                    maximumWager: player.score
+                )
+            }
+            ruleResponse(for: player, amount: wager, correct: responseIsCorrect)
+        }
+    }
+    
     /// Responds to the selected clue.
     ///
     /// If the contestant’s response is correct, then the selected clue’s point
@@ -157,6 +143,9 @@ struct JeopardyGame: Codable {
     /// subtracted instead depending on his/her response. Whether or not he/she
     /// responds correctly, he/she chooses the next clue.
     ///
+    /// If the contestant has already given a response to the clue, then this
+    /// method will do nothing.
+    ///
     /// - Parameter player:            The contestant who responded to the clue.
     /// - Parameter responseIsCorrect: `true` if the contestant’s response is
     ///                                correct, or `false` otherwise.
@@ -164,10 +153,10 @@ struct JeopardyGame: Codable {
         for player: Player,
         correct responseIsCorrect: Bool
     ) {
+        if player.hasRespondedToCurrentClue {
+            return
+        }
         if let playerIndex = players.firstIndex(matching: player) {
-            if player.hasRespondedToCurrentClue {
-                return
-            }
             if let wager = dailyDoubleWager {
                 if !players[playerIndex].canSelectClue {
                     return
