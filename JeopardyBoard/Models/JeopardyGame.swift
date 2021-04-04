@@ -79,34 +79,6 @@ struct JeopardyGame: Codable {
         }
     }
     
-    /// Adds the selected clue’s point value to the specified contestant’s
-    /// score.
-    ///
-    /// If the clue is a Daily Double, then the contestant’s wager is added to
-    /// his/her score instead. After this method is called, he/she can select
-    /// the next clue.
-    ///
-    /// - Parameter player: The contestant who gave the correct response to the
-    ///                     selected clue.
-    mutating func awardPoints(to player: Player) {
-        if let playerIndex = players.firstIndex(matching: player) {
-            if let wager = dailyDoubleWager {
-                if !players[playerIndex].canSelectClue {
-                    return
-                }
-                players[playerIndex].score += wager
-                dailyDoubleWager = nil
-                return
-            }
-            if let clue = selectedClue {
-                players[playerIndex].score += clue.pointValue
-                for index in players.indices {
-                    players[index].canSelectClue = (index == playerIndex)
-                }
-            }
-        }
-    }
-    
     /// Subtracts the contestant’s Final Jeopardy! wager from his/her score.
     ///
     /// If this game is currently in the Jeopardy! round, then this method will
@@ -130,30 +102,6 @@ struct JeopardyGame: Codable {
                 )
             }
             setScore(to: player.score - wager, for: player)
-        }
-    }
-    
-    /// Subtracts the selected clue’s point value from the specified
-    /// contestant’s score.
-    ///
-    /// If the clue is a Daily Double, then the contestant’s wager is subtracted
-    /// from his/her score instead.
-    ///
-    /// - Parameter player: The contestant who gave an incorrect response to the
-    ///                     selected clue.
-    mutating func deductPoints(from player: Player) {
-        if let playerIndex = players.firstIndex(matching: player) {
-            if let wager = dailyDoubleWager {
-                if !players[playerIndex].canSelectClue {
-                    return
-                }
-                players[playerIndex].score -= wager
-                dailyDoubleWager = nil
-                return
-            }
-            if let clue = selectedClue {
-                players[playerIndex].score -= clue.pointValue
-            }
         }
     }
     
@@ -189,8 +137,61 @@ struct JeopardyGame: Codable {
                     }
                 }
             }
+            for playerIndex in players.indices {
+                players[playerIndex].hasRespondedToCurrentClue = false
+            }
         case .finalJeopardy:
             return
+        }
+    }
+        
+    /// Responds to the selected clue.
+    ///
+    /// If the contestant’s response is correct, then the selected clue’s point
+    /// value is added to his/her score, and he/she may select a new clue from
+    /// the game board. An incorrect response deducts the amount from his/her
+    /// score and allows the other contestants the opportunity to ring in and
+    /// respond.
+    ///
+    /// If the clue is a Daily Double, then the contestant’s wager is added or
+    /// subtracted instead depending on his/her response. Whether or not he/she
+    /// responds correctly, he/she chooses the next clue.
+    ///
+    /// - Parameter player:            The contestant who responded to the clue.
+    /// - Parameter responseIsCorrect: `true` if the contestant’s response is
+    ///                                correct, or `false` otherwise.
+    mutating func respondToSelectedClue(
+        for player: Player,
+        correct responseIsCorrect: Bool
+    ) {
+        if let playerIndex = players.firstIndex(matching: player) {
+            if player.hasRespondedToCurrentClue {
+                return
+            }
+            if let wager = dailyDoubleWager {
+                if !players[playerIndex].canSelectClue {
+                    return
+                }
+                ruleResponse(
+                    for: player,
+                    amount: wager,
+                    correct: responseIsCorrect
+                )
+                dailyDoubleWager = nil
+                return
+            }
+            if let clue = selectedClue {
+                ruleResponse(
+                    for: player,
+                    amount: clue.pointValue,
+                    correct: responseIsCorrect
+                )
+                if responseIsCorrect {
+                    for index in players.indices {
+                        players[index].canSelectClue = (index == playerIndex)
+                    }
+                }
+            }
         }
     }
     
@@ -251,6 +252,28 @@ struct JeopardyGame: Codable {
     mutating func setScore(to newScore: Int, for player: Player) {
         if let playerIndex = players.firstIndex(matching: player) {
             players[playerIndex].score = newScore
+        }
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK:- Private method
+    // -------------------------------------------------------------------------
+    
+    /// Rules the specified contestant’s response to the current clue.
+    ///
+    /// - Parameter player:            The contestant who responded to the clue.
+    /// - Parameter amount:            The amount to add or deduct.
+    /// - Parameter responseIsCorrect: `true` if the contestant’s response is
+    ///                                correct, or `false` otherwise.
+    private mutating func ruleResponse(
+        for player: Player,
+        amount: Int,
+        correct responseIsCorrect: Bool
+    ) {
+        if let playerIndex = players.firstIndex(matching: player) {
+            let changeInScore = responseIsCorrect ? +amount : -amount
+            players[playerIndex].score = player.score + changeInScore
+            players[playerIndex].hasRespondedToCurrentClue = true
         }
     }
     

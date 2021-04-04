@@ -14,6 +14,9 @@ struct Player: Codable, Identifiable {
     /// Indicates whether this player can select a clue.
     var canSelectClue: Bool = false
     
+    /// Indicates whether this player has given a response to the current clue.
+    var hasRespondedToCurrentClue: Bool = false
+    
     /// Creates a contestant with the specified name and score.
     ///
     /// This initializer stores a trimmed version of his/her `name`.
