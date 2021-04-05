@@ -19,6 +19,9 @@ struct Clue: Codable, Identifiable {
     /// The correct response to this clue.
     let correctResponse: String
     
+    /// The filename of the image that accompanies this clue.
+    let image: String?
+    
     /// Indicates whether this clue is a Daily Double.
     let isDailyDouble: Bool
     
@@ -34,17 +37,21 @@ struct Clue: Codable, Identifiable {
     /// - Parameter pointValue:      The point value.
     /// - Parameter answer:          The answer.
     /// - Parameter correctResponse: The correct response.
+    /// - Parameter image:           The filename of the accompanying image.
+    ///                              The default is `nil`.
     /// - Parameter isDailyDouble:   `true` if the clue is a Daily Double, or
     ///                              `false` otherwise. The default is `false`.
     init(
         pointValue: Int,
         answer: String,
         correctResponse: String,
+        image: String? = nil,
         isDailyDouble: Bool = false
     ) {
         self.pointValue = pointValue
         self.answer = answer.trimmed
         self.correctResponse = correctResponse.trimmed
+        self.image = image
         self.isDailyDouble = isDailyDouble
     }
     
@@ -55,6 +62,7 @@ struct Clue: Codable, Identifiable {
         correctResponse = try container
             .decode(String.self, forKey: .correctResponse)
             .trimmed
+        image = try container.decodeIfPresent(String.self, forKey: .image)
         isDailyDouble = try container.decode(Bool.self, forKey: .isDailyDouble)
         isDone = try container.decode(Bool.self, forKey: .isDone)
     }
@@ -64,6 +72,7 @@ struct Clue: Codable, Identifiable {
         try container.encode(pointValue, forKey: .pointValue)
         try container.encode(answer, forKey: .answer)
         try container.encode(correctResponse, forKey: .correctResponse)
+        try container.encodeIfPresent(image, forKey: .image)
         try container.encode(isDailyDouble, forKey: .isDailyDouble)
         try container.encode(isDone, forKey: .isDone)
     }
@@ -73,6 +82,7 @@ struct Clue: Codable, Identifiable {
         case pointValue
         case answer
         case correctResponse
+        case image
         case isDailyDouble
         case isDone
     }

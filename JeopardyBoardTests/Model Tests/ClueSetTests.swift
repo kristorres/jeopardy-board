@@ -23,6 +23,7 @@ final class ClueSetTests: XCTestCase {
         XCTAssertEqual(clue.pointValue, 200)
         XCTAssertEqual(clue.answer, answer)
         XCTAssertEqual(clue.correctResponse, correctResponse)
+        XCTAssertNil(clue.image)
         XCTAssertFalse(clue.isDailyDouble)
         XCTAssertFalse(clue.isDone)
     }
