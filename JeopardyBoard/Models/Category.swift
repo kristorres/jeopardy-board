@@ -15,7 +15,7 @@ struct Category: Codable, Identifiable {
     var clues: [Clue]
     
     /// Indicates whether this category is marked as “done.”
-    private var isDone: Bool {
+    var isDone: Bool {
         clues.allSatisfy { $0.isDone }
     }
     

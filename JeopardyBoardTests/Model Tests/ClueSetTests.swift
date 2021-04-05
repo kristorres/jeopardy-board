@@ -27,13 +27,20 @@ final class ClueSetTests: XCTestCase {
         XCTAssertFalse(clue.isDone)
     }
     
-    func testCategoryDecoding() {
+    func testUnfinishedCategoryDecoding() {
         let jsonData = """
         {
             "title": "\(categoryTitle)",
             "clues": [
                 {
                     "pointValue": 200,
+                    "answer": "\(answer)",
+                    "correctResponse": "\(correctResponse)",
+                    "isDailyDouble": false,
+                    "isDone": true
+                },
+                {
+                    "pointValue": 400,
                     "answer": "\(answer)",
                     "correctResponse": "\(correctResponse)",
                     "isDailyDouble": false,
@@ -46,7 +53,35 @@ final class ClueSetTests: XCTestCase {
         let category = try! decoder.decode(Category.self, from: jsonData)
         XCTAssertTrue(category.id.hasPrefix("CATEGORY-"))
         XCTAssertEqual(category.title, categoryTitle)
-        XCTAssertEqual(category.clues.count, 1)
+        XCTAssertEqual(category.clues.count, 2)
+        XCTAssertFalse(category.isDone)
+    }
+    
+    func testFinishedCategoryDecoding() {
+        let jsonData = """
+        {
+            "title": "\(categoryTitle)",
+            "clues": [
+                {
+                    "pointValue": 200,
+                    "answer": "\(answer)",
+                    "correctResponse": "\(correctResponse)",
+                    "isDailyDouble": false,
+                    "isDone": true
+                },
+                {
+                    "pointValue": 400,
+                    "answer": "\(answer)",
+                    "correctResponse": "\(correctResponse)",
+                    "isDailyDouble": false,
+                    "isDone": true
+                }
+            ]
+        }
+        """.data(using: .utf8)!
+        let decoder = JSONDecoder()
+        let category = try! decoder.decode(Category.self, from: jsonData)
+        XCTAssertTrue(category.isDone)
     }
     
     func testFinalJeopardyClueDecoding() {
