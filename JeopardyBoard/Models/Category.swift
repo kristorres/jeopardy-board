@@ -26,15 +26,13 @@ struct Category: Codable, Identifiable {
     /// - Parameter title: The title.
     /// - Parameter clues: The clues.
     init(title: String, clues: [Clue]) {
-        self.title = title.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.title = title.trimmed
         self.clues = clues
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        title = try container
-            .decode(String.self, forKey: .title)
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+        title = try container.decode(String.self, forKey: .title).trimmed
         clues = try container.decode([Clue].self, forKey: .clues)
     }
     

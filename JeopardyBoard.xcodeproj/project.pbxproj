@@ -29,6 +29,8 @@
 		30BC65122613E3F600AF0BC2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC65112613E3F600AF0BC2 /* Player.swift */; };
 		30BC651A26141E6F00AF0BC2 /* ClueSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC651926141E6F00AF0BC2 /* ClueSet.swift */; };
 		30BC65222614FB3800AF0BC2 /* clue-set_finished-clue.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC65212614FB3800AF0BC2 /* clue-set_finished-clue.json */; };
+		30BC6543261A6E0C00AF0BC2 /* String+Trimmed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC6542261A6E0C00AF0BC2 /* String+Trimmed.swift */; };
+		30BC6547261ABF3900AF0BC2 /* StringTrimmedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC6546261ABF3900AF0BC2 /* StringTrimmedTests.swift */; };
 		30C0ADC3260BC1330063D58F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30C0ADC2260BC1330063D58F /* InfoPlist.strings */; };
 		30C0ADCE260BE46F0063D58F /* JeopardyGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0ADCD260BE46F0063D58F /* JeopardyGame.swift */; };
 		30C0ADD7260C05DA0063D58F /* ClueSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0ADD6260C05DA0063D58F /* ClueSetTests.swift */; };
@@ -73,6 +75,8 @@
 		30BC65112613E3F600AF0BC2 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		30BC651926141E6F00AF0BC2 /* ClueSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueSet.swift; sourceTree = "<group>"; };
 		30BC65212614FB3800AF0BC2 /* clue-set_finished-clue.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_finished-clue.json"; sourceTree = "<group>"; };
+		30BC6542261A6E0C00AF0BC2 /* String+Trimmed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Trimmed.swift"; sourceTree = "<group>"; };
+		30BC6546261ABF3900AF0BC2 /* StringTrimmedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTrimmedTests.swift; sourceTree = "<group>"; };
 		30C0ADC2260BC1330063D58F /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		30C0ADCD260BE46F0063D58F /* JeopardyGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JeopardyGame.swift; sourceTree = "<group>"; };
 		30C0ADD4260C05DA0063D58F /* JeopardyBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JeopardyBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,9 +129,9 @@
 			isa = PBXGroup;
 			children = (
 				302655582605564500CB1D2A /* JeopardyBoardApp.swift */,
-				30BC64EF2612A17A00AF0BC2 /* Array+Identifiable.swift */,
 				30C0ADCC260BE3F60063D58F /* Models */,
 				3026556C2605715F00CB1D2A /* Views */,
+				30BC653F261A6D8700AF0BC2 /* Extensions */,
 				30C4C71626059DC900AC46B6 /* Supporting Files */,
 				3026555E2605564600CB1D2A /* Preview Content */,
 			);
@@ -150,6 +154,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		30BC653F261A6D8700AF0BC2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				30BC64EF2612A17A00AF0BC2 /* Array+Identifiable.swift */,
+				30BC6542261A6E0C00AF0BC2 /* String+Trimmed.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		30C0ADCC260BE3F60063D58F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				30BC64F5261385B200AF0BC2 /* ArrayFirstIndexTests.swift */,
+				30BC6546261ABF3900AF0BC2 /* StringTrimmedTests.swift */,
 				30C0ADE0260C3BD40063D58F /* Model Tests */,
 				30C0AE0B26101CB30063D58F /* Examples */,
 				30C0ADD8260C05DA0063D58F /* Info.plist */,
@@ -328,6 +342,7 @@
 			files = (
 				302655592605564500CB1D2A /* JeopardyBoardApp.swift in Sources */,
 				30BC64F02612A17A00AF0BC2 /* Array+Identifiable.swift in Sources */,
+				30BC6543261A6E0C00AF0BC2 /* String+Trimmed.swift in Sources */,
 				30BC65082613D82E00AF0BC2 /* Category.swift in Sources */,
 				30BC65022613CAC600AF0BC2 /* Clue.swift in Sources */,
 				30BC651A26141E6F00AF0BC2 /* ClueSet.swift in Sources */,
@@ -343,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30BC64F6261385B200AF0BC2 /* ArrayFirstIndexTests.swift in Sources */,
+				30BC6547261ABF3900AF0BC2 /* StringTrimmedTests.swift in Sources */,
 				30C0ADD7260C05DA0063D58F /* ClueSetTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

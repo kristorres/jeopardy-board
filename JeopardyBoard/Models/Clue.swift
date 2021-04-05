@@ -43,22 +43,18 @@ struct Clue: Codable, Identifiable {
         isDailyDouble: Bool = false
     ) {
         self.pointValue = pointValue
-        self.answer = answer
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-        self.correctResponse = correctResponse
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+        self.answer = answer.trimmed
+        self.correctResponse = correctResponse.trimmed
         self.isDailyDouble = isDailyDouble
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         pointValue = try container.decode(Int.self, forKey: .pointValue)
-        answer = try container
-            .decode(String.self, forKey: .answer)
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+        answer = try container.decode(String.self, forKey: .answer).trimmed
         correctResponse = try container
             .decode(String.self, forKey: .correctResponse)
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .trimmed
         isDailyDouble = try container.decode(Bool.self, forKey: .isDailyDouble)
         isDone = try container.decode(Bool.self, forKey: .isDone)
     }

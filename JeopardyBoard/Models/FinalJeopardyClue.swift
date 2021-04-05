@@ -22,25 +22,22 @@ struct FinalJeopardyClue: Codable {
     /// - Parameter answer:          The answer.
     /// - Parameter correctResponse: The correct response.
     init(categoryTitle: String, answer: String, correctResponse: String) {
-        self.categoryTitle = categoryTitle
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-        self.answer = answer
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-        self.correctResponse = correctResponse
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+        self.categoryTitle = categoryTitle.trimmed
+        self.answer = answer.trimmed
+        self.correctResponse = correctResponse.trimmed
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         categoryTitle = try container
             .decode(String.self, forKey: .categoryTitle)
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .trimmed
         answer = try container
             .decode(String.self, forKey: .answer)
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .trimmed
         correctResponse = try container
             .decode(String.self, forKey: .correctResponse)
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .trimmed
     }
     
     func encode(to encoder: Encoder) throws {

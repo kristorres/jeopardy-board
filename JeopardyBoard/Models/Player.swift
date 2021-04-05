@@ -24,15 +24,13 @@ struct Player: Codable, Identifiable {
     /// - Parameter name:  The name.
     /// - Parameter score: The score. The default is `0`.
     init(name: String, score: Int = 0) {
-        self.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.name = name.trimmed
         self.score = score
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        name = try container
-            .decode(String.self, forKey: .name)
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+        name = try container.decode(String.self, forKey: .name).trimmed
         score = try container.decode(Int.self, forKey: .score)
         canSelectClue = try container.decode(Bool.self, forKey: .canSelectClue)
     }
