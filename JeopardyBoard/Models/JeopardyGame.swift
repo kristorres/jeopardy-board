@@ -278,7 +278,7 @@ struct JeopardyGame: Codable {
     // MARK:- Type properties
     // -------------------------------------------------------------------------
     
-    /// The number of categories in a game of *Jeopardy!*
+    /// The number of categories in the Jeopardy! round.
     static let categoryCount = 6
     
     /// The number of clues in each category.
