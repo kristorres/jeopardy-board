@@ -51,7 +51,7 @@ struct Clue: Codable, Identifiable {
         self.pointValue = pointValue
         self.answer = answer.trimmed
         self.correctResponse = correctResponse.trimmed
-        self.image = image
+        self.image = image?.trimmed
         self.isDailyDouble = isDailyDouble
     }
     
@@ -62,7 +62,9 @@ struct Clue: Codable, Identifiable {
         correctResponse = try container
             .decode(String.self, forKey: .correctResponse)
             .trimmed
-        image = try container.decodeIfPresent(String.self, forKey: .image)
+        image = try container
+            .decodeIfPresent(String.self, forKey: .image)?
+            .trimmed
         isDailyDouble = try container.decode(Bool.self, forKey: .isDailyDouble)
         isDone = try container.decode(Bool.self, forKey: .isDone)
     }
