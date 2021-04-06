@@ -31,8 +31,8 @@ struct Clue: Codable, Identifiable {
     /// Creates a clue with the specified point value, answer, and correct
     /// response.
     ///
-    /// This initializer stores trimmed versions of both `answer` and
-    /// `correctResponse`.
+    /// This initializer stores trimmed versions of `answer`, `correctResponse`,
+    /// and `image`.
     ///
     /// - Parameter pointValue:      The point value.
     /// - Parameter answer:          The answer.
