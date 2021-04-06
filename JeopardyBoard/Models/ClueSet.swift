@@ -90,6 +90,12 @@ struct ClueSet: Codable {
                 clueIndex: clueIndex
             )
         }
+        if let image = clue.image, image.isEmpty {
+            throw ValidationError.emptyImage(
+                categoryIndex: categoryIndex,
+                clueIndex: clueIndex
+            )
+        }
         if clue.isDone {
             throw ValidationError.clueIsDone(
                 categoryIndex: categoryIndex,
@@ -165,6 +171,9 @@ struct ClueSet: Codable {
         
         /// An error that denotes an empty correct response.
         case emptyCorrectResponse(categoryIndex: Int, clueIndex: Int)
+        
+        /// An error that denotes an empty image filename.
+        case emptyImage(categoryIndex: Int, clueIndex: Int)
         
         /// An error that denotes a clue already marked as “done.”
         case clueIsDone(categoryIndex: Int, clueIndex: Int)

@@ -287,6 +287,31 @@ final class ClueSetTests: XCTestCase {
         XCTAssertTrue(errorIsCaught)
     }
     
+    func testEmptyImage() {
+        let bundle = Bundle(for: type(of: self))
+        let jsonURL = bundle.url(
+            forResource: "clue-set_empty-image",
+            withExtension: "json"
+        )!
+        let jsonData = try! Data(contentsOf: jsonURL)
+        let decoder = JSONDecoder()
+        var errorIsCaught = false
+        do {
+            let _ = try decoder.decode(ClueSet.self, from: jsonData)
+        }
+        catch ClueSet.ValidationError.emptyImage(
+            let categoryIndex,
+            let clueIndex
+        ) {
+            errorIsCaught = true
+            XCTAssertEqual(categoryIndex, 3)
+            XCTAssertEqual(clueIndex, 2)
+        }
+        catch {
+        }
+        XCTAssertTrue(errorIsCaught)
+    }
+    
     func testClueIsDone() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(
