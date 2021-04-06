@@ -278,6 +278,12 @@ struct JeopardyGame: Codable {
     // MARK:- Type properties
     // -------------------------------------------------------------------------
     
+    /// The number of categories in a game of *Jeopardy!*
+    static let categoryCount = 6
+    
+    /// The number of clues in each category.
+    static let clueCountPerCategory = 5
+    
     /// The minimum wager allowed for a Daily Double clue.
     static let minimumDailyDoubleWager = 5
     

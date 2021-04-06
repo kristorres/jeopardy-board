@@ -37,7 +37,7 @@ struct ClueSet: Codable {
         }
         
         let clueCount = category.clues.count
-        if clueCount != 5 {
+        if clueCount != JeopardyGame.clueCountPerCategory {
             throw ValidationError.incorrectClueCount(
                 clueCount,
                 categoryIndex: index
@@ -102,7 +102,7 @@ struct ClueSet: Codable {
     private func validateClueSet() throws {
         
         let categoryCount = jeopardyRoundCategories.count
-        if categoryCount != 6 {
+        if categoryCount != JeopardyGame.categoryCount {
             throw ValidationError.incorrectCategoryCount(categoryCount)
         }
         for index in jeopardyRoundCategories.indices {
