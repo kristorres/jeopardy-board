@@ -231,7 +231,7 @@ struct JeopardyGame: Codable {
         }
         if let playerIndex = players.firstIndex(where: { $0.canSelectClue }) {
             let player = players[playerIndex]
-            let maximumWager = max(player.score, 1000)
+            let maximumWager = max(player.score, Self.maximumCluePointValue)
             if wager < Self.minimumDailyDoubleWager || wager > maximumWager {
                 throw InvalidWagerError.outOfRange(
                     minimumWager: Self.minimumDailyDoubleWager,
@@ -283,6 +283,9 @@ struct JeopardyGame: Codable {
     
     /// The number of clues in each category.
     static let clueCountPerCategory = 5
+    
+    /// The highest clue value available in the Jeopardy! round.
+    static let maximumCluePointValue = 1000
     
     /// The minimum wager allowed for a Daily Double clue.
     static let minimumDailyDoubleWager = 5
