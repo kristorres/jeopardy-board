@@ -1,7 +1,7 @@
 import SwiftUI
 
-/// The content view.
-struct ContentView: View {
+/// The **root view**.
+struct RootView: View {
     
     /// The global app state.
     @EnvironmentObject private var appState: AppState
@@ -24,9 +24,9 @@ struct ContentView: View {
 }
 
 #if DEBUG
-struct ContentView_Previews: PreviewProvider {
+struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(AppState())
+        RootView().environmentObject(AppState())
     }
 }
 #endif

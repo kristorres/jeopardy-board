@@ -8,7 +8,7 @@ struct JeopardyBoardApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(appState)
+            RootView().environmentObject(appState)
         }
             .commands {
                 CommandGroup(replacing: .newItem, addition: {})
