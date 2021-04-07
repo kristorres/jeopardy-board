@@ -15,13 +15,7 @@ struct GameConfigView: View {
 #if DEBUG
 struct GameConfigView_Previews: PreviewProvider {
     static var previews: some View {
-        GameConfigView()
-            .frame(
-                minWidth: 1600,
-                maxWidth: .infinity,
-                minHeight: 900,
-                maxHeight: .infinity
-            )
+        GameConfigView().scaledToWindow()
     }
 }
 #endif

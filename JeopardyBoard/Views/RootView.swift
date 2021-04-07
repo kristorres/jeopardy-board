@@ -8,12 +8,7 @@ struct RootView: View {
     
     var body: some View {
         currentView
-            .frame(
-                minWidth: 1600,
-                maxWidth: .infinity,
-                minHeight: 900,
-                maxHeight: .infinity
-            )
+            .scaledToWindow()
             .alert(item: $appState.errorAlert) {
                 Alert(title: Text($0.title), message: Text($0.message))
             }
