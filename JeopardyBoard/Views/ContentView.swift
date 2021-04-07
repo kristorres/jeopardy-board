@@ -2,6 +2,10 @@ import SwiftUI
 
 /// The content view.
 struct ContentView: View {
+    
+    /// The global app state.
+    @EnvironmentObject private var appState: AppState
+    
     var body: some View {
         VStack {
             Text("🌎").font(.system(size: 200)).padding()
@@ -13,13 +17,16 @@ struct ContentView: View {
                 minHeight: 900,
                 maxHeight: .infinity
             )
+            .alert(item: $appState.errorAlert) {
+                Alert(title: Text($0.title), message: Text($0.message))
+            }
     }
 }
 
 #if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(AppState())
     }
 }
 #endif
