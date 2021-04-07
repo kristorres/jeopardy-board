@@ -7,10 +7,7 @@ struct RootView: View {
     @EnvironmentObject private var appState: AppState
     
     var body: some View {
-        VStack {
-            Text("🌎").font(.system(size: 200)).padding()
-            Text("おはよう、世界！").font(.system(size: 50)).fontWeight(.black)
-        }
+        currentView
             .frame(
                 minWidth: 1600,
                 maxWidth: .infinity,
@@ -20,6 +17,14 @@ struct RootView: View {
             .alert(item: $appState.errorAlert) {
                 Alert(title: Text($0.title), message: Text($0.message))
             }
+    }
+    
+    /// The currently rendered view.
+    @ViewBuilder private var currentView: some View {
+        switch appState.currentViewKey {
+        case .gameConfig:
+            GameConfigView()
+        }
     }
 }
 
