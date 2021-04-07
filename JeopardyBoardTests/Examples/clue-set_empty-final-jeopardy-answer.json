@@ -1,0 +1,249 @@
+{
+    "jeopardyRoundCategories": [
+        {
+            "title": "Category 1",
+            "clues": [
+                {
+                    "pointValue": 200,
+                    "answer": "Clue 1A",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 400,
+                    "answer": "Clue 1B",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 600,
+                    "answer": "Clue 1C",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 800,
+                    "answer": "Clue 1D",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 1000,
+                    "answer": "Clue 1E",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                }
+            ]
+        },
+        {
+            "title": "Category 2",
+            "clues": [
+                {
+                    "pointValue": 200,
+                    "answer": "Clue 2A",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 400,
+                    "answer": "Clue 2B",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 600,
+                    "answer": "Clue 2C",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 800,
+                    "answer": "Clue 2D",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 1000,
+                    "answer": "Clue 2E",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": true,
+                    "isDone": false
+                }
+            ]
+        },
+        {
+            "title": "Category 3",
+            "clues": [
+                {
+                    "pointValue": 200,
+                    "answer": "Clue 3A",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 400,
+                    "answer": "Clue 3B",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 600,
+                    "answer": "Clue 3C",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 800,
+                    "answer": "Clue 3D",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 1000,
+                    "answer": "Clue 3E",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                }
+            ]
+        },
+        {
+            "title": "Category 4",
+            "clues": [
+                {
+                    "pointValue": 200,
+                    "answer": "Clue 4A",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 400,
+                    "answer": "Clue 4B",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 600,
+                    "answer": "Clue 4C",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 800,
+                    "answer": "Clue 4D",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 1000,
+                    "answer": "Clue 4E",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                }
+            ]
+        },
+        {
+            "title": "Category 5",
+            "clues": [
+                {
+                    "pointValue": 200,
+                    "answer": "Clue 5A",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 400,
+                    "answer": "Clue 5B",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 600,
+                    "answer": "Clue 5C",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 800,
+                    "answer": "Clue 5D",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": true,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 1000,
+                    "answer": "Clue 5E",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                }
+            ]
+        },
+        {
+            "title": "Category 6",
+            "clues": [
+                {
+                    "pointValue": 200,
+                    "answer": "Clue 6A",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 400,
+                    "answer": "Clue 6B",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 600,
+                    "answer": "Clue 6C",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 800,
+                    "answer": "Clue 6D",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 1000,
+                    "answer": "Clue 6E",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                }
+            ]
+        }
+    ],
+    "finalJeopardyClue": {
+        "categoryTitle": "Final Jeopardy! Category",
+        "answer": "",
+        "correctResponse": "What is the correct response?"
+    }
+}

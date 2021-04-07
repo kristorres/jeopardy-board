@@ -1,0 +1,49 @@
+{
+    "jeopardyRoundCategories": [
+        {
+            "title": "Category 1",
+            "clues": [
+                {
+                    "pointValue": 200,
+                    "answer": "Clue 1A",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 400,
+                    "answer": "Clue 1B",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 600,
+                    "answer": "Clue 1C",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 600,
+                    "answer": "Clue 1D",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": false,
+                    "isDone": false
+                },
+                {
+                    "pointValue": 600,
+                    "answer": "Clue 1E",
+                    "correctResponse": "What is the correct response?",
+                    "isDailyDouble": true,
+                    "isDone": false
+                }
+            ]
+        }
+    ],
+    "finalJeopardyClue": {
+        "categoryTitle": "Final Jeopardy! Category",
+        "answer": "Final Jeopardy! Clue",
+        "correctResponse": "What is the correct response?"
+    }
+}

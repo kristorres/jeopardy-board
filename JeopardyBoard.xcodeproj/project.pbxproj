@@ -7,14 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3020C430261D14B6006257AD /* clue-set_empty-image.json in Resources */ = {isa = PBXBuildFile; fileRef = 3020C42F261D14B6006257AD /* clue-set_empty-image.json */; };
 		302655592605564500CB1D2A /* JeopardyBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302655582605564500CB1D2A /* JeopardyBoardApp.swift */; };
 		3026555B2605564500CB1D2A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026555A2605564500CB1D2A /* ContentView.swift */; };
 		3026555D2605564600CB1D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555C2605564600CB1D2A /* Assets.xcassets */; };
 		302655602605564600CB1D2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555F2605564600CB1D2A /* Preview Assets.xcassets */; };
+		30BC64AE2612582600AF0BC2 /* clue-set_incorrect-clue-count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */; };
+		30BC64B226125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B126125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json */; };
+		30BC64B826125D2C00AF0BC2 /* clue-set_incorrect-point-value.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B726125D2C00AF0BC2 /* clue-set_incorrect-point-value.json */; };
+		30BC64BE26125F0F00AF0BC2 /* clue-set_empty-answer.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64BD26125F0F00AF0BC2 /* clue-set_empty-answer.json */; };
+		30BC64C42612725300AF0BC2 /* clue-set_empty-correct-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64C32612725300AF0BC2 /* clue-set_empty-correct-response.json */; };
+		30BC64CA2612742800AF0BC2 /* clue-set_incorrect-daily-double-count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64C92612742800AF0BC2 /* clue-set_incorrect-daily-double-count.json */; };
+		30BC64D02612766C00AF0BC2 /* clue-set_empty-final-jeopardy-category-title.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64CF2612766C00AF0BC2 /* clue-set_empty-final-jeopardy-category-title.json */; };
+		30BC64D62612791800AF0BC2 /* clue-set_empty-final-jeopardy-answer.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64D52612791800AF0BC2 /* clue-set_empty-final-jeopardy-answer.json */; };
+		30BC64DC26127C4400AF0BC2 /* clue-set_empty-final-jeopardy-correct-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64DB26127C4400AF0BC2 /* clue-set_empty-final-jeopardy-correct-response.json */; };
+		30BC64E426127F7A00AF0BC2 /* clue-set_2021-01-08.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64E326127F7A00AF0BC2 /* clue-set_2021-01-08.json */; };
+		30BC64F02612A17A00AF0BC2 /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC64EF2612A17A00AF0BC2 /* Array+Identifiable.swift */; };
+		30BC64F6261385B200AF0BC2 /* ArrayFirstIndexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC64F5261385B200AF0BC2 /* ArrayFirstIndexTests.swift */; };
+		30BC65022613CAC600AF0BC2 /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC65012613CAC600AF0BC2 /* Clue.swift */; };
+		30BC65082613D82E00AF0BC2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC65072613D82E00AF0BC2 /* Category.swift */; };
+		30BC650E2613DE8400AF0BC2 /* FinalJeopardyClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC650D2613DE8400AF0BC2 /* FinalJeopardyClue.swift */; };
+		30BC65122613E3F600AF0BC2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC65112613E3F600AF0BC2 /* Player.swift */; };
+		30BC651A26141E6F00AF0BC2 /* ClueSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC651926141E6F00AF0BC2 /* ClueSet.swift */; };
+		30BC65222614FB3800AF0BC2 /* clue-set_finished-clue.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC65212614FB3800AF0BC2 /* clue-set_finished-clue.json */; };
+		30BC6543261A6E0C00AF0BC2 /* String+Trimmed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC6542261A6E0C00AF0BC2 /* String+Trimmed.swift */; };
+		30BC6547261ABF3900AF0BC2 /* StringTrimmedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC6546261ABF3900AF0BC2 /* StringTrimmedTests.swift */; };
 		30C0ADC3260BC1330063D58F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30C0ADC2260BC1330063D58F /* InfoPlist.strings */; };
+		30C0ADCE260BE46F0063D58F /* JeopardyGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0ADCD260BE46F0063D58F /* JeopardyGame.swift */; };
+		30C0ADD7260C05DA0063D58F /* ClueSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0ADD6260C05DA0063D58F /* ClueSetTests.swift */; };
+		30C0AE0826101C920063D58F /* clue-set_incorrect-category-count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30C0AE0726101C920063D58F /* clue-set_incorrect-category-count.json */; };
+		30C0AE112610225F0063D58F /* clue-set_empty-category-title.json in Resources */ = {isa = PBXBuildFile; fileRef = 30C0AE102610225F0063D58F /* clue-set_empty-category-title.json */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		30C0ADD9260C05DA0063D58F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3026554D2605564500CB1D2A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 302655542605564500CB1D2A;
+			remoteInfo = JeopardyBoard;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		3020C42F261D14B6006257AD /* clue-set_empty-image.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_empty-image.json"; sourceTree = "<group>"; };
 		302655552605564500CB1D2A /* JeopardyBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JeopardyBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		302655582605564500CB1D2A /* JeopardyBoardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeopardyBoardApp.swift; sourceTree = "<group>"; };
 		3026555A2605564500CB1D2A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -23,12 +59,45 @@
 		302655612605564600CB1D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		302655622605564600CB1D2A /* JeopardyBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JeopardyBoard.entitlements; sourceTree = "<group>"; };
 		3026556A26056DA600CB1D2A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-clue-count.json"; sourceTree = "<group>"; };
+		30BC64B126125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_multiple-daily-doubles-in-category.json"; sourceTree = "<group>"; };
+		30BC64B726125D2C00AF0BC2 /* clue-set_incorrect-point-value.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-point-value.json"; sourceTree = "<group>"; };
+		30BC64BD26125F0F00AF0BC2 /* clue-set_empty-answer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_empty-answer.json"; sourceTree = "<group>"; };
+		30BC64C32612725300AF0BC2 /* clue-set_empty-correct-response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_empty-correct-response.json"; sourceTree = "<group>"; };
+		30BC64C92612742800AF0BC2 /* clue-set_incorrect-daily-double-count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-daily-double-count.json"; sourceTree = "<group>"; };
+		30BC64CF2612766C00AF0BC2 /* clue-set_empty-final-jeopardy-category-title.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_empty-final-jeopardy-category-title.json"; sourceTree = "<group>"; };
+		30BC64D52612791800AF0BC2 /* clue-set_empty-final-jeopardy-answer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_empty-final-jeopardy-answer.json"; sourceTree = "<group>"; };
+		30BC64DB26127C4400AF0BC2 /* clue-set_empty-final-jeopardy-correct-response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_empty-final-jeopardy-correct-response.json"; sourceTree = "<group>"; };
+		30BC64E326127F7A00AF0BC2 /* clue-set_2021-01-08.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_2021-01-08.json"; sourceTree = "<group>"; };
+		30BC64EF2612A17A00AF0BC2 /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
+		30BC64F5261385B200AF0BC2 /* ArrayFirstIndexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayFirstIndexTests.swift; sourceTree = "<group>"; };
+		30BC65012613CAC600AF0BC2 /* Clue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
+		30BC65072613D82E00AF0BC2 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		30BC650D2613DE8400AF0BC2 /* FinalJeopardyClue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalJeopardyClue.swift; sourceTree = "<group>"; };
+		30BC65112613E3F600AF0BC2 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		30BC651926141E6F00AF0BC2 /* ClueSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueSet.swift; sourceTree = "<group>"; };
+		30BC65212614FB3800AF0BC2 /* clue-set_finished-clue.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_finished-clue.json"; sourceTree = "<group>"; };
+		30BC6542261A6E0C00AF0BC2 /* String+Trimmed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Trimmed.swift"; sourceTree = "<group>"; };
+		30BC6546261ABF3900AF0BC2 /* StringTrimmedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTrimmedTests.swift; sourceTree = "<group>"; };
 		30C0ADC2260BC1330063D58F /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		30C0ADCD260BE46F0063D58F /* JeopardyGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JeopardyGame.swift; sourceTree = "<group>"; };
+		30C0ADD4260C05DA0063D58F /* JeopardyBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JeopardyBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30C0ADD6260C05DA0063D58F /* ClueSetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueSetTests.swift; sourceTree = "<group>"; };
+		30C0ADD8260C05DA0063D58F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30C0AE0726101C920063D58F /* clue-set_incorrect-category-count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-category-count.json"; sourceTree = "<group>"; };
+		30C0AE102610225F0063D58F /* clue-set_empty-category-title.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_empty-category-title.json"; sourceTree = "<group>"; };
 		30C4C71F2608501E00AC46B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		302655522605564500CB1D2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30C0ADD1260C05DA0063D58F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,6 +113,7 @@
 				30C4C71F2608501E00AC46B6 /* README.md */,
 				3026556A26056DA600CB1D2A /* .gitignore */,
 				302655572605564500CB1D2A /* JeopardyBoard */,
+				30C0ADD5260C05DA0063D58F /* JeopardyBoardTests */,
 				302655562605564500CB1D2A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				302655552605564500CB1D2A /* JeopardyBoard.app */,
+				30C0ADD4260C05DA0063D58F /* JeopardyBoardTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,7 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				302655582605564500CB1D2A /* JeopardyBoardApp.swift */,
+				30C0ADCC260BE3F60063D58F /* Models */,
 				3026556C2605715F00CB1D2A /* Views */,
+				30BC653F261A6D8700AF0BC2 /* Extensions */,
 				30C4C71626059DC900AC46B6 /* Supporting Files */,
 				3026555E2605564600CB1D2A /* Preview Content */,
 			);
@@ -81,6 +154,69 @@
 				3026555A2605564500CB1D2A /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		30BC653F261A6D8700AF0BC2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				30BC64EF2612A17A00AF0BC2 /* Array+Identifiable.swift */,
+				30BC6542261A6E0C00AF0BC2 /* String+Trimmed.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		30C0ADCC260BE3F60063D58F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				30BC65072613D82E00AF0BC2 /* Category.swift */,
+				30BC65012613CAC600AF0BC2 /* Clue.swift */,
+				30BC651926141E6F00AF0BC2 /* ClueSet.swift */,
+				30BC650D2613DE8400AF0BC2 /* FinalJeopardyClue.swift */,
+				30C0ADCD260BE46F0063D58F /* JeopardyGame.swift */,
+				30BC65112613E3F600AF0BC2 /* Player.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		30C0ADD5260C05DA0063D58F /* JeopardyBoardTests */ = {
+			isa = PBXGroup;
+			children = (
+				30BC64F5261385B200AF0BC2 /* ArrayFirstIndexTests.swift */,
+				30BC6546261ABF3900AF0BC2 /* StringTrimmedTests.swift */,
+				30C0ADE0260C3BD40063D58F /* Model Tests */,
+				30C0AE0B26101CB30063D58F /* Examples */,
+				30C0ADD8260C05DA0063D58F /* Info.plist */,
+			);
+			path = JeopardyBoardTests;
+			sourceTree = "<group>";
+		};
+		30C0ADE0260C3BD40063D58F /* Model Tests */ = {
+			isa = PBXGroup;
+			children = (
+				30C0ADD6260C05DA0063D58F /* ClueSetTests.swift */,
+			);
+			path = "Model Tests";
+			sourceTree = "<group>";
+		};
+		30C0AE0B26101CB30063D58F /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				30BC64E326127F7A00AF0BC2 /* clue-set_2021-01-08.json */,
+				30BC64BD26125F0F00AF0BC2 /* clue-set_empty-answer.json */,
+				30C0AE102610225F0063D58F /* clue-set_empty-category-title.json */,
+				30BC64C32612725300AF0BC2 /* clue-set_empty-correct-response.json */,
+				30BC64D52612791800AF0BC2 /* clue-set_empty-final-jeopardy-answer.json */,
+				30BC64CF2612766C00AF0BC2 /* clue-set_empty-final-jeopardy-category-title.json */,
+				30BC64DB26127C4400AF0BC2 /* clue-set_empty-final-jeopardy-correct-response.json */,
+				3020C42F261D14B6006257AD /* clue-set_empty-image.json */,
+				30BC65212614FB3800AF0BC2 /* clue-set_finished-clue.json */,
+				30C0AE0726101C920063D58F /* clue-set_incorrect-category-count.json */,
+				30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */,
+				30BC64C92612742800AF0BC2 /* clue-set_incorrect-daily-double-count.json */,
+				30BC64B726125D2C00AF0BC2 /* clue-set_incorrect-point-value.json */,
+				30BC64B126125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json */,
+			);
+			path = Examples;
 			sourceTree = "<group>";
 		};
 		30C4C71626059DC900AC46B6 /* Supporting Files */ = {
@@ -114,6 +250,24 @@
 			productReference = 302655552605564500CB1D2A /* JeopardyBoard.app */;
 			productType = "com.apple.product-type.application";
 		};
+		30C0ADD3260C05DA0063D58F /* JeopardyBoardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30C0ADDB260C05DA0063D58F /* Build configuration list for PBXNativeTarget "JeopardyBoardTests" */;
+			buildPhases = (
+				30C0ADD0260C05DA0063D58F /* Sources */,
+				30C0ADD1260C05DA0063D58F /* Frameworks */,
+				30C0ADD2260C05DA0063D58F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30C0ADDA260C05DA0063D58F /* PBXTargetDependency */,
+			);
+			name = JeopardyBoardTests;
+			productName = JeopardyBoardTests;
+			productReference = 30C0ADD4260C05DA0063D58F /* JeopardyBoardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -125,6 +279,10 @@
 				TargetAttributes = {
 					302655542605564500CB1D2A = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					30C0ADD3260C05DA0063D58F = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 302655542605564500CB1D2A;
 					};
 				};
 			};
@@ -142,6 +300,7 @@
 			projectRoot = "";
 			targets = (
 				302655542605564500CB1D2A /* JeopardyBoard */,
+				30C0ADD3260C05DA0063D58F /* JeopardyBoardTests */,
 			);
 		};
 /* End PBXProject section */
@@ -157,6 +316,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		30C0ADD2260C05DA0063D58F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30BC64E426127F7A00AF0BC2 /* clue-set_2021-01-08.json in Resources */,
+				30BC64BE26125F0F00AF0BC2 /* clue-set_empty-answer.json in Resources */,
+				30C0AE112610225F0063D58F /* clue-set_empty-category-title.json in Resources */,
+				30BC64C42612725300AF0BC2 /* clue-set_empty-correct-response.json in Resources */,
+				30BC64D62612791800AF0BC2 /* clue-set_empty-final-jeopardy-answer.json in Resources */,
+				30BC64D02612766C00AF0BC2 /* clue-set_empty-final-jeopardy-category-title.json in Resources */,
+				30BC64DC26127C4400AF0BC2 /* clue-set_empty-final-jeopardy-correct-response.json in Resources */,
+				3020C430261D14B6006257AD /* clue-set_empty-image.json in Resources */,
+				30BC65222614FB3800AF0BC2 /* clue-set_finished-clue.json in Resources */,
+				30C0AE0826101C920063D58F /* clue-set_incorrect-category-count.json in Resources */,
+				30BC64AE2612582600AF0BC2 /* clue-set_incorrect-clue-count.json in Resources */,
+				30BC64CA2612742800AF0BC2 /* clue-set_incorrect-daily-double-count.json in Resources */,
+				30BC64B826125D2C00AF0BC2 /* clue-set_incorrect-point-value.json in Resources */,
+				30BC64B226125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -165,11 +345,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				302655592605564500CB1D2A /* JeopardyBoardApp.swift in Sources */,
+				30BC64F02612A17A00AF0BC2 /* Array+Identifiable.swift in Sources */,
+				30BC6543261A6E0C00AF0BC2 /* String+Trimmed.swift in Sources */,
+				30BC65082613D82E00AF0BC2 /* Category.swift in Sources */,
+				30BC65022613CAC600AF0BC2 /* Clue.swift in Sources */,
+				30BC651A26141E6F00AF0BC2 /* ClueSet.swift in Sources */,
+				30BC650E2613DE8400AF0BC2 /* FinalJeopardyClue.swift in Sources */,
+				30C0ADCE260BE46F0063D58F /* JeopardyGame.swift in Sources */,
+				30BC65122613E3F600AF0BC2 /* Player.swift in Sources */,
 				3026555B2605564500CB1D2A /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		30C0ADD0260C05DA0063D58F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30BC64F6261385B200AF0BC2 /* ArrayFirstIndexTests.swift in Sources */,
+				30BC6547261ABF3900AF0BC2 /* StringTrimmedTests.swift in Sources */,
+				30C0ADD7260C05DA0063D58F /* ClueSetTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		30C0ADDA260C05DA0063D58F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 302655542605564500CB1D2A /* JeopardyBoard */;
+			targetProxy = 30C0ADD9260C05DA0063D58F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		302655632605564600CB1D2A /* Debug */ = {
@@ -337,6 +543,46 @@
 			};
 			name = Release;
 		};
+		30C0ADDC260C05DA0063D58F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = R6U5GZ53KJ;
+				INFOPLIST_FILE = JeopardyBoardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.kristorres.JeopardyBoardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JeopardyBoard.app/Contents/MacOS/JeopardyBoard";
+			};
+			name = Debug;
+		};
+		30C0ADDD260C05DA0063D58F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = R6U5GZ53KJ;
+				INFOPLIST_FILE = JeopardyBoardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.kristorres.JeopardyBoardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JeopardyBoard.app/Contents/MacOS/JeopardyBoard";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -354,6 +600,15 @@
 			buildConfigurations = (
 				302655662605564600CB1D2A /* Debug */,
 				302655672605564600CB1D2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30C0ADDB260C05DA0063D58F /* Build configuration list for PBXNativeTarget "JeopardyBoardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30C0ADDC260C05DA0063D58F /* Debug */,
+				30C0ADDD260C05DA0063D58F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
