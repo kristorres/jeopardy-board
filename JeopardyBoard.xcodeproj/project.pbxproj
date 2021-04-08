@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3020C430261D14B6006257AD /* clue-set_empty-image.json in Resources */ = {isa = PBXBuildFile; fileRef = 3020C42F261D14B6006257AD /* clue-set_empty-image.json */; };
+		3020C439261E2F56006257AD /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020C438261E2F56006257AD /* AppState.swift */; };
+		3020C443261E6AD4006257AD /* GameConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020C442261E6AD4006257AD /* GameConfigView.swift */; };
+		3020C44C261E722B006257AD /* ScaledToWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020C44B261E722B006257AD /* ScaledToWindow.swift */; };
 		302655592605564500CB1D2A /* JeopardyBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302655582605564500CB1D2A /* JeopardyBoardApp.swift */; };
-		3026555B2605564500CB1D2A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026555A2605564500CB1D2A /* ContentView.swift */; };
+		3026555B2605564500CB1D2A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026555A2605564500CB1D2A /* RootView.swift */; };
 		3026555D2605564600CB1D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555C2605564600CB1D2A /* Assets.xcassets */; };
 		302655602605564600CB1D2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555F2605564600CB1D2A /* Preview Assets.xcassets */; };
 		30BC64AE2612582600AF0BC2 /* clue-set_incorrect-clue-count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */; };
@@ -51,9 +54,12 @@
 
 /* Begin PBXFileReference section */
 		3020C42F261D14B6006257AD /* clue-set_empty-image.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_empty-image.json"; sourceTree = "<group>"; };
+		3020C438261E2F56006257AD /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		3020C442261E6AD4006257AD /* GameConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfigView.swift; sourceTree = "<group>"; };
+		3020C44B261E722B006257AD /* ScaledToWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledToWindow.swift; sourceTree = "<group>"; };
 		302655552605564500CB1D2A /* JeopardyBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JeopardyBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		302655582605564500CB1D2A /* JeopardyBoardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeopardyBoardApp.swift; sourceTree = "<group>"; };
-		3026555A2605564500CB1D2A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3026555A2605564500CB1D2A /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		3026555C2605564600CB1D2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3026555F2605564600CB1D2A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		302655612605564600CB1D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3020C44A261E7152006257AD /* View Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				3020C44B261E722B006257AD /* ScaledToWindow.swift */,
+			);
+			path = "View Modifiers";
+			sourceTree = "<group>";
+		};
 		3026554C2605564500CB1D2A = {
 			isa = PBXGroup;
 			children = (
@@ -130,8 +144,10 @@
 		302655572605564500CB1D2A /* JeopardyBoard */ = {
 			isa = PBXGroup;
 			children = (
+				3020C438261E2F56006257AD /* AppState.swift */,
 				302655582605564500CB1D2A /* JeopardyBoardApp.swift */,
 				30C0ADCC260BE3F60063D58F /* Models */,
+				3020C44A261E7152006257AD /* View Modifiers */,
 				3026556C2605715F00CB1D2A /* Views */,
 				30BC653F261A6D8700AF0BC2 /* Extensions */,
 				30C4C71626059DC900AC46B6 /* Supporting Files */,
@@ -151,7 +167,8 @@
 		3026556C2605715F00CB1D2A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3026555A2605564500CB1D2A /* ContentView.swift */,
+				3020C442261E6AD4006257AD /* GameConfigView.swift */,
+				3026555A2605564500CB1D2A /* RootView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				302655592605564500CB1D2A /* JeopardyBoardApp.swift in Sources */,
+				3020C439261E2F56006257AD /* AppState.swift in Sources */,
 				30BC64F02612A17A00AF0BC2 /* Array+Identifiable.swift in Sources */,
 				30BC6543261A6E0C00AF0BC2 /* String+Trimmed.swift in Sources */,
 				30BC65082613D82E00AF0BC2 /* Category.swift in Sources */,
@@ -353,7 +371,9 @@
 				30BC650E2613DE8400AF0BC2 /* FinalJeopardyClue.swift in Sources */,
 				30C0ADCE260BE46F0063D58F /* JeopardyGame.swift in Sources */,
 				30BC65122613E3F600AF0BC2 /* Player.swift in Sources */,
-				3026555B2605564500CB1D2A /* ContentView.swift in Sources */,
+				3026555B2605564500CB1D2A /* RootView.swift in Sources */,
+				3020C443261E6AD4006257AD /* GameConfigView.swift in Sources */,
+				3020C44C261E722B006257AD /* ScaledToWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
