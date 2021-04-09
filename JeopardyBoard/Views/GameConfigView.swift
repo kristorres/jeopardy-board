@@ -20,6 +20,9 @@ struct GameConfigView: View {
     /// The name of the new contestant to add.
     @State private var newPlayerName = ""
     
+    /// The minimum number of contestants in a game.
+    private let minimumPlayerCount = 3
+    
     var body: some View {
         VStack(spacing: 48) {
             VStack {
@@ -60,6 +63,7 @@ struct GameConfigView: View {
             Button(action: {}) {
                 Text("Start Game")
             }
+                .disabled(clueSet == nil || players.count < minimumPlayerCount)
         }
             .padding(48)
     }
