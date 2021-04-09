@@ -57,8 +57,11 @@ struct GameConfigView: View {
                 .frame(maxWidth: 600)
             
             Spacer(minLength: 0)
+            Button(action: {}) {
+                Text("Start Game")
+            }
         }
-            .padding()
+            .padding(48)
     }
     
     /// Adds a new contestant to the game.
