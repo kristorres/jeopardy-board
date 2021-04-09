@@ -33,12 +33,13 @@ struct GameConfigView: View {
             
             VStack {
                 Text("Contestants").font(.title).fontWeight(.bold)
-                HStack {
+                HStack(spacing: 12) {
                     TextField(
                         "Player Name",
                         text: $newPlayerName,
                         onCommit: addNewPlayer
                     )
+                        .trebekTextFieldStyle()
                     Button(action: addNewPlayer) {
                         Label(
                             title: { Text("Add") },

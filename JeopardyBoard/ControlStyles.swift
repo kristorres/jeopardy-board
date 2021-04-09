@@ -7,6 +7,28 @@ struct ContainedButtonStyle: ButtonStyle {
     }
 }
 
+extension TextField {
+    
+    /// Sets the Trebek style for this text field.
+    ///
+    /// - Returns: The styled text field.
+    func trebekTextFieldStyle() -> some View {
+        return self
+            .textFieldStyle(PlainTextFieldStyle())
+            .font(.custom("PT Sans", size: 20))
+            .padding(.vertical, 12)
+            .padding(.horizontal)
+            .background(Color("Text Field Background"))
+    }
+}
+
+extension NSTextField {
+    open override var focusRingType: NSFocusRingType {
+        get { return .none }
+        set {}
+    }
+}
+
 /// A view that describes the effect of pressing a contained button.
 fileprivate struct ContainedButtonLabel: View {
     
