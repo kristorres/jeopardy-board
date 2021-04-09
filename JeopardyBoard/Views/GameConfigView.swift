@@ -26,9 +26,8 @@ struct GameConfigView: View {
     var body: some View {
         VStack(spacing: 48) {
             VStack {
-                Button(action: uploadClueSet) {
-                    Text("Upload Clue Set")
-                }
+                Button("Upload Clue Set", action: uploadClueSet)
+                    .buttonStyle(ContainedButtonStyle())
                 Text(clueSetFilename ?? " ")
             }
             
@@ -41,8 +40,12 @@ struct GameConfigView: View {
                         onCommit: addNewPlayer
                     )
                     Button(action: addNewPlayer) {
-                        Text("Add")
+                        Label(
+                            title: { Text("Add") },
+                            icon: { Image(systemName: "plus.circle.fill") }
+                        )
                     }
+                        .buttonStyle(ContainedButtonStyle())
                         .disabled(newPlayerName.trimmed.isEmpty)
                 }
                 if players.isEmpty {
@@ -60,9 +63,8 @@ struct GameConfigView: View {
                 .frame(maxWidth: 600)
             
             Spacer(minLength: 0)
-            Button(action: {}) {
-                Text("Start Game")
-            }
+            Button("Start Game", action: {})
+                .buttonStyle(ContainedButtonStyle())
                 .disabled(clueSet == nil || players.count < minimumPlayerCount)
         }
             .padding(48)
@@ -70,9 +72,13 @@ struct GameConfigView: View {
     
     /// Adds a new contestant to the game.
     ///
-    /// After completing this method, the *Player Name* text field will be
-    /// cleared out.
+    /// If the trimmed name input is empty, then this method will do nothing.
+    /// Otherwise, after completing this method, the *Player Name* text field
+    /// will be cleared out.
     private func addNewPlayer() {
+        if newPlayerName.trimmed.isEmpty {
+            return
+        }
         players.append(Player(name: newPlayerName))
         newPlayerName = ""
     }

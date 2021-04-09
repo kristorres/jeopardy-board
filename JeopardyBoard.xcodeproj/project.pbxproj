@@ -15,6 +15,7 @@
 		3026555B2605564500CB1D2A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026555A2605564500CB1D2A /* RootView.swift */; };
 		3026555D2605564600CB1D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555C2605564600CB1D2A /* Assets.xcassets */; };
 		302655602605564600CB1D2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555F2605564600CB1D2A /* Preview Assets.xcassets */; };
+		305C19442620422100922C9E /* ControlStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C19432620422100922C9E /* ControlStyles.swift */; };
 		30BC64AE2612582600AF0BC2 /* clue-set_incorrect-clue-count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */; };
 		30BC64B226125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B126125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json */; };
 		30BC64B826125D2C00AF0BC2 /* clue-set_incorrect-point-value.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B726125D2C00AF0BC2 /* clue-set_incorrect-point-value.json */; };
@@ -65,6 +66,7 @@
 		302655612605564600CB1D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		302655622605564600CB1D2A /* JeopardyBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JeopardyBoard.entitlements; sourceTree = "<group>"; };
 		3026556A26056DA600CB1D2A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		305C19432620422100922C9E /* ControlStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlStyles.swift; sourceTree = "<group>"; };
 		30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-clue-count.json"; sourceTree = "<group>"; };
 		30BC64B126125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_multiple-daily-doubles-in-category.json"; sourceTree = "<group>"; };
 		30BC64B726125D2C00AF0BC2 /* clue-set_incorrect-point-value.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-point-value.json"; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				3020C438261E2F56006257AD /* AppState.swift */,
+				305C19432620422100922C9E /* ControlStyles.swift */,
 				302655582605564500CB1D2A /* JeopardyBoardApp.swift */,
 				30C0ADCC260BE3F60063D58F /* Models */,
 				3020C44A261E7152006257AD /* View Modifiers */,
@@ -363,6 +366,7 @@
 			files = (
 				302655592605564500CB1D2A /* JeopardyBoardApp.swift in Sources */,
 				3020C439261E2F56006257AD /* AppState.swift in Sources */,
+				305C19442620422100922C9E /* ControlStyles.swift in Sources */,
 				30BC64F02612A17A00AF0BC2 /* Array+Identifiable.swift in Sources */,
 				30BC6543261A6E0C00AF0BC2 /* String+Trimmed.swift in Sources */,
 				30BC65082613D82E00AF0BC2 /* Category.swift in Sources */,
