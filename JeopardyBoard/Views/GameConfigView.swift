@@ -14,13 +14,67 @@ struct GameConfigView: View {
     /// The filename of the uploaded clue set.
     @State private var clueSetFilename: String?
     
+    /// The contestants in the game.
+    @State private var players = [Player]()
+    
+    /// The name of the new contestant to add.
+    @State private var newPlayerName = ""
+    
     var body: some View {
-        VStack {
-            Button(action: uploadClueSet) {
-                Text("Upload Clue Set")
+        VStack(spacing: 48) {
+            VStack {
+                Button(action: uploadClueSet) {
+                    Text("Upload Clue Set")
+                }
+                Text(clueSetFilename ?? " ")
             }
-            Text(clueSetFilename ?? " ")
+            
+            VStack {
+                Text("Contestants").font(.title).fontWeight(.bold)
+                HStack {
+                    TextField(
+                        "Player Name",
+                        text: $newPlayerName,
+                        onCommit: addNewPlayer
+                    )
+                    Button(action: addNewPlayer) {
+                        Text("Add")
+                    }
+                        .disabled(newPlayerName.trimmed.isEmpty)
+                }
+                if players.isEmpty {
+                    Text("No contestants added.").padding(.top)
+                }
+                else {
+                    List {
+                        ForEach(players) {
+                            Text($0.name)
+                        }
+                            .onDelete(perform: removePlayer)
+                    }
+                }
+            }
+                .frame(maxWidth: 600)
+            
+            Spacer(minLength: 0)
         }
+            .padding()
+    }
+    
+    /// Adds a new contestant to the game.
+    ///
+    /// After completing this method, the *Player Name* text field will be
+    /// cleared out.
+    private func addNewPlayer() {
+        players.append(Player(name: newPlayerName))
+        newPlayerName = ""
+    }
+    
+    /// Removes the contestant at the specified offsets from the game.
+    ///
+    /// - Parameter offsets: The offsets.
+    private func removePlayer(at offsets: IndexSet) {
+        players.remove(atOffsets: offsets)
     }
     
     /// Uploads a clue set to the app.
