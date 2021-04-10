@@ -26,7 +26,7 @@ struct GameConfigView: View {
     var body: some View {
         VStack(spacing: 48) {
             VStack {
-                Button("Upload Clue Set", action: uploadClueSet)
+                Button("UPLOAD CLUE SET", action: uploadClueSet)
                     .buttonStyle(ContainedButtonStyle())
                 Text(clueSetFilename ?? " ")
             }
@@ -42,7 +42,7 @@ struct GameConfigView: View {
                         .trebekTextFieldStyle()
                     Button(action: addNewPlayer) {
                         Label(
-                            title: { Text("Add") },
+                            title: { Text("ADD") },
                             icon: { Image(systemName: "plus.circle.fill") }
                         )
                     }
@@ -64,7 +64,7 @@ struct GameConfigView: View {
                 .frame(maxWidth: 600)
             
             Spacer(minLength: 0)
-            Button("Start Game", action: {})
+            Button("START GAME", action: {})
                 .buttonStyle(ContainedButtonStyle())
                 .disabled(clueSet == nil || players.count < minimumPlayerCount)
         }

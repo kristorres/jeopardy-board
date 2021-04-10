@@ -17,6 +17,7 @@
 		302655602605564600CB1D2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555F2605564600CB1D2A /* Preview Assets.xcassets */; };
 		305C19442620422100922C9E /* ControlStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C19432620422100922C9E /* ControlStyles.swift */; };
 		305C196C2621137600922C9E /* PTSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 305C196B2621137600922C9E /* PTSans-Regular.ttf */; };
+		305C197A2621231500922C9E /* PTSansNarrow-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */; };
 		30BC64AE2612582600AF0BC2 /* clue-set_incorrect-clue-count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */; };
 		30BC64B226125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B126125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json */; };
 		30BC64B826125D2C00AF0BC2 /* clue-set_incorrect-point-value.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B726125D2C00AF0BC2 /* clue-set_incorrect-point-value.json */; };
@@ -69,6 +70,7 @@
 		3026556A26056DA600CB1D2A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		305C19432620422100922C9E /* ControlStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlStyles.swift; sourceTree = "<group>"; };
 		305C196B2621137600922C9E /* PTSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Regular.ttf"; sourceTree = "<group>"; };
+		305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSansNarrow-Bold.ttf"; sourceTree = "<group>"; };
 		30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-clue-count.json"; sourceTree = "<group>"; };
 		30BC64B126125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_multiple-daily-doubles-in-category.json"; sourceTree = "<group>"; };
 		30BC64B726125D2C00AF0BC2 /* clue-set_incorrect-point-value.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-point-value.json"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				305C196B2621137600922C9E /* PTSans-Regular.ttf */,
+				305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			files = (
 				3026555D2605564600CB1D2A /* Assets.xcassets in Resources */,
 				305C196C2621137600922C9E /* PTSans-Regular.ttf in Resources */,
+				305C197A2621231500922C9E /* PTSansNarrow-Bold.ttf in Resources */,
 				30C0ADC3260BC1330063D58F /* InfoPlist.strings in Resources */,
 				302655602605564600CB1D2A /* Preview Assets.xcassets in Resources */,
 			);

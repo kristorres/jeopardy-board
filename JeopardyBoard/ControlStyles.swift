@@ -1,5 +1,11 @@
 import SwiftUI
 
+/// The font size of the text in the controls.
+fileprivate let fontSize = CGFloat(20)
+
+/// The vertical padding in the controls.
+fileprivate let verticalPadding = CGFloat(12)
+
 /// A button style for contained buttons.
 struct ContainedButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
@@ -15,8 +21,8 @@ extension TextField {
     func trebekTextFieldStyle() -> some View {
         return self
             .textFieldStyle(PlainTextFieldStyle())
-            .font(.custom("PT Sans", size: 20))
-            .padding(.vertical, 12)
+            .font(.custom("PT Sans", size: fontSize))
+            .padding(.vertical, verticalPadding)
             .padding(.horizontal)
             .background(Color("Text Field Background"))
     }
@@ -44,24 +50,23 @@ fileprivate struct ContainedButtonLabel: View {
             return .gray
         }
         if configuration.isPressed {
-            return .darkBlue
+            return .darkTrebekGold
         }
-        return .primaryBlue
+        return .trebekGold
     }
     
     var body: some View {
         configuration.label
-            .font(.system(size: 16, weight: .heavy))
-            .padding(.vertical, 12)
+            .font(.custom("PT Sans Narrow Bold", size: fontSize))
+            .padding(.vertical, verticalPadding)
             .padding(.horizontal)
             .background(backgroundColor)
-            .foregroundColor(.white)
+            .foregroundColor(isEnabled ? .black : .white)
             .opacity(isEnabled ? 1 : 0.5)
-            .cornerRadius(12)
     }
 }
 
 fileprivate extension Color {
-    static let primaryBlue = Color(red: 0.102, green: 0.383, blue: 0.84)
-    static let darkBlue = Color(red: 0.082, green: 0.305, blue: 0.672)
+    static let trebekGold = Color(red: 0.98, green: 0.648, blue: 0.109)
+    static let darkTrebekGold = Color(red: 0.855, green: 0.535, blue: 0.016)
 }
