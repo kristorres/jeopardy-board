@@ -28,11 +28,11 @@ struct GameConfigView: View {
             VStack {
                 Button("UPLOAD CLUE SET", action: uploadClueSet)
                     .buttonStyle(TrebekButtonStyle())
-                Text(clueSetFilename ?? " ")
+                Text(clueSetFilename ?? " ").font(Typography.text)
             }
             
             VStack {
-                Text("Contestants").font(.title).fontWeight(.bold)
+                Text("CONTESTANTS").font(Typography.display).padding(12)
                 HStack(spacing: 12) {
                     TextField(
                         "Player Name",
@@ -50,15 +50,19 @@ struct GameConfigView: View {
                         .disabled(newPlayerName.trimmed.isEmpty)
                 }
                 if players.isEmpty {
-                    Text("No contestants added.").padding(.top)
+                    Text("No contestants added.")
+                        .font(Typography.text)
+                        .padding(.top)
                 }
                 else {
                     List {
                         ForEach(players) {
-                            Text($0.name)
+                            Text($0.name.uppercased())
                         }
                             .onDelete(perform: removePlayer)
+                            .font(Typography.font(size: 20))
                     }
+                        .padding(.top)
                 }
             }
                 .frame(maxWidth: 600)
@@ -133,6 +137,25 @@ struct GameConfigView: View {
             }
             catch {
             }
+        }
+    }
+    
+    /// An internal struct that contains various fonts used in the view.
+    private struct Typography {
+        
+        /// The display font.
+        static let display = font(size: 48)
+        
+        /// The text font.
+        static let text = font(size: 14)
+        
+        /// Creates a font with the PT Sans typeface and specified size.
+        ///
+        /// - Parameter size: The font size.
+        ///
+        /// - Returns: The PT Sans font.
+        static func font(size: CGFloat) -> Font {
+            return .custom("PT Sans", size: size)
         }
     }
 }
