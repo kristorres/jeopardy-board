@@ -51,13 +51,13 @@ struct TrebekButtonStyle: ButtonStyle {
     }
 }
 
-extension TextField {
-    
-    /// Sets the Trebek style for this text field.
-    ///
-    /// - Returns: The styled text field.
-    func trebekTextFieldStyle() -> some View {
-        return self
+/// A text field style with a translucent rectangular container.
+///
+/// The style is named in honor of Alex Trebek, who hosted *Jeopardy!* from 1984
+/// until his death in 2020.
+struct TrebekTextFieldStyle: TextFieldStyle {
+    func _body(configuration: TextField<_Label>) -> some View {
+        return configuration
             .textFieldStyle(PlainTextFieldStyle())
             .font(.custom("PT Sans", size: fontSize))
             .padding(.vertical, verticalPadding)

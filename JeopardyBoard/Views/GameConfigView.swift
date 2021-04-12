@@ -39,7 +39,7 @@ struct GameConfigView: View {
                         text: $newPlayerName,
                         onCommit: addNewPlayer
                     )
-                        .trebekTextFieldStyle()
+                        .textFieldStyle(TrebekTextFieldStyle())
                     Button(action: addNewPlayer) {
                         Label(
                             title: { Text("ADD") },
