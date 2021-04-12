@@ -27,7 +27,7 @@ struct GameConfigView: View {
         VStack(spacing: 48) {
             VStack {
                 Button("UPLOAD CLUE SET", action: uploadClueSet)
-                    .buttonStyle(ContainedButtonStyle())
+                    .buttonStyle(TrebekButtonStyle())
                 Text(clueSetFilename ?? " ")
             }
             
@@ -46,7 +46,7 @@ struct GameConfigView: View {
                             icon: { Image(systemName: "plus.circle.fill") }
                         )
                     }
-                        .buttonStyle(ContainedButtonStyle())
+                        .buttonStyle(TrebekButtonStyle())
                         .disabled(newPlayerName.trimmed.isEmpty)
                 }
                 if players.isEmpty {
@@ -65,7 +65,7 @@ struct GameConfigView: View {
             
             Spacer(minLength: 0)
             Button("START GAME", action: {})
-                .buttonStyle(ContainedButtonStyle())
+                .buttonStyle(TrebekButtonStyle())
                 .disabled(clueSet == nil || players.count < minimumPlayerCount)
         }
             .padding(48)
