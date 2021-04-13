@@ -101,6 +101,7 @@
 		30C0AE102610225F0063D58F /* clue-set_empty-category-title.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_empty-category-title.json"; sourceTree = "<group>"; };
 		30C4C71F2608501E00AC46B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		30E6237E26261108001D2FE4 /* PTSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Bold.ttf"; sourceTree = "<group>"; };
+		30E6238626263912001D2FE4 /* start_a_new_game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_a_new_game.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +135,7 @@
 			children = (
 				30C4C71F2608501E00AC46B6 /* README.md */,
 				3026556A26056DA600CB1D2A /* .gitignore */,
+				30E6238526263878001D2FE4 /* Screenshots */,
 				302655572605564500CB1D2A /* JeopardyBoard */,
 				30C0ADD5260C05DA0063D58F /* JeopardyBoardTests */,
 				302655562605564500CB1D2A /* Products */,
@@ -265,6 +267,14 @@
 				302655622605564600CB1D2A /* JeopardyBoard.entitlements */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		30E6238526263878001D2FE4 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				30E6238626263912001D2FE4 /* start_a_new_game.png */,
+			);
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
