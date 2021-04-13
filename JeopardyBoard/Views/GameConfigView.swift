@@ -55,17 +55,22 @@ struct GameConfigView: View {
                         .padding(.top)
                 }
                 else {
-                    List {
-                        ForEach(players) {
-                            Text($0.name.uppercased())
+                    ScrollView(.vertical) {
+                        ForEach(players) { player in
+                            HStack {
+                                Text(player.name.uppercased())
+                                Spacer()
+                                removePlayerButton(for: player)
+                            }
+                                .padding(.vertical, 6)
                         }
-                            .onDelete(perform: removePlayer)
-                            .font(Typography.font(size: 20))
                     }
+                        .font(Typography.font(size: 20))
+                        .frame(maxWidth: .infinity)
                         .padding(.top)
                 }
             }
-                .frame(maxWidth: 600)
+                .frame(width: 600)
             
             Spacer(minLength: 0)
             Button("START GAME", action: {})
@@ -88,11 +93,29 @@ struct GameConfigView: View {
         newPlayerName = ""
     }
     
-    /// Removes the contestant at the specified offsets from the game.
+    /// Removes the specified contestant from the game.
     ///
-    /// - Parameter offsets: The offsets.
-    private func removePlayer(at offsets: IndexSet) {
-        players.remove(atOffsets: offsets)
+    /// - Parameter player: The contestant to remove.
+    private func removePlayer(_ player: Player) {
+        if let playerIndex = players.firstIndex(matching: player) {
+            players.remove(at: playerIndex)
+        }
+    }
+    
+    /// Creates a button that removes the specified contestant from the game
+    /// when the host clicks on it.
+    ///
+    /// - Parameter player: The contestant to remove.
+    private func removePlayerButton(for player: Player) -> some View {
+        return Button(action: { self.removePlayer(player) }) {
+            Image(systemName: "xmark")
+                .font(.system(size: 20, weight: .bold))
+                .padding(12)
+                .background(Color.red)
+                .foregroundColor(.white)
+                .clipShape(Circle())
+        }
+            .buttonStyle(PlainButtonStyle())
     }
     
     /// Uploads a clue set to the app.
