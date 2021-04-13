@@ -74,6 +74,6 @@ extension NSTextField {
 }
 
 fileprivate extension Color {
-    static let trebekGold = Color(red: 0.98, green: 0.648, blue: 0.109)
-    static let darkTrebekGold = Color(red: 0.855, green: 0.535, blue: 0.016)
+    static let trebekGold = Color(red: 0.9843, green: 0.651, blue: 0.1098)
+    static let darkTrebekGold = Color(red: 0.8588, green: 0.5373, blue: 0.0157)
 }
