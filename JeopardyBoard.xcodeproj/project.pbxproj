@@ -43,6 +43,7 @@
 		30C0ADD7260C05DA0063D58F /* ClueSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0ADD6260C05DA0063D58F /* ClueSetTests.swift */; };
 		30C0AE0826101C920063D58F /* clue-set_incorrect-category-count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30C0AE0726101C920063D58F /* clue-set_incorrect-category-count.json */; };
 		30C0AE112610225F0063D58F /* clue-set_empty-category-title.json in Resources */ = {isa = PBXBuildFile; fileRef = 30C0AE102610225F0063D58F /* clue-set_empty-category-title.json */; };
+		30E6237F26261108001D2FE4 /* PTSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E6237E26261108001D2FE4 /* PTSans-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		30C0AE0726101C920063D58F /* clue-set_incorrect-category-count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-category-count.json"; sourceTree = "<group>"; };
 		30C0AE102610225F0063D58F /* clue-set_empty-category-title.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_empty-category-title.json"; sourceTree = "<group>"; };
 		30C4C71F2608501E00AC46B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		30E6237E26261108001D2FE4 /* PTSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 		305C195B26210A5300922C9E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				30E6237E26261108001D2FE4 /* PTSans-Bold.ttf */,
 				305C196B2621137600922C9E /* PTSans-Regular.ttf */,
 				305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */,
 			);
@@ -346,6 +349,7 @@
 			files = (
 				3026555D2605564600CB1D2A /* Assets.xcassets in Resources */,
 				305C196C2621137600922C9E /* PTSans-Regular.ttf in Resources */,
+				30E6237F26261108001D2FE4 /* PTSans-Bold.ttf in Resources */,
 				305C197A2621231500922C9E /* PTSansNarrow-Bold.ttf in Resources */,
 				30C0ADC3260BC1330063D58F /* InfoPlist.strings in Resources */,
 				302655602605564600CB1D2A /* Preview Assets.xcassets in Resources */,
