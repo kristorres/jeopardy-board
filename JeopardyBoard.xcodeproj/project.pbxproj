@@ -44,6 +44,8 @@
 		30C0AE0826101C920063D58F /* clue-set_incorrect-category-count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30C0AE0726101C920063D58F /* clue-set_incorrect-category-count.json */; };
 		30C0AE112610225F0063D58F /* clue-set_empty-category-title.json in Resources */ = {isa = PBXBuildFile; fileRef = 30C0AE102610225F0063D58F /* clue-set_empty-category-title.json */; };
 		30E6237F26261108001D2FE4 /* PTSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E6237E26261108001D2FE4 /* PTSans-Bold.ttf */; };
+		30E62395262765A2001D2FE4 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E62394262765A2001D2FE4 /* GameView.swift */; };
+		30E6239B2627769A001D2FE4 /* ExampleGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E6239A2627769A001D2FE4 /* ExampleGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,8 @@
 		30C4C71F2608501E00AC46B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		30E6237E26261108001D2FE4 /* PTSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Bold.ttf"; sourceTree = "<group>"; };
 		30E6238626263912001D2FE4 /* start_a_new_game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_a_new_game.png; sourceTree = "<group>"; };
+		30E62394262765A2001D2FE4 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		30E6239A2627769A001D2FE4 /* ExampleGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				3020C442261E6AD4006257AD /* GameConfigView.swift */,
+				30E62394262765A2001D2FE4 /* GameView.swift */,
 				3026555A2605564500CB1D2A /* RootView.swift */,
 			);
 			path = Views;
@@ -262,6 +267,7 @@
 			children = (
 				3026555C2605564600CB1D2A /* Assets.xcassets */,
 				305C195B26210A5300922C9E /* Fonts */,
+				30E6239A2627769A001D2FE4 /* ExampleGame.swift */,
 				302655612605564600CB1D2A /* Info.plist */,
 				30C0ADC2260BC1330063D58F /* InfoPlist.strings */,
 				302655622605564600CB1D2A /* JeopardyBoard.entitlements */,
@@ -407,7 +413,9 @@
 				30BC65122613E3F600AF0BC2 /* Player.swift in Sources */,
 				3026555B2605564500CB1D2A /* RootView.swift in Sources */,
 				3020C443261E6AD4006257AD /* GameConfigView.swift in Sources */,
+				30E62395262765A2001D2FE4 /* GameView.swift in Sources */,
 				3020C44C261E722B006257AD /* ScaledToWindow.swift in Sources */,
+				30E6239B2627769A001D2FE4 /* ExampleGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

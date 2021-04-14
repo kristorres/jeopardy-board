@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// A view to create and start a new game of *Jeopardy!*
+/// A view to create and start a new *Jeopardy!* game.
 ///
 /// The host can upload the clue set and enter the contestants.
 struct GameConfigView: View {
@@ -79,7 +79,7 @@ struct GameConfigView: View {
                 .frame(width: 600)
             
             Spacer(minLength: 0)
-            Button("START GAME", action: {})
+            Button("START GAME", action: startGame)
                 .buttonStyle(TrebekButtonStyle())
                 .disabled(clueSet == nil || players.count < minimumPlayerCount)
         }
@@ -122,6 +122,15 @@ struct GameConfigView: View {
                 .clipShape(Circle())
         }
             .buttonStyle(PlainButtonStyle())
+    }
+    
+    /// Creates and starts a new game with the uploaded clue set and
+    /// contestants.
+    private func startGame() {
+        if let clueSet = clueSet {
+            let game = JeopardyGame(clueSet: clueSet, players: players)
+            appState.currentViewKey = .game(game)
+        }
     }
     
     /// Uploads a clue set to the app.

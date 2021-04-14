@@ -12,9 +12,13 @@ final class AppState: ObservableObject {
     /// A valid key to render a view.
     enum ViewKey {
         
-        /// The key to render a view where the user can create and start a new
-        /// game of *Jeopardy!*
+        /// The key to render a view where the host can create and start a new
+        /// *Jeopardy!* game.
         case gameConfig
+        
+        /// The key to render a view that displays an interactive *Jeopardy!*
+        /// game.
+        case game(JeopardyGame)
     }
     
     /// An error alert with a title and message.
