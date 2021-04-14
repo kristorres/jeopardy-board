@@ -9,9 +9,23 @@ struct RootView: View {
     var body: some View {
         currentView
             .scaledToWindow()
+            .background(
+                LinearGradient(
+                    gradient: Gradient(
+                        colors: [
+                            Color(red: 0.0706, green: 0.0745, blue: 0.098),
+                            Color(red: 0.0431, green: 0.1176, blue: 0.2353)
+                        ]
+                    ),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+            )
+            .ignoresSafeArea()
             .alert(item: $appState.errorAlert) {
                 Alert(title: Text($0.title), message: Text($0.message))
             }
+            .preferredColorScheme(.dark)
     }
     
     /// The currently rendered view.

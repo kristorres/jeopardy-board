@@ -10,6 +10,7 @@ struct JeopardyBoardApp: App {
         WindowGroup {
             RootView().environmentObject(appState)
         }
+            .windowStyle(HiddenTitleBarWindowStyle())
             .commands {
                 CommandGroup(replacing: .newItem, addition: {})
             }

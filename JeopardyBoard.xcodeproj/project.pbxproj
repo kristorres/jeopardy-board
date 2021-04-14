@@ -15,6 +15,9 @@
 		3026555B2605564500CB1D2A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026555A2605564500CB1D2A /* RootView.swift */; };
 		3026555D2605564600CB1D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555C2605564600CB1D2A /* Assets.xcassets */; };
 		302655602605564600CB1D2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555F2605564600CB1D2A /* Preview Assets.xcassets */; };
+		305C19442620422100922C9E /* ControlStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C19432620422100922C9E /* ControlStyles.swift */; };
+		305C196C2621137600922C9E /* PTSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 305C196B2621137600922C9E /* PTSans-Regular.ttf */; };
+		305C197A2621231500922C9E /* PTSansNarrow-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */; };
 		30BC64AE2612582600AF0BC2 /* clue-set_incorrect-clue-count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */; };
 		30BC64B226125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B126125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json */; };
 		30BC64B826125D2C00AF0BC2 /* clue-set_incorrect-point-value.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B726125D2C00AF0BC2 /* clue-set_incorrect-point-value.json */; };
@@ -40,6 +43,7 @@
 		30C0ADD7260C05DA0063D58F /* ClueSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0ADD6260C05DA0063D58F /* ClueSetTests.swift */; };
 		30C0AE0826101C920063D58F /* clue-set_incorrect-category-count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30C0AE0726101C920063D58F /* clue-set_incorrect-category-count.json */; };
 		30C0AE112610225F0063D58F /* clue-set_empty-category-title.json in Resources */ = {isa = PBXBuildFile; fileRef = 30C0AE102610225F0063D58F /* clue-set_empty-category-title.json */; };
+		30E6237F26261108001D2FE4 /* PTSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E6237E26261108001D2FE4 /* PTSans-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +69,9 @@
 		302655612605564600CB1D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		302655622605564600CB1D2A /* JeopardyBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JeopardyBoard.entitlements; sourceTree = "<group>"; };
 		3026556A26056DA600CB1D2A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		305C19432620422100922C9E /* ControlStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlStyles.swift; sourceTree = "<group>"; };
+		305C196B2621137600922C9E /* PTSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Regular.ttf"; sourceTree = "<group>"; };
+		305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSansNarrow-Bold.ttf"; sourceTree = "<group>"; };
 		30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-clue-count.json"; sourceTree = "<group>"; };
 		30BC64B126125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_multiple-daily-doubles-in-category.json"; sourceTree = "<group>"; };
 		30BC64B726125D2C00AF0BC2 /* clue-set_incorrect-point-value.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-point-value.json"; sourceTree = "<group>"; };
@@ -93,6 +100,8 @@
 		30C0AE0726101C920063D58F /* clue-set_incorrect-category-count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-category-count.json"; sourceTree = "<group>"; };
 		30C0AE102610225F0063D58F /* clue-set_empty-category-title.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_empty-category-title.json"; sourceTree = "<group>"; };
 		30C4C71F2608501E00AC46B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		30E6237E26261108001D2FE4 /* PTSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Bold.ttf"; sourceTree = "<group>"; };
+		30E6238626263912001D2FE4 /* start_a_new_game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_a_new_game.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +135,7 @@
 			children = (
 				30C4C71F2608501E00AC46B6 /* README.md */,
 				3026556A26056DA600CB1D2A /* .gitignore */,
+				30E6238526263878001D2FE4 /* Screenshots */,
 				302655572605564500CB1D2A /* JeopardyBoard */,
 				30C0ADD5260C05DA0063D58F /* JeopardyBoardTests */,
 				302655562605564500CB1D2A /* Products */,
@@ -145,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				3020C438261E2F56006257AD /* AppState.swift */,
+				305C19432620422100922C9E /* ControlStyles.swift */,
 				302655582605564500CB1D2A /* JeopardyBoardApp.swift */,
 				30C0ADCC260BE3F60063D58F /* Models */,
 				3020C44A261E7152006257AD /* View Modifiers */,
@@ -171,6 +182,16 @@
 				3026555A2605564500CB1D2A /* RootView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		305C195B26210A5300922C9E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				30E6237E26261108001D2FE4 /* PTSans-Bold.ttf */,
+				305C196B2621137600922C9E /* PTSans-Regular.ttf */,
+				305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		30BC653F261A6D8700AF0BC2 /* Extensions */ = {
@@ -240,11 +261,20 @@
 			isa = PBXGroup;
 			children = (
 				3026555C2605564600CB1D2A /* Assets.xcassets */,
+				305C195B26210A5300922C9E /* Fonts */,
 				302655612605564600CB1D2A /* Info.plist */,
 				30C0ADC2260BC1330063D58F /* InfoPlist.strings */,
 				302655622605564600CB1D2A /* JeopardyBoard.entitlements */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		30E6238526263878001D2FE4 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				30E6238626263912001D2FE4 /* start_a_new_game.png */,
+			);
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +358,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3026555D2605564600CB1D2A /* Assets.xcassets in Resources */,
+				305C196C2621137600922C9E /* PTSans-Regular.ttf in Resources */,
+				30E6237F26261108001D2FE4 /* PTSans-Bold.ttf in Resources */,
+				305C197A2621231500922C9E /* PTSansNarrow-Bold.ttf in Resources */,
 				30C0ADC3260BC1330063D58F /* InfoPlist.strings in Resources */,
 				302655602605564600CB1D2A /* Preview Assets.xcassets in Resources */,
 			);
@@ -363,6 +396,7 @@
 			files = (
 				302655592605564500CB1D2A /* JeopardyBoardApp.swift in Sources */,
 				3020C439261E2F56006257AD /* AppState.swift in Sources */,
+				305C19442620422100922C9E /* ControlStyles.swift in Sources */,
 				30BC64F02612A17A00AF0BC2 /* Array+Identifiable.swift in Sources */,
 				30BC6543261A6E0C00AF0BC2 /* String+Trimmed.swift in Sources */,
 				30BC65082613D82E00AF0BC2 /* Category.swift in Sources */,
