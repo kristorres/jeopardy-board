@@ -47,6 +47,9 @@
 		30E62395262765A2001D2FE4 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E62394262765A2001D2FE4 /* GameView.swift */; };
 		30E6239B2627769A001D2FE4 /* ExampleGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E6239A2627769A001D2FE4 /* ExampleGame.swift */; };
 		30E623A42627DB1F001D2FE4 /* JeopardyGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E623A32627DB1F001D2FE4 /* JeopardyGameViewModel.swift */; };
+		30E623AD2628E6F2001D2FE4 /* JeopardyBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E623AC2628E6F2001D2FE4 /* JeopardyBoardView.swift */; };
+		30E623B32628F4D4001D2FE4 /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E623B22628F4D4001D2FE4 /* Impact.ttf */; };
+		30E623B72628FC24001D2FE4 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E623B62628FC24001D2FE4 /* CustomColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +112,9 @@
 		30E6239A2627769A001D2FE4 /* ExampleGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleGame.swift; sourceTree = "<group>"; };
 		30E623A32627DB1F001D2FE4 /* JeopardyGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeopardyGameViewModel.swift; sourceTree = "<group>"; };
 		30E623AB2628CF52001D2FE4 /* game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game.png; sourceTree = "<group>"; };
+		30E623AC2628E6F2001D2FE4 /* JeopardyBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeopardyBoardView.swift; sourceTree = "<group>"; };
+		30E623B22628F4D4001D2FE4 /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
+		30E623B62628FC24001D2FE4 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +169,7 @@
 			children = (
 				3020C438261E2F56006257AD /* AppState.swift */,
 				305C19432620422100922C9E /* ControlStyles.swift */,
+				30E623B62628FC24001D2FE4 /* CustomColors.swift */,
 				302655582605564500CB1D2A /* JeopardyBoardApp.swift */,
 				30C0ADCC260BE3F60063D58F /* Models */,
 				30E623A22627D90F001D2FE4 /* View Models */,
@@ -188,6 +195,7 @@
 			children = (
 				3020C442261E6AD4006257AD /* GameConfigView.swift */,
 				30E62394262765A2001D2FE4 /* GameView.swift */,
+				30E623AC2628E6F2001D2FE4 /* JeopardyBoardView.swift */,
 				3026555A2605564500CB1D2A /* RootView.swift */,
 			);
 			path = Views;
@@ -196,6 +204,7 @@
 		305C195B26210A5300922C9E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				30E623B22628F4D4001D2FE4 /* Impact.ttf */,
 				30E6237E26261108001D2FE4 /* PTSans-Bold.ttf */,
 				305C196B2621137600922C9E /* PTSans-Regular.ttf */,
 				305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */,
@@ -380,6 +389,7 @@
 				305C196C2621137600922C9E /* PTSans-Regular.ttf in Resources */,
 				30E6237F26261108001D2FE4 /* PTSans-Bold.ttf in Resources */,
 				305C197A2621231500922C9E /* PTSansNarrow-Bold.ttf in Resources */,
+				30E623B32628F4D4001D2FE4 /* Impact.ttf in Resources */,
 				30C0ADC3260BC1330063D58F /* InfoPlist.strings in Resources */,
 				302655602605564600CB1D2A /* Preview Assets.xcassets in Resources */,
 			);
@@ -415,6 +425,7 @@
 			files = (
 				302655592605564500CB1D2A /* JeopardyBoardApp.swift in Sources */,
 				3020C439261E2F56006257AD /* AppState.swift in Sources */,
+				30E623B72628FC24001D2FE4 /* CustomColors.swift in Sources */,
 				305C19442620422100922C9E /* ControlStyles.swift in Sources */,
 				30BC64F02612A17A00AF0BC2 /* Array+Identifiable.swift in Sources */,
 				30BC6543261A6E0C00AF0BC2 /* String+Trimmed.swift in Sources */,
@@ -428,6 +439,7 @@
 				3026555B2605564500CB1D2A /* RootView.swift in Sources */,
 				3020C443261E6AD4006257AD /* GameConfigView.swift in Sources */,
 				30E62395262765A2001D2FE4 /* GameView.swift in Sources */,
+				30E623AD2628E6F2001D2FE4 /* JeopardyBoardView.swift in Sources */,
 				3020C44C261E722B006257AD /* ScaledToWindow.swift in Sources */,
 				30E6239B2627769A001D2FE4 /* ExampleGame.swift in Sources */,
 			);

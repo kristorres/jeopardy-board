@@ -14,11 +14,8 @@ struct GameView: View {
                     .scaledToFit()
                     .frame(height: 100)
                     .padding()
-                Text("Board View")
-                    .font(.largeTitle)
-                    .foregroundColor(.white)
+                JeopardyBoardView(viewModel: viewModel)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.blue)
             }
                 .frame(maxWidth: .infinity)
                 .padding([.leading, .trailing, .bottom])
