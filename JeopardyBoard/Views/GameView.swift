@@ -7,7 +7,28 @@ struct GameView: View {
     @ObservedObject var viewModel: JeopardyGameViewModel
     
     var body: some View {
-        Image("jeopardy-logo").resizable().scaledToFit().frame(width: 800)
+        HStack(spacing: 0) {
+            VStack(spacing: 0) {
+                Image("jeopardy-logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 100)
+                    .padding()
+                Text("Board View")
+                    .font(.largeTitle)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.blue)
+            }
+                .frame(maxWidth: .infinity)
+                .padding([.leading, .trailing, .bottom])
+            Text("Players View")
+                .font(.largeTitle)
+                .foregroundColor(.white)
+                .frame(width: 300)
+                .frame(maxHeight: .infinity)
+                .background(Color.purple)
+        }
     }
 }
 

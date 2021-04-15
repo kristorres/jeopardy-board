@@ -108,6 +108,7 @@
 		30E62394262765A2001D2FE4 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		30E6239A2627769A001D2FE4 /* ExampleGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleGame.swift; sourceTree = "<group>"; };
 		30E623A32627DB1F001D2FE4 /* JeopardyGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeopardyGameViewModel.swift; sourceTree = "<group>"; };
+		30E623AB2628CF52001D2FE4 /* game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +282,7 @@
 		30E6238526263878001D2FE4 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
+				30E623AB2628CF52001D2FE4 /* game.png */,
 				30E6238626263912001D2FE4 /* start_a_new_game.png */,
 			);
 			path = Screenshots;
