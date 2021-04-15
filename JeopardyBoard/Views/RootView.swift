@@ -31,8 +31,10 @@ struct RootView: View {
     /// The currently rendered view.
     @ViewBuilder private var currentView: some View {
         switch appState.currentViewKey {
-        case .gameConfig: GameConfigView()
-        case .game(let game): GameView(game: game)
+        case .gameConfig:
+            GameConfigView()
+        case .game(let game):
+            GameView(viewModel: JeopardyGameViewModel(game: game))
         }
     }
 }

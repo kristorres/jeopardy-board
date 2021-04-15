@@ -46,6 +46,7 @@
 		30E6237F26261108001D2FE4 /* PTSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E6237E26261108001D2FE4 /* PTSans-Bold.ttf */; };
 		30E62395262765A2001D2FE4 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E62394262765A2001D2FE4 /* GameView.swift */; };
 		30E6239B2627769A001D2FE4 /* ExampleGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E6239A2627769A001D2FE4 /* ExampleGame.swift */; };
+		30E623A42627DB1F001D2FE4 /* JeopardyGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E623A32627DB1F001D2FE4 /* JeopardyGameViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		30E6238626263912001D2FE4 /* start_a_new_game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_a_new_game.png; sourceTree = "<group>"; };
 		30E62394262765A2001D2FE4 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		30E6239A2627769A001D2FE4 /* ExampleGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleGame.swift; sourceTree = "<group>"; };
+		30E623A32627DB1F001D2FE4 /* JeopardyGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeopardyGameViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				305C19432620422100922C9E /* ControlStyles.swift */,
 				302655582605564500CB1D2A /* JeopardyBoardApp.swift */,
 				30C0ADCC260BE3F60063D58F /* Models */,
+				30E623A22627D90F001D2FE4 /* View Models */,
 				3020C44A261E7152006257AD /* View Modifiers */,
 				3026556C2605715F00CB1D2A /* Views */,
 				30BC653F261A6D8700AF0BC2 /* Extensions */,
@@ -281,6 +284,14 @@
 				30E6238626263912001D2FE4 /* start_a_new_game.png */,
 			);
 			path = Screenshots;
+			sourceTree = "<group>";
+		};
+		30E623A22627D90F001D2FE4 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				30E623A32627DB1F001D2FE4 /* JeopardyGameViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +422,7 @@
 				30BC650E2613DE8400AF0BC2 /* FinalJeopardyClue.swift in Sources */,
 				30C0ADCE260BE46F0063D58F /* JeopardyGame.swift in Sources */,
 				30BC65122613E3F600AF0BC2 /* Player.swift in Sources */,
+				30E623A42627DB1F001D2FE4 /* JeopardyGameViewModel.swift in Sources */,
 				3026555B2605564500CB1D2A /* RootView.swift in Sources */,
 				3020C443261E6AD4006257AD /* GameConfigView.swift in Sources */,
 				30E62395262765A2001D2FE4 /* GameView.swift in Sources */,
