@@ -75,21 +75,19 @@ struct JeopardyGame: Codable {
     /// If there is currently no selected clue, or this game is currently in the
     /// Final Jeopardy! round, then this method will do nothing.
     mutating func markSelectedClueAsDone() {
-        if selectedClue == nil {
+        guard let selectedClue = self.selectedClue else {
             return
         }
         switch currentRound {
         case .jeopardy:
-            selectedClue = nil
+            self.selectedClue = nil
             for categoryIndex in jeopardyRoundCategories.indices {
-                let category = jeopardyRoundCategories[categoryIndex]
-                for clueIndex in category.clues.indices {
-                    let clue = category.clues[clueIndex]
-                    if !clue.isDone {
+                let clues = jeopardyRoundCategories[categoryIndex].clues
+                if let clueIndex = clues.firstIndex(matching: selectedClue) {
+                    if !clues[clueIndex].isDone {
                         jeopardyRoundCategories[categoryIndex]
                             .clues[clueIndex]
                             .isDone = true
-                        return
                     }
                 }
             }
