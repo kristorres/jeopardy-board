@@ -50,11 +50,7 @@ struct ClueView: View {
             }
             else {
                 BlueSlide {
-                    Text(clue.answer.uppercased())
-                        .font(.custom("ITC Korinna Regular", size: 64))
-                        .foregroundColor(.white)
-                        .shadow(color: .black, radius: 0, x: 4, y: 4)
-                        .multilineTextAlignment(.center)
+                    Text(clue.answer.uppercased()).formatForClue()
                 }
                     .onTapGesture {
                         self.answerIsVisible = false
@@ -63,11 +59,7 @@ struct ClueView: View {
         }
         else {
             BlueSlide {
-                Text(clue.correctResponse.uppercased())
-                    .font(.custom("ITC Korinna Regular", size: 64))
-                    .foregroundColor(.white)
-                    .shadow(color: .black, radius: 0, x: 4, y: 4)
-                    .multilineTextAlignment(.center)
+                Text(clue.correctResponse.uppercased()).formatForClue()
             }
                 .onTapGesture(perform: onExit)
         }
@@ -86,6 +78,20 @@ struct ClueView: View {
             return nil
         }
         return Image(nsImage: nsImage)
+    }
+}
+
+fileprivate extension Text {
+    
+    /// Formats this text view for a clue.
+    ///
+    /// - Returns: The formatted text.
+    func formatForClue() -> some View {
+        return self
+            .font(.custom("ITC Korinna Regular", size: 64))
+            .foregroundColor(.white)
+            .shadow(color: .black, radius: 0, x: 4, y: 4)
+            .multilineTextAlignment(.center)
     }
 }
 
