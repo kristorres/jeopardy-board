@@ -33,7 +33,8 @@ struct FinalJeopardyClueView: View {
         let clue = Clue(
             pointValue: 0,
             answer: clue.answer,
-            correctResponse: clue.correctResponse
+            correctResponse: clue.correctResponse,
+            image: clue.image
         )
         self.clueView = ClueView(clue: clue, onExit: onExit)
     }

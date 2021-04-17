@@ -228,6 +228,9 @@ fileprivate extension ClueSet.ValidationError {
             return "The “answer” of the Final Jeopardy! clue is empty."
         case .emptyFinalJeopardyCorrectResponse:
             return "The correct response to the Final Jeopardy! clue is empty."
+        case .emptyFinalJeopardyImage:
+            return "The accompanying image filename for the Final Jeopardy! "
+                + "clue is empty."
         }
     }
 }
