@@ -13,7 +13,7 @@ struct JeopardyBoardView: View {
         HStack(spacing: gridItemSpacing) {
             ForEach(viewModel.jeopardyRoundCategories) { category in
                 VStack(spacing: gridItemSpacing) {
-                    Text(category.title.uppercased())
+                    Text(category.isDone ? "" : category.title.uppercased())
                         .font(.custom("Impact", size: 28))
                         .foregroundColor(.white)
                         .shadow(color: .black, radius: 0, x: 4, y: 4)
@@ -22,18 +22,24 @@ struct JeopardyBoardView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(Color.trebekBlue)
                     ForEach(category.clues) { clue in
-                        Text(String(clue.pointValue))
+                        Text(clue.isDone ? "" : String(clue.pointValue))
                             .font(.custom("Impact", size: 64))
                             .foregroundColor(.trebekGold)
                             .shadow(color: .black, radius: 0, x: 4, y: 4)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .background(Color.trebekBlue)
+                            .onTapGesture {
+                                if !clue.isDone {
+                                    self.viewModel.selectClue(clue)
+                                }
+                            }
                     }
                 }
                     
             }
         }
             .frame(minWidth: 1200, minHeight: 700)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(gridItemSpacing)
             .background(Color.black)
     }

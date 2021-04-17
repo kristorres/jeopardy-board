@@ -14,8 +14,14 @@ struct GameView: View {
                     .scaledToFit()
                     .frame(height: 100)
                     .padding()
-                JeopardyBoardView(viewModel: viewModel)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                if let clue = viewModel.selectedClue {
+                    ClueView(clue: clue) {
+                        self.viewModel.markSelectedClueAsDone()
+                    }
+                }
+                else {
+                    JeopardyBoardView(viewModel: viewModel)
+                }
             }
                 .frame(maxWidth: .infinity)
                 .padding([.leading, .trailing, .bottom])
