@@ -74,6 +74,9 @@ struct JeopardyGame: Codable {
     ///
     /// If there is currently no selected clue, or this game is currently in the
     /// Final Jeopardy! round, then this method will do nothing.
+    ///
+    /// Finally, if all categories are finished, then the game will move to the
+    /// Final Jeopardy! round.
     mutating func markSelectedClueAsDone() {
         guard let selectedClue = self.selectedClue else {
             return
@@ -93,6 +96,9 @@ struct JeopardyGame: Codable {
             }
             for playerIndex in players.indices {
                 players[playerIndex].hasRespondedToCurrentClue = false
+            }
+            if jeopardyRoundCategories.allSatisfy({ $0.isDone }) {
+                currentRound = .finalJeopardy
             }
         case .finalJeopardy:
             return

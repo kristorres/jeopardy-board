@@ -63,6 +63,9 @@ final class JeopardyGameViewModel: ObservableObject {
     ///
     /// If there is currently no selected clue, or the game is currently in the
     /// Final Jeopardy! round, then this method will do nothing.
+    ///
+    /// Finally, if all categories are finished, then the game will move to the
+    /// Final Jeopardy! round.
     func markSelectedClueAsDone() {
         game.markSelectedClueAsDone()
     }
