@@ -14,7 +14,10 @@ struct GameView: View {
                     .scaledToFit()
                     .frame(height: 100)
                     .padding()
-                if let clue = viewModel.selectedClue {
+                if viewModel.currentRound == .finalJeopardy {
+                    FinalJeopardyClueView(clue: viewModel.finalJeopardyClue)
+                }
+                else if let clue = viewModel.selectedClue {
                     ClueView(clue: clue) {
                         self.viewModel.markSelectedClueAsDone()
                     }

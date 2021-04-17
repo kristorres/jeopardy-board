@@ -18,6 +18,7 @@
 		305C19442620422100922C9E /* ControlStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C19432620422100922C9E /* ControlStyles.swift */; };
 		305C196C2621137600922C9E /* PTSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 305C196B2621137600922C9E /* PTSans-Regular.ttf */; };
 		305C197A2621231500922C9E /* PTSansNarrow-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */; };
+		3092441A262A972E001EB535 /* FinalJeopardyClueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30924419262A972E001EB535 /* FinalJeopardyClueView.swift */; };
 		30BC64AE2612582600AF0BC2 /* clue-set_incorrect-clue-count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */; };
 		30BC64B226125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B126125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json */; };
 		30BC64B826125D2C00AF0BC2 /* clue-set_incorrect-point-value.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B726125D2C00AF0BC2 /* clue-set_incorrect-point-value.json */; };
@@ -82,6 +83,7 @@
 		305C19432620422100922C9E /* ControlStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlStyles.swift; sourceTree = "<group>"; };
 		305C196B2621137600922C9E /* PTSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Regular.ttf"; sourceTree = "<group>"; };
 		305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSansNarrow-Bold.ttf"; sourceTree = "<group>"; };
+		30924419262A972E001EB535 /* FinalJeopardyClueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalJeopardyClueView.swift; sourceTree = "<group>"; };
 		30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-clue-count.json"; sourceTree = "<group>"; };
 		30BC64B126125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_multiple-daily-doubles-in-category.json"; sourceTree = "<group>"; };
 		30BC64B726125D2C00AF0BC2 /* clue-set_incorrect-point-value.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-point-value.json"; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 			children = (
 				30E623C6262A1290001D2FE4 /* BlueSlide.swift */,
 				30E623BC2629087C001D2FE4 /* ClueView.swift */,
+				30924419262A972E001EB535 /* FinalJeopardyClueView.swift */,
 				30E623CC262A1DE0001D2FE4 /* ImageSlide.swift */,
 				30E623AC2628E6F2001D2FE4 /* JeopardyBoardView.swift */,
 			);
@@ -462,6 +465,7 @@
 				30E62395262765A2001D2FE4 /* GameView.swift in Sources */,
 				30E623AD2628E6F2001D2FE4 /* JeopardyBoardView.swift in Sources */,
 				30E623BD2629087C001D2FE4 /* ClueView.swift in Sources */,
+				3092441A262A972E001EB535 /* FinalJeopardyClueView.swift in Sources */,
 				30E623C7262A1291001D2FE4 /* BlueSlide.swift in Sources */,
 				30E623CD262A1DE0001D2FE4 /* ImageSlide.swift in Sources */,
 				3020C44C261E722B006257AD /* View+Scales.swift in Sources */,
