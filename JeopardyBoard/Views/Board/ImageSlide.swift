@@ -10,8 +10,7 @@ struct ImageSlide: View {
         image
             .resizable()
             .scaledToFill()
-            .frame(minWidth: 1200, minHeight: 700)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .scaledToGameBoard()
             .clipped()
     }
 }

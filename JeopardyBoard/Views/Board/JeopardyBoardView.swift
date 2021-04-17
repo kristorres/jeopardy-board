@@ -38,8 +38,7 @@ struct JeopardyBoardView: View {
                     
             }
         }
-            .frame(minWidth: 1200, minHeight: 700)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .scaledToGameBoard()
             .padding(gridItemSpacing)
             .background(Color.black)
     }

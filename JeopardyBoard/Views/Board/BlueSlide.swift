@@ -12,8 +12,7 @@ struct BlueSlide<Content>: View where Content: View {
         content()
             .padding(.vertical, 40)
             .padding(.horizontal, 80)
-            .frame(minWidth: 1200, minHeight: 700)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .scaledToGameBoard()
             .background(Color.trebekBlue)
     }
 }
