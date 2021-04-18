@@ -6,6 +6,9 @@ struct GameView: View {
     /// The view model that binds this view to a *Jeopardy!* game.
     @ObservedObject var viewModel: JeopardyGameViewModel
     
+    /// The contestant name search text.
+    @State private var playerNameSearchText = ""
+    
     var body: some View {
         HStack(spacing: 0) {
             VStack(spacing: 0) {
@@ -28,12 +31,36 @@ struct GameView: View {
             }
                 .frame(maxWidth: .infinity)
                 .padding([.leading, .trailing, .bottom])
-            Text("Players View")
-                .font(.largeTitle)
-                .foregroundColor(.white)
+            VStack(spacing: 0) {
+                TextField("Contestant Search", text: $playerNameSearchText)
+                    .textFieldStyle(TrebekTextFieldStyle())
+                    .padding()
+                Divider()
+                ScrollView(.vertical) {
+                    ForEach(players) {
+                        PlayerView(player: $0, viewModel: viewModel)
+                    }
+                }
+                    .frame(maxWidth: .infinity)
+            }
                 .frame(width: 300)
                 .frame(maxHeight: .infinity)
-                .background(Color.purple)
+                .background(Color("Player List Panel Background"))
+        }
+    }
+    
+    /// The filtered contestants as a result of the name search.
+    private var players: [Player] {
+        viewModel.players.filter { player in
+            if viewModel.currentRound == .finalJeopardy {
+                return player.score > 0
+            }
+            let searchText = playerNameSearchText.uppercased().trimmed
+            if searchText.isEmpty {
+                return true
+            }
+            let uppercasePlayerName = player.name.uppercased()
+            return uppercasePlayerName.contains(searchText)
         }
     }
 }

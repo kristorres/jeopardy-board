@@ -9,7 +9,7 @@ Jeopardy! Board
     </a>
 </p>
 
-![Start a New Game Screen](Screenshots/start_a_new_game.png)
+![Start a New Game Screen](Screenshots/game.png)
 
 A *Jeopardy!* game board interface used at (virtual) office happy hours, trivia
 nights, or other fun events.
