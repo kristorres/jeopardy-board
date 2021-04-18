@@ -1,6 +1,6 @@
 import Foundation
 
-/// A clue set for a game of *Jeopardy!*
+/// A clue set for a *Jeopardy!* game.
 struct ClueSet: Codable {
     
     /// The categories in the Jeopardy! round.

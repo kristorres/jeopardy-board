@@ -1,6 +1,6 @@
 import Foundation
 
-/// A contestant in a game of *Jeopardy!*
+/// A player in a *Jeopardy!* game.
 struct Player: Codable, Identifiable {
     
     let id = "PLAYER-\(UUID())"
@@ -14,10 +14,10 @@ struct Player: Codable, Identifiable {
     /// Indicates whether this player can select a clue.
     var canSelectClue: Bool = false
     
-    /// Indicates whether this player has given a response to the current clue.
-    var hasRespondedToCurrentClue: Bool = false
+    /// Indicates whether this player can respond to the current clue.
+    var canRespondToCurrentClue: Bool = false
     
-    /// Creates a contestant with the specified name and score.
+    /// Creates a player with the specified name and score.
     ///
     /// This initializer stores a trimmed version of his/her `name`.
     ///

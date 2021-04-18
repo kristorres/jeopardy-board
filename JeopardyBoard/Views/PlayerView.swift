@@ -65,13 +65,7 @@ struct PlayerView: View {
     
     /// Indicates whether the response buttons are disabled.
     private var responseButtonsAreDisabled: Bool {
-        if player.hasRespondedToCurrentClue {
-            return true
-        }
-        if let selectedClue = viewModel.selectedClue {
-            return selectedClue.isDailyDouble && !player.canSelectClue
-        }
-        return true
+        !player.canRespondToCurrentClue
     }
     
     /// The score color.
