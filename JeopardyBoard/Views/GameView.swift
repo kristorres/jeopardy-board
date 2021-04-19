@@ -9,6 +9,9 @@ struct GameView: View {
     /// The contestant name search text.
     @State private var playerNameSearchText = ""
     
+    /// The info of the error alert that is currently presented onscreen.
+    @State private var errorAlertInfo: ErrorAlertItem?
+    
     var body: some View {
         HStack(spacing: 0) {
             VStack(spacing: 0) {
@@ -38,7 +41,11 @@ struct GameView: View {
                 Divider()
                 ScrollView(.vertical) {
                     ForEach(players) {
-                        PlayerView(player: $0, viewModel: viewModel)
+                        PlayerView(
+                            player: $0,
+                            viewModel: viewModel,
+                            errorAlertInfo: $errorAlertInfo
+                        )
                     }
                 }
                     .frame(maxWidth: .infinity)
@@ -47,6 +54,9 @@ struct GameView: View {
                 .frame(maxHeight: .infinity)
                 .background(Color("Player List Panel Background"))
         }
+            .alert(item: $errorAlertInfo) {
+                Alert(title: Text($0.title), message: Text($0.message))
+            }
     }
     
     /// The filtered contestants as a result of the name search.

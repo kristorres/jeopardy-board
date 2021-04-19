@@ -22,9 +22,6 @@ struct RootView: View {
                 )
             )
             .ignoresSafeArea()
-            .alert(item: $appState.errorAlert) {
-                Alert(title: Text($0.title), message: Text($0.message))
-            }
             .preferredColorScheme(.dark)
     }
     

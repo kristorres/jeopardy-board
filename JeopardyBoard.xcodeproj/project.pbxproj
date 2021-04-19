@@ -18,6 +18,7 @@
 		305C19442620422100922C9E /* ControlStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C19432620422100922C9E /* ControlStyles.swift */; };
 		305C196C2621137600922C9E /* PTSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 305C196B2621137600922C9E /* PTSans-Regular.ttf */; };
 		305C197A2621231500922C9E /* PTSansNarrow-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */; };
+		3085D4B8262E0F9E00687D5A /* ErrorAlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085D4B7262E0F9E00687D5A /* ErrorAlertItem.swift */; };
 		3092441A262A972E001EB535 /* FinalJeopardyClueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30924419262A972E001EB535 /* FinalJeopardyClueView.swift */; };
 		30924422262AA9CA001EB535 /* clue-set_empty-final-jeopardy-image.json in Resources */ = {isa = PBXBuildFile; fileRef = 30924421262AA9CA001EB535 /* clue-set_empty-final-jeopardy-image.json */; };
 		3092442D262B8D1B001EB535 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092442C262B8D1B001EB535 /* PlayerView.swift */; };
@@ -85,6 +86,7 @@
 		305C19432620422100922C9E /* ControlStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlStyles.swift; sourceTree = "<group>"; };
 		305C196B2621137600922C9E /* PTSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Regular.ttf"; sourceTree = "<group>"; };
 		305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSansNarrow-Bold.ttf"; sourceTree = "<group>"; };
+		3085D4B7262E0F9E00687D5A /* ErrorAlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertItem.swift; sourceTree = "<group>"; };
 		30924419262A972E001EB535 /* FinalJeopardyClueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalJeopardyClueView.swift; sourceTree = "<group>"; };
 		30924421262AA9CA001EB535 /* clue-set_empty-final-jeopardy-image.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "clue-set_empty-final-jeopardy-image.json"; sourceTree = "<group>"; };
 		3092442C262B8D1B001EB535 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				3020C438261E2F56006257AD /* AppState.swift */,
 				305C19432620422100922C9E /* ControlStyles.swift */,
 				30E623B62628FC24001D2FE4 /* CustomColors.swift */,
+				3085D4B7262E0F9E00687D5A /* ErrorAlertItem.swift */,
 				302655582605564500CB1D2A /* JeopardyBoardApp.swift */,
 				30C0ADCC260BE3F60063D58F /* Models */,
 				30E623A22627D90F001D2FE4 /* View Models */,
@@ -456,6 +459,7 @@
 			files = (
 				302655592605564500CB1D2A /* JeopardyBoardApp.swift in Sources */,
 				3020C439261E2F56006257AD /* AppState.swift in Sources */,
+				3085D4B8262E0F9E00687D5A /* ErrorAlertItem.swift in Sources */,
 				30E623B72628FC24001D2FE4 /* CustomColors.swift in Sources */,
 				305C19442620422100922C9E /* ControlStyles.swift in Sources */,
 				30BC64F02612A17A00AF0BC2 /* Array+Identifiable.swift in Sources */,

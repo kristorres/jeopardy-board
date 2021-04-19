@@ -6,11 +6,12 @@ struct PlayerView: View {
     /// The contestant.
     let player: Player
     
-    /// The global app state.
-    @EnvironmentObject private var appState: AppState
-    
     /// The view model that binds this view to a *Jeopardy!* game.
     @ObservedObject var viewModel: JeopardyGameViewModel
+    
+    /// A binding to the info of the error alert that is currently presented
+    /// onscreen.
+    @Binding var errorAlertInfo: ErrorAlertItem?
     
     /// Indicates whether the contestant’s score is currently being edited.
     @State private var editModeIsEnabled = false
@@ -85,7 +86,7 @@ struct PlayerView: View {
             editModeIsEnabled = false
             return
         }
-        self.appState.errorAlert = AppState.ErrorAlert(
+        errorAlertInfo = ErrorAlertItem(
             title: "Invalid Input",
             message: "The value entered is not a valid score. Please try again."
         )
@@ -107,7 +108,11 @@ struct PlayerView: View {
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = JeopardyGameViewModel(game: exampleGame)
-        return PlayerView(player: exampleGame.players[1], viewModel: viewModel)
+        return PlayerView(
+            player: exampleGame.players[1],
+            viewModel: viewModel,
+            errorAlertInfo: .constant(nil)
+        )
             .frame(width: 300)
     }
 }

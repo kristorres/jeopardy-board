@@ -20,6 +20,9 @@ struct GameConfigView: View {
     /// The name of the new contestant to add.
     @State private var newPlayerName = ""
     
+    /// The info of the error alert that is currently presented onscreen.
+    @State private var errorAlertInfo: ErrorAlertItem?
+    
     /// The minimum number of contestants in a game.
     private let minimumPlayerCount = 3
     
@@ -84,6 +87,9 @@ struct GameConfigView: View {
                 .disabled(clueSet == nil || players.count < minimumPlayerCount)
         }
             .padding(48)
+            .alert(item: $errorAlertInfo) {
+                Alert(title: Text($0.title), message: Text($0.message))
+            }
     }
     
     /// Adds a new contestant to the game.
@@ -156,19 +162,19 @@ struct GameConfigView: View {
                 self.clueSetFilename = clueSetURL.lastPathComponent
             }
             catch let validationError as ClueSet.ValidationError {
-                self.appState.errorAlert = AppState.ErrorAlert(
+                errorAlertInfo = ErrorAlertItem(
                     title: "Invalid Clue Set",
                     message: validationError.message
                 )
             }
             catch DecodingError.keyNotFound(let codingKey, _) {
-                self.appState.errorAlert = AppState.ErrorAlert(
+                errorAlertInfo = ErrorAlertItem(
                     title: "Parsing Error",
                     message: codingKey.description
                 )
             }
             catch DecodingError.dataCorrupted(let context) {
-                self.appState.errorAlert = AppState.ErrorAlert(
+                errorAlertInfo = ErrorAlertItem(
                     title: "Parsing Error",
                     message: context.debugDescription
                 )
