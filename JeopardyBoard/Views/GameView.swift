@@ -40,6 +40,7 @@ struct GameView: View {
                     ClueView(clue: clue) {
                         self.viewModel.markSelectedClueAsDone()
                         self.dailyDoubleIsAlreadySelected = false
+                        self.onSubmitWager = nil
                     }
                         .onAppear {
                             if clue.isDailyDouble {
@@ -123,7 +124,7 @@ struct GameView: View {
             return
         }
         if wagerText.trimmed.isEmpty {
-            
+            return
         }
         guard let wager = Int(wagerText.trimmed) else {
             errorAlertInfo = ErrorAlertItem(
