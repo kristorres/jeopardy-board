@@ -6,8 +6,21 @@ struct GameView: View {
     /// The view model that binds this view to a *Jeopardy!* game.
     @ObservedObject var viewModel: JeopardyGameViewModel
     
+    /// Indicates whether a Daily Double clue is already selected.
+    @State private var dailyDoubleIsAlreadySelected = false
+    
     /// The contestant name search text.
     @State private var playerNameSearchText = ""
+    
+    /// The wager text.
+    @State private var wagerText = ""
+    
+    /// The action to perform when a contestant’s wager is submitted.
+    @State private var onSubmitWager: ((Int) throws -> Void)? {
+        didSet {
+            wagerText = ""
+        }
+    }
     
     /// The info of the error alert that is currently presented onscreen.
     @State private var errorAlertInfo: ErrorAlertItem?
@@ -26,7 +39,17 @@ struct GameView: View {
                 else if let clue = viewModel.selectedClue {
                     ClueView(clue: clue) {
                         self.viewModel.markSelectedClueAsDone()
+                        self.dailyDoubleIsAlreadySelected = false
                     }
+                        .onAppear {
+                            if clue.isDailyDouble {
+                                if self.dailyDoubleIsAlreadySelected {
+                                    return
+                                }
+                                self.displayWagerSection()
+                                self.dailyDoubleIsAlreadySelected = true
+                            }
+                        }
                 }
                 else {
                     JeopardyBoardView(viewModel: viewModel)
@@ -35,6 +58,21 @@ struct GameView: View {
                 .frame(maxWidth: .infinity)
                 .padding([.leading, .trailing, .bottom])
             VStack(spacing: 0) {
+                if onSubmitWager != nil {
+                    HStack {
+                        TextField(
+                            "Wager",
+                            text: $wagerText,
+                            onCommit: submitWager
+                        )
+                            .textFieldStyle(TrebekTextFieldStyle())
+                        Button("CONFIRM", action: submitWager)
+                            .buttonStyle(TrebekButtonStyle())
+                            .disabled(wagerText.trimmed.isEmpty)
+                    }
+                        .padding()
+                    Divider()
+                }
                 TextField("Contestant Search", text: $playerNameSearchText)
                     .textFieldStyle(TrebekTextFieldStyle())
                     .padding()
@@ -44,6 +82,7 @@ struct GameView: View {
                         PlayerView(
                             player: $0,
                             viewModel: viewModel,
+                            onSubmitWager: $onSubmitWager,
                             errorAlertInfo: $errorAlertInfo
                         )
                     }
@@ -71,6 +110,57 @@ struct GameView: View {
             }
             let uppercasePlayerName = player.name.uppercased()
             return uppercasePlayerName.contains(searchText)
+        }
+    }
+    
+    /// Displays the wager section above the list of contestants.
+    private func displayWagerSection() {
+        onSubmitWager = {
+            try self.viewModel.setDailyDoubleWager(to: $0)
+        }
+    }
+    
+    /// Submits a contestant’s wager.
+    private func submitWager() {
+        guard let onSubmitWager = self.onSubmitWager else {
+            return
+        }
+        if wagerText.trimmed.isEmpty {
+            
+        }
+        guard let wager = Int(wagerText.trimmed) else {
+            errorAlertInfo = ErrorAlertItem(
+                title: "Invalid Input",
+                message: "The value entered is not a valid wager. "
+                    + "Please try again."
+            )
+            return
+        }
+        do {
+            try onSubmitWager(wager)
+            self.onSubmitWager = nil
+        }
+        catch let invalidWagerError as JeopardyGame.InvalidWagerError {
+            errorAlertInfo = ErrorAlertItem(
+                title: "Invalid Wager",
+                message: invalidWagerError.message
+            )
+        }
+        catch {
+        }
+    }
+}
+
+fileprivate extension JeopardyGame.InvalidWagerError {
+    
+    /// The error message.
+    var message: String {
+        switch self {
+        case .forbidden:
+            return "You are forbidden from wagering that amount!"
+        case .outOfRange(let minimumWager, let maximumWager):
+            return "The wager must be between "
+                + "\(minimumWager) and \(maximumWager)."
         }
     }
 }
