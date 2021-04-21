@@ -13,11 +13,19 @@ struct JeopardyGame: Codable {
     /// The Final Jeopardy! clue.
     let finalJeopardyClue: FinalJeopardyClue
     
-    /// The contestants in this game of *Jeopardy!*
+    /// The contestants in this *Jeopardy!* game.
     private(set) var players: [Player]
     
-    /// The current round in this game of *Jeopardy!*
-    var currentRound: Round = .jeopardy
+    /// The current round in this *Jeopardy!* game.
+    private(set) var currentRound: Round = .jeopardy {
+        didSet {
+            if currentRound == .finalJeopardy {
+                players = players.filter {
+                    $0.score > 0
+                }
+            }
+        }
+    }
     
     /// The selected clue.
     private(set) var selectedClue: Clue?
@@ -74,27 +82,28 @@ struct JeopardyGame: Codable {
     ///
     /// If there is currently no selected clue, or this game is currently in the
     /// Final Jeopardy! round, then this method will do nothing.
+    ///
+    /// Finally, if all categories are finished, then the game will move to the
+    /// Final Jeopardy! round.
     mutating func markSelectedClueAsDone() {
-        if selectedClue == nil {
+        guard let selectedClue = self.selectedClue else {
             return
         }
         switch currentRound {
         case .jeopardy:
-            selectedClue = nil
+            self.selectedClue = nil
             for categoryIndex in jeopardyRoundCategories.indices {
-                let category = jeopardyRoundCategories[categoryIndex]
-                for clueIndex in category.clues.indices {
-                    let clue = category.clues[clueIndex]
-                    if !clue.isDone {
+                let clues = jeopardyRoundCategories[categoryIndex].clues
+                if let clueIndex = clues.firstIndex(matching: selectedClue) {
+                    if !clues[clueIndex].isDone {
                         jeopardyRoundCategories[categoryIndex]
                             .clues[clueIndex]
                             .isDone = true
-                        return
                     }
                 }
             }
-            for playerIndex in players.indices {
-                players[playerIndex].hasRespondedToCurrentClue = false
+            if jeopardyRoundCategories.allSatisfy({ $0.isDone }) {
+                currentRound = .finalJeopardy
             }
         case .finalJeopardy:
             return
@@ -119,7 +128,7 @@ struct JeopardyGame: Codable {
         wager: Int,
         correct responseIsCorrect: Bool
     ) throws {
-        if player.hasRespondedToCurrentClue {
+        if !player.canRespondToCurrentClue {
             return
         }
         switch currentRound {
@@ -161,7 +170,7 @@ struct JeopardyGame: Codable {
         for player: Player,
         correct responseIsCorrect: Bool
     ) {
-        if player.hasRespondedToCurrentClue {
+        if !player.canRespondToCurrentClue {
             return
         }
         if let playerIndex = players.firstIndex(matching: player) {
@@ -186,6 +195,7 @@ struct JeopardyGame: Codable {
                 if responseIsCorrect {
                     for index in players.indices {
                         players[index].canSelectClue = (index == playerIndex)
+                        players[index].canRespondToCurrentClue = false
                     }
                 }
             }
@@ -206,6 +216,12 @@ struct JeopardyGame: Codable {
         switch currentRound {
         case .jeopardy:
             selectedClue = clue
+            for playerIndex in players.indices {
+                let canRespond = (clue.isDailyDouble)
+                    ? players[playerIndex].canSelectClue
+                    : true
+                players[playerIndex].canRespondToCurrentClue = canRespond
+            }
         case .finalJeopardy:
             return
         }
@@ -270,7 +286,7 @@ struct JeopardyGame: Codable {
         if let playerIndex = players.firstIndex(matching: player) {
             let changeInScore = responseIsCorrect ? +amount : -amount
             players[playerIndex].score = player.score + changeInScore
-            players[playerIndex].hasRespondedToCurrentClue = true
+            players[playerIndex].canRespondToCurrentClue = false
         }
     }
     
@@ -297,7 +313,7 @@ struct JeopardyGame: Codable {
     // MARK:- Nested enums
     // -------------------------------------------------------------------------
     
-    /// An internal type that represents a round in a game of *Jeopardy!*
+    /// An internal type that represents a round in a *Jeopardy!* game.
     enum Round: String, Codable {
         
         /// A value that represents the Jeopardy! round.

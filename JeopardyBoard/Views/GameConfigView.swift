@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// A view to create and start a new game of *Jeopardy!*
+/// A view to create and start a new *Jeopardy!* game.
 ///
 /// The host can upload the clue set and enter the contestants.
 struct GameConfigView: View {
@@ -19,6 +19,9 @@ struct GameConfigView: View {
     
     /// The name of the new contestant to add.
     @State private var newPlayerName = ""
+    
+    /// The info of the error alert that is currently presented onscreen.
+    @State private var errorAlertInfo: ErrorAlertItem?
     
     /// The minimum number of contestants in a game.
     private let minimumPlayerCount = 3
@@ -79,11 +82,14 @@ struct GameConfigView: View {
                 .frame(width: 600)
             
             Spacer(minLength: 0)
-            Button("START GAME", action: {})
+            Button("START GAME", action: startGame)
                 .buttonStyle(TrebekButtonStyle())
                 .disabled(clueSet == nil || players.count < minimumPlayerCount)
         }
             .padding(48)
+            .alert(item: $errorAlertInfo) {
+                Alert(title: Text($0.title), message: Text($0.message))
+            }
     }
     
     /// Adds a new contestant to the game.
@@ -124,6 +130,15 @@ struct GameConfigView: View {
             .buttonStyle(PlainButtonStyle())
     }
     
+    /// Creates and starts a new game with the uploaded clue set and
+    /// contestants.
+    private func startGame() {
+        if let clueSet = clueSet {
+            let game = JeopardyGame(clueSet: clueSet, players: players)
+            appState.currentViewKey = .game(game)
+        }
+    }
+    
     /// Uploads a clue set to the app.
     private func uploadClueSet() {
         
@@ -147,19 +162,19 @@ struct GameConfigView: View {
                 self.clueSetFilename = clueSetURL.lastPathComponent
             }
             catch let validationError as ClueSet.ValidationError {
-                self.appState.errorAlert = AppState.ErrorAlert(
+                errorAlertInfo = ErrorAlertItem(
                     title: "Invalid Clue Set",
                     message: validationError.message
                 )
             }
             catch DecodingError.keyNotFound(let codingKey, _) {
-                self.appState.errorAlert = AppState.ErrorAlert(
+                errorAlertInfo = ErrorAlertItem(
                     title: "Parsing Error",
                     message: codingKey.description
                 )
             }
             catch DecodingError.dataCorrupted(let context) {
-                self.appState.errorAlert = AppState.ErrorAlert(
+                errorAlertInfo = ErrorAlertItem(
                     title: "Parsing Error",
                     message: context.debugDescription
                 )
@@ -219,6 +234,9 @@ fileprivate extension ClueSet.ValidationError {
             return "The “answer” of the Final Jeopardy! clue is empty."
         case .emptyFinalJeopardyCorrectResponse:
             return "The correct response to the Final Jeopardy! clue is empty."
+        case .emptyFinalJeopardyImage:
+            return "The accompanying image filename for the Final Jeopardy! "
+                + "clue is empty."
         }
     }
 }

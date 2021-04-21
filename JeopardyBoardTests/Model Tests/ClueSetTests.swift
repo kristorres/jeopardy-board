@@ -418,6 +418,26 @@ final class ClueSetTests: XCTestCase {
         XCTAssertTrue(errorIsCaught)
     }
     
+    func testEmptyFinalJeopardyImage() {
+        let bundle = Bundle(for: type(of: self))
+        let jsonURL = bundle.url(
+            forResource: "clue-set_empty-final-jeopardy-image",
+            withExtension: "json"
+        )!
+        let jsonData = try! Data(contentsOf: jsonURL)
+        let decoder = JSONDecoder()
+        var errorIsCaught = false
+        do {
+            let _ = try decoder.decode(ClueSet.self, from: jsonData)
+        }
+        catch ClueSet.ValidationError.emptyFinalJeopardyImage {
+            errorIsCaught = true
+        }
+        catch {
+        }
+        XCTAssertTrue(errorIsCaught)
+    }
+    
     func testValidClueSet() {
         let bundle = Bundle(for: type(of: self))
         let jsonURL = bundle.url(

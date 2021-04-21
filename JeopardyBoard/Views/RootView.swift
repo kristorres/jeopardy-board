@@ -22,9 +22,6 @@ struct RootView: View {
                 )
             )
             .ignoresSafeArea()
-            .alert(item: $appState.errorAlert) {
-                Alert(title: Text($0.title), message: Text($0.message))
-            }
             .preferredColorScheme(.dark)
     }
     
@@ -33,6 +30,8 @@ struct RootView: View {
         switch appState.currentViewKey {
         case .gameConfig:
             GameConfigView()
+        case .game(let game):
+            GameView(viewModel: JeopardyGameViewModel(game: game))
         }
     }
 }

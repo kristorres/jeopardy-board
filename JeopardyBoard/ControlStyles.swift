@@ -30,10 +30,10 @@ struct TrebekButtonStyle: ButtonStyle {
         var body: some View {
             configuration.label
                 .font(.custom("PT Sans Narrow Bold", size: fontSize))
+                .foregroundColor(isEnabled ? .black : .white)
                 .padding(.vertical, verticalPadding)
                 .padding(.horizontal)
                 .background(backgroundColor)
-                .foregroundColor(isEnabled ? .black : .white)
                 .opacity(isEnabled ? 1 : 0.5)
                 .animation(.default, value: isEnabled)
         }
@@ -71,9 +71,4 @@ extension NSTextField {
         get { return .none }
         set {}
     }
-}
-
-fileprivate extension Color {
-    static let trebekGold = Color(red: 0.9843, green: 0.651, blue: 0.1098)
-    static let darkTrebekGold = Color(red: 0.8588, green: 0.5373, blue: 0.0157)
 }

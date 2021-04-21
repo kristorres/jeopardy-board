@@ -10,7 +10,7 @@
 		3020C430261D14B6006257AD /* clue-set_empty-image.json in Resources */ = {isa = PBXBuildFile; fileRef = 3020C42F261D14B6006257AD /* clue-set_empty-image.json */; };
 		3020C439261E2F56006257AD /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020C438261E2F56006257AD /* AppState.swift */; };
 		3020C443261E6AD4006257AD /* GameConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020C442261E6AD4006257AD /* GameConfigView.swift */; };
-		3020C44C261E722B006257AD /* ScaledToWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020C44B261E722B006257AD /* ScaledToWindow.swift */; };
+		3020C44C261E722B006257AD /* View+Scales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020C44B261E722B006257AD /* View+Scales.swift */; };
 		302655592605564500CB1D2A /* JeopardyBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302655582605564500CB1D2A /* JeopardyBoardApp.swift */; };
 		3026555B2605564500CB1D2A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026555A2605564500CB1D2A /* RootView.swift */; };
 		3026555D2605564600CB1D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555C2605564600CB1D2A /* Assets.xcassets */; };
@@ -18,6 +18,10 @@
 		305C19442620422100922C9E /* ControlStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C19432620422100922C9E /* ControlStyles.swift */; };
 		305C196C2621137600922C9E /* PTSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 305C196B2621137600922C9E /* PTSans-Regular.ttf */; };
 		305C197A2621231500922C9E /* PTSansNarrow-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */; };
+		3085D4B8262E0F9E00687D5A /* ErrorAlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085D4B7262E0F9E00687D5A /* ErrorAlertItem.swift */; };
+		3092441A262A972E001EB535 /* FinalJeopardyClueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30924419262A972E001EB535 /* FinalJeopardyClueView.swift */; };
+		30924422262AA9CA001EB535 /* clue-set_empty-final-jeopardy-image.json in Resources */ = {isa = PBXBuildFile; fileRef = 30924421262AA9CA001EB535 /* clue-set_empty-final-jeopardy-image.json */; };
+		3092442D262B8D1B001EB535 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092442C262B8D1B001EB535 /* PlayerView.swift */; };
 		30BC64AE2612582600AF0BC2 /* clue-set_incorrect-clue-count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */; };
 		30BC64B226125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B126125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json */; };
 		30BC64B826125D2C00AF0BC2 /* clue-set_incorrect-point-value.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B726125D2C00AF0BC2 /* clue-set_incorrect-point-value.json */; };
@@ -44,6 +48,16 @@
 		30C0AE0826101C920063D58F /* clue-set_incorrect-category-count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30C0AE0726101C920063D58F /* clue-set_incorrect-category-count.json */; };
 		30C0AE112610225F0063D58F /* clue-set_empty-category-title.json in Resources */ = {isa = PBXBuildFile; fileRef = 30C0AE102610225F0063D58F /* clue-set_empty-category-title.json */; };
 		30E6237F26261108001D2FE4 /* PTSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E6237E26261108001D2FE4 /* PTSans-Bold.ttf */; };
+		30E62395262765A2001D2FE4 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E62394262765A2001D2FE4 /* GameView.swift */; };
+		30E6239B2627769A001D2FE4 /* ExampleGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E6239A2627769A001D2FE4 /* ExampleGame.swift */; };
+		30E623A42627DB1F001D2FE4 /* JeopardyGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E623A32627DB1F001D2FE4 /* JeopardyGameViewModel.swift */; };
+		30E623AD2628E6F2001D2FE4 /* JeopardyBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E623AC2628E6F2001D2FE4 /* JeopardyBoardView.swift */; };
+		30E623B32628F4D4001D2FE4 /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E623B22628F4D4001D2FE4 /* Impact.ttf */; };
+		30E623B72628FC24001D2FE4 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E623B62628FC24001D2FE4 /* CustomColors.swift */; };
+		30E623BD2629087C001D2FE4 /* ClueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E623BC2629087C001D2FE4 /* ClueView.swift */; };
+		30E623C326290E4D001D2FE4 /* Korinna-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 30E623C226290E4D001D2FE4 /* Korinna-Regular.otf */; };
+		30E623C7262A1291001D2FE4 /* BlueSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E623C6262A1290001D2FE4 /* BlueSlide.swift */; };
+		30E623CD262A1DE0001D2FE4 /* ImageSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E623CC262A1DE0001D2FE4 /* ImageSlide.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +74,7 @@
 		3020C42F261D14B6006257AD /* clue-set_empty-image.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_empty-image.json"; sourceTree = "<group>"; };
 		3020C438261E2F56006257AD /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		3020C442261E6AD4006257AD /* GameConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfigView.swift; sourceTree = "<group>"; };
-		3020C44B261E722B006257AD /* ScaledToWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledToWindow.swift; sourceTree = "<group>"; };
+		3020C44B261E722B006257AD /* View+Scales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Scales.swift"; sourceTree = "<group>"; };
 		302655552605564500CB1D2A /* JeopardyBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JeopardyBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		302655582605564500CB1D2A /* JeopardyBoardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeopardyBoardApp.swift; sourceTree = "<group>"; };
 		3026555A2605564500CB1D2A /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -72,6 +86,10 @@
 		305C19432620422100922C9E /* ControlStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlStyles.swift; sourceTree = "<group>"; };
 		305C196B2621137600922C9E /* PTSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Regular.ttf"; sourceTree = "<group>"; };
 		305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSansNarrow-Bold.ttf"; sourceTree = "<group>"; };
+		3085D4B7262E0F9E00687D5A /* ErrorAlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertItem.swift; sourceTree = "<group>"; };
+		30924419262A972E001EB535 /* FinalJeopardyClueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalJeopardyClueView.swift; sourceTree = "<group>"; };
+		30924421262AA9CA001EB535 /* clue-set_empty-final-jeopardy-image.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "clue-set_empty-final-jeopardy-image.json"; sourceTree = "<group>"; };
+		3092442C262B8D1B001EB535 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-clue-count.json"; sourceTree = "<group>"; };
 		30BC64B126125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_multiple-daily-doubles-in-category.json"; sourceTree = "<group>"; };
 		30BC64B726125D2C00AF0BC2 /* clue-set_incorrect-point-value.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-point-value.json"; sourceTree = "<group>"; };
@@ -102,6 +120,17 @@
 		30C4C71F2608501E00AC46B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		30E6237E26261108001D2FE4 /* PTSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Bold.ttf"; sourceTree = "<group>"; };
 		30E6238626263912001D2FE4 /* start_a_new_game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_a_new_game.png; sourceTree = "<group>"; };
+		30E62394262765A2001D2FE4 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		30E6239A2627769A001D2FE4 /* ExampleGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleGame.swift; sourceTree = "<group>"; };
+		30E623A32627DB1F001D2FE4 /* JeopardyGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeopardyGameViewModel.swift; sourceTree = "<group>"; };
+		30E623AB2628CF52001D2FE4 /* game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game.png; sourceTree = "<group>"; };
+		30E623AC2628E6F2001D2FE4 /* JeopardyBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeopardyBoardView.swift; sourceTree = "<group>"; };
+		30E623B22628F4D4001D2FE4 /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
+		30E623B62628FC24001D2FE4 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		30E623BC2629087C001D2FE4 /* ClueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueView.swift; sourceTree = "<group>"; };
+		30E623C226290E4D001D2FE4 /* Korinna-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Korinna-Regular.otf"; sourceTree = "<group>"; };
+		30E623C6262A1290001D2FE4 /* BlueSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueSlide.swift; sourceTree = "<group>"; };
+		30E623CC262A1DE0001D2FE4 /* ImageSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlide.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +154,7 @@
 		3020C44A261E7152006257AD /* View Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				3020C44B261E722B006257AD /* ScaledToWindow.swift */,
+				3020C44B261E722B006257AD /* View+Scales.swift */,
 			);
 			path = "View Modifiers";
 			sourceTree = "<group>";
@@ -156,8 +185,11 @@
 			children = (
 				3020C438261E2F56006257AD /* AppState.swift */,
 				305C19432620422100922C9E /* ControlStyles.swift */,
+				30E623B62628FC24001D2FE4 /* CustomColors.swift */,
+				3085D4B7262E0F9E00687D5A /* ErrorAlertItem.swift */,
 				302655582605564500CB1D2A /* JeopardyBoardApp.swift */,
 				30C0ADCC260BE3F60063D58F /* Models */,
+				30E623A22627D90F001D2FE4 /* View Models */,
 				3020C44A261E7152006257AD /* View Modifiers */,
 				3026556C2605715F00CB1D2A /* Views */,
 				30BC653F261A6D8700AF0BC2 /* Extensions */,
@@ -179,7 +211,10 @@
 			isa = PBXGroup;
 			children = (
 				3020C442261E6AD4006257AD /* GameConfigView.swift */,
+				30E62394262765A2001D2FE4 /* GameView.swift */,
+				3092442C262B8D1B001EB535 /* PlayerView.swift */,
 				3026555A2605564500CB1D2A /* RootView.swift */,
+				30E623D2262A5A25001D2FE4 /* Board */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +222,8 @@
 		305C195B26210A5300922C9E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				30E623C226290E4D001D2FE4 /* Korinna-Regular.otf */,
+				30E623B22628F4D4001D2FE4 /* Impact.ttf */,
 				30E6237E26261108001D2FE4 /* PTSans-Bold.ttf */,
 				305C196B2621137600922C9E /* PTSans-Regular.ttf */,
 				305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */,
@@ -246,6 +283,7 @@
 				30BC64D52612791800AF0BC2 /* clue-set_empty-final-jeopardy-answer.json */,
 				30BC64CF2612766C00AF0BC2 /* clue-set_empty-final-jeopardy-category-title.json */,
 				30BC64DB26127C4400AF0BC2 /* clue-set_empty-final-jeopardy-correct-response.json */,
+				30924421262AA9CA001EB535 /* clue-set_empty-final-jeopardy-image.json */,
 				3020C42F261D14B6006257AD /* clue-set_empty-image.json */,
 				30BC65212614FB3800AF0BC2 /* clue-set_finished-clue.json */,
 				30C0AE0726101C920063D58F /* clue-set_incorrect-category-count.json */,
@@ -262,6 +300,7 @@
 			children = (
 				3026555C2605564600CB1D2A /* Assets.xcassets */,
 				305C195B26210A5300922C9E /* Fonts */,
+				30E6239A2627769A001D2FE4 /* ExampleGame.swift */,
 				302655612605564600CB1D2A /* Info.plist */,
 				30C0ADC2260BC1330063D58F /* InfoPlist.strings */,
 				302655622605564600CB1D2A /* JeopardyBoard.entitlements */,
@@ -272,9 +311,30 @@
 		30E6238526263878001D2FE4 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
+				30E623AB2628CF52001D2FE4 /* game.png */,
 				30E6238626263912001D2FE4 /* start_a_new_game.png */,
 			);
 			path = Screenshots;
+			sourceTree = "<group>";
+		};
+		30E623A22627D90F001D2FE4 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				30E623A32627DB1F001D2FE4 /* JeopardyGameViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		30E623D2262A5A25001D2FE4 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				30E623C6262A1290001D2FE4 /* BlueSlide.swift */,
+				30E623BC2629087C001D2FE4 /* ClueView.swift */,
+				30924419262A972E001EB535 /* FinalJeopardyClueView.swift */,
+				30E623CC262A1DE0001D2FE4 /* ImageSlide.swift */,
+				30E623AC2628E6F2001D2FE4 /* JeopardyBoardView.swift */,
+			);
+			path = Board;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +421,8 @@
 				305C196C2621137600922C9E /* PTSans-Regular.ttf in Resources */,
 				30E6237F26261108001D2FE4 /* PTSans-Bold.ttf in Resources */,
 				305C197A2621231500922C9E /* PTSansNarrow-Bold.ttf in Resources */,
+				30E623B32628F4D4001D2FE4 /* Impact.ttf in Resources */,
+				30E623C326290E4D001D2FE4 /* Korinna-Regular.otf in Resources */,
 				30C0ADC3260BC1330063D58F /* InfoPlist.strings in Resources */,
 				302655602605564600CB1D2A /* Preview Assets.xcassets in Resources */,
 			);
@@ -377,6 +439,7 @@
 				30BC64D62612791800AF0BC2 /* clue-set_empty-final-jeopardy-answer.json in Resources */,
 				30BC64D02612766C00AF0BC2 /* clue-set_empty-final-jeopardy-category-title.json in Resources */,
 				30BC64DC26127C4400AF0BC2 /* clue-set_empty-final-jeopardy-correct-response.json in Resources */,
+				30924422262AA9CA001EB535 /* clue-set_empty-final-jeopardy-image.json in Resources */,
 				3020C430261D14B6006257AD /* clue-set_empty-image.json in Resources */,
 				30BC65222614FB3800AF0BC2 /* clue-set_finished-clue.json in Resources */,
 				30C0AE0826101C920063D58F /* clue-set_incorrect-category-count.json in Resources */,
@@ -396,6 +459,8 @@
 			files = (
 				302655592605564500CB1D2A /* JeopardyBoardApp.swift in Sources */,
 				3020C439261E2F56006257AD /* AppState.swift in Sources */,
+				3085D4B8262E0F9E00687D5A /* ErrorAlertItem.swift in Sources */,
+				30E623B72628FC24001D2FE4 /* CustomColors.swift in Sources */,
 				305C19442620422100922C9E /* ControlStyles.swift in Sources */,
 				30BC64F02612A17A00AF0BC2 /* Array+Identifiable.swift in Sources */,
 				30BC6543261A6E0C00AF0BC2 /* String+Trimmed.swift in Sources */,
@@ -405,9 +470,18 @@
 				30BC650E2613DE8400AF0BC2 /* FinalJeopardyClue.swift in Sources */,
 				30C0ADCE260BE46F0063D58F /* JeopardyGame.swift in Sources */,
 				30BC65122613E3F600AF0BC2 /* Player.swift in Sources */,
+				30E623A42627DB1F001D2FE4 /* JeopardyGameViewModel.swift in Sources */,
 				3026555B2605564500CB1D2A /* RootView.swift in Sources */,
 				3020C443261E6AD4006257AD /* GameConfigView.swift in Sources */,
-				3020C44C261E722B006257AD /* ScaledToWindow.swift in Sources */,
+				30E62395262765A2001D2FE4 /* GameView.swift in Sources */,
+				3092442D262B8D1B001EB535 /* PlayerView.swift in Sources */,
+				30E623AD2628E6F2001D2FE4 /* JeopardyBoardView.swift in Sources */,
+				30E623BD2629087C001D2FE4 /* ClueView.swift in Sources */,
+				3092441A262A972E001EB535 /* FinalJeopardyClueView.swift in Sources */,
+				30E623C7262A1291001D2FE4 /* BlueSlide.swift in Sources */,
+				30E623CD262A1DE0001D2FE4 /* ImageSlide.swift in Sources */,
+				3020C44C261E722B006257AD /* View+Scales.swift in Sources */,
+				30E6239B2627769A001D2FE4 /* ExampleGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

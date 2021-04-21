@@ -1,6 +1,6 @@
 import Foundation
 
-/// A clue set for a game of *Jeopardy!*
+/// A clue set for a *Jeopardy!* game.
 struct ClueSet: Codable {
     
     /// The categories in the Jeopardy! round.
@@ -141,6 +141,9 @@ struct ClueSet: Codable {
         if finalJeopardyClue.correctResponse.isEmpty {
             throw ValidationError.emptyFinalJeopardyCorrectResponse
         }
+        if let image = finalJeopardyClue.image, image.isEmpty {
+            throw ValidationError.emptyFinalJeopardyImage
+        }
     }
     
     /// A validation error.
@@ -189,6 +192,9 @@ struct ClueSet: Codable {
         
         /// An error that denotes an empty Final Jeopardy! correct response.
         case emptyFinalJeopardyCorrectResponse
+        
+        /// An error that denotes an empty Final Jeopardy! image filename.
+        case emptyFinalJeopardyImage
     }
     
     /// An internal type that contains the keys for encoding and decoding.
