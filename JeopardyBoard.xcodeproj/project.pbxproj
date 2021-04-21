@@ -22,6 +22,7 @@
 		3092441A262A972E001EB535 /* FinalJeopardyClueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30924419262A972E001EB535 /* FinalJeopardyClueView.swift */; };
 		30924422262AA9CA001EB535 /* clue-set_empty-final-jeopardy-image.json in Resources */ = {isa = PBXBuildFile; fileRef = 30924421262AA9CA001EB535 /* clue-set_empty-final-jeopardy-image.json */; };
 		3092442D262B8D1B001EB535 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092442C262B8D1B001EB535 /* PlayerView.swift */; };
+		309B29712630DD8E0083443E /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B29702630DD8E0083443E /* LeaderboardView.swift */; };
 		30BC64AE2612582600AF0BC2 /* clue-set_incorrect-clue-count.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */; };
 		30BC64B226125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B126125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json */; };
 		30BC64B826125D2C00AF0BC2 /* clue-set_incorrect-point-value.json in Resources */ = {isa = PBXBuildFile; fileRef = 30BC64B726125D2C00AF0BC2 /* clue-set_incorrect-point-value.json */; };
@@ -90,6 +91,7 @@
 		30924419262A972E001EB535 /* FinalJeopardyClueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalJeopardyClueView.swift; sourceTree = "<group>"; };
 		30924421262AA9CA001EB535 /* clue-set_empty-final-jeopardy-image.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "clue-set_empty-final-jeopardy-image.json"; sourceTree = "<group>"; };
 		3092442C262B8D1B001EB535 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		309B29702630DD8E0083443E /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		30BC64AD2612582600AF0BC2 /* clue-set_incorrect-clue-count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-clue-count.json"; sourceTree = "<group>"; };
 		30BC64B126125AB900AF0BC2 /* clue-set_multiple-daily-doubles-in-category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_multiple-daily-doubles-in-category.json"; sourceTree = "<group>"; };
 		30BC64B726125D2C00AF0BC2 /* clue-set_incorrect-point-value.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "clue-set_incorrect-point-value.json"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			children = (
 				3020C442261E6AD4006257AD /* GameConfigView.swift */,
 				30E62394262765A2001D2FE4 /* GameView.swift */,
+				309B29702630DD8E0083443E /* LeaderboardView.swift */,
 				3092442C262B8D1B001EB535 /* PlayerView.swift */,
 				3026555A2605564500CB1D2A /* RootView.swift */,
 				30E623D2262A5A25001D2FE4 /* Board */,
@@ -474,6 +477,7 @@
 				3026555B2605564500CB1D2A /* RootView.swift in Sources */,
 				3020C443261E6AD4006257AD /* GameConfigView.swift in Sources */,
 				30E62395262765A2001D2FE4 /* GameView.swift in Sources */,
+				309B29712630DD8E0083443E /* LeaderboardView.swift in Sources */,
 				3092442D262B8D1B001EB535 /* PlayerView.swift in Sources */,
 				30E623AD2628E6F2001D2FE4 /* JeopardyBoardView.swift in Sources */,
 				30E623BD2629087C001D2FE4 /* ClueView.swift in Sources */,

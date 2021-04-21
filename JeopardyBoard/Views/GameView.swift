@@ -22,81 +22,97 @@ struct GameView: View {
         }
     }
     
+    /// Indicates whether the leaderboard is visible.
+    @State private var leaderboardIsVisible = false
+    
     /// The info of the error alert that is currently presented onscreen.
     @State private var errorAlertInfo: ErrorAlertItem?
     
     var body: some View {
-        HStack(spacing: 0) {
-            VStack(spacing: 0) {
-                Image("jeopardy-logo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 100)
-                    .padding()
-                if viewModel.currentRound == .finalJeopardy {
-                    FinalJeopardyClueView(clue: viewModel.finalJeopardyClue)
-                }
-                else if let clue = viewModel.selectedClue {
-                    ClueView(clue: clue) {
-                        self.viewModel.markSelectedClueAsDone()
-                        self.dailyDoubleIsAlreadySelected = false
-                        self.onSubmitWager = nil
-                    }
-                        .onAppear {
-                            if clue.isDailyDouble {
-                                if self.dailyDoubleIsAlreadySelected {
-                                    return
-                                }
-                                self.displayWagerSection()
-                                self.dailyDoubleIsAlreadySelected = true
-                            }
-                        }
-                }
-                else {
-                    JeopardyBoardView(viewModel: viewModel)
-                }
+        if leaderboardIsVisible {
+            LeaderboardView(players: viewModel.players) {
+                self.leaderboardIsVisible = false
             }
-                .frame(maxWidth: .infinity)
-                .padding([.leading, .trailing, .bottom])
-            VStack(spacing: 0) {
-                if onSubmitWager != nil {
-                    HStack {
-                        TextField(
-                            "Wager",
-                            text: $wagerText,
-                            onCommit: submitWager
-                        )
-                            .textFieldStyle(TrebekTextFieldStyle())
-                        Button("CONFIRM", action: submitWager)
-                            .buttonStyle(TrebekButtonStyle())
-                            .disabled(wagerText.trimmed.isEmpty)
-                    }
+        }
+        else {
+            HStack(spacing: 0) {
+                VStack(spacing: 0) {
+                    Image("jeopardy-logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 100)
                         .padding()
-                    Divider()
-                }
-                TextField("Contestant Search", text: $playerNameSearchText)
-                    .textFieldStyle(TrebekTextFieldStyle())
-                    .padding()
-                Divider()
-                ScrollView(.vertical) {
-                    ForEach(players) {
-                        PlayerView(
-                            player: $0,
-                            viewModel: viewModel,
-                            onSubmitWager: $onSubmitWager,
-                            errorAlertInfo: $errorAlertInfo
-                        )
+                    if viewModel.currentRound == .finalJeopardy {
+                        FinalJeopardyClueView(clue: viewModel.finalJeopardyClue)
+                    }
+                    else if let clue = viewModel.selectedClue {
+                        ClueView(clue: clue) {
+                            self.viewModel.markSelectedClueAsDone()
+                            self.dailyDoubleIsAlreadySelected = false
+                            self.onSubmitWager = nil
+                        }
+                            .onAppear {
+                                if clue.isDailyDouble {
+                                    if self.dailyDoubleIsAlreadySelected {
+                                        return
+                                    }
+                                    self.displayWagerSection()
+                                    self.dailyDoubleIsAlreadySelected = true
+                                }
+                            }
+                    }
+                    else {
+                        JeopardyBoardView(viewModel: viewModel)
                     }
                 }
                     .frame(maxWidth: .infinity)
+                    .padding([.leading, .trailing, .bottom])
+                VStack(spacing: 0) {
+                    Button("VIEW LEADERBOARD") {
+                        self.leaderboardIsVisible = true
+                    }
+                        .buttonStyle(TrebekButtonStyle())
+                        .padding()
+                    Divider()
+                    if onSubmitWager != nil {
+                        HStack {
+                            TextField(
+                                "Wager",
+                                text: $wagerText,
+                                onCommit: submitWager
+                            )
+                                .textFieldStyle(TrebekTextFieldStyle())
+                            Button("CONFIRM", action: submitWager)
+                                .buttonStyle(TrebekButtonStyle())
+                                .disabled(wagerText.trimmed.isEmpty)
+                        }
+                            .padding()
+                        Divider()
+                    }
+                    TextField("Contestant Search", text: $playerNameSearchText)
+                        .textFieldStyle(TrebekTextFieldStyle())
+                        .padding()
+                    Divider()
+                    ScrollView(.vertical) {
+                        ForEach(players) {
+                            PlayerView(
+                                player: $0,
+                                viewModel: viewModel,
+                                onSubmitWager: $onSubmitWager,
+                                errorAlertInfo: $errorAlertInfo
+                            )
+                        }
+                    }
+                        .frame(maxWidth: .infinity)
+                }
+                    .frame(width: 300)
+                    .frame(maxHeight: .infinity)
+                    .background(Color("Player List Panel Background"))
             }
-                .frame(width: 300)
-                .frame(maxHeight: .infinity)
-                .background(Color("Player List Panel Background"))
+                .alert(item: $errorAlertInfo) {
+                    Alert(title: Text($0.title), message: Text($0.message))
+                }
         }
-            .alert(item: $errorAlertInfo) {
-                Alert(title: Text($0.title), message: Text($0.message))
-            }
     }
     
     /// The filtered contestants as a result of the name search.
