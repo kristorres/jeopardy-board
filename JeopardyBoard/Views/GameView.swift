@@ -101,9 +101,6 @@ struct GameView: View {
     /// The filtered contestants as a result of the name search.
     private var players: [Player] {
         viewModel.players.filter { player in
-            if viewModel.currentRound == .finalJeopardy {
-                return player.score > 0
-            }
             let searchText = playerNameSearchText.uppercased().trimmed
             if searchText.isEmpty {
                 return true

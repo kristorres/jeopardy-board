@@ -17,7 +17,15 @@ struct JeopardyGame: Codable {
     private(set) var players: [Player]
     
     /// The current round in this *Jeopardy!* game.
-    var currentRound: Round = .jeopardy
+    private(set) var currentRound: Round = .jeopardy {
+        didSet {
+            if currentRound == .finalJeopardy {
+                players = players.filter {
+                    $0.score > 0
+                }
+            }
+        }
+    }
     
     /// The selected clue.
     private(set) var selectedClue: Clue?
@@ -96,12 +104,6 @@ struct JeopardyGame: Codable {
             }
             if jeopardyRoundCategories.allSatisfy({ $0.isDone }) {
                 currentRound = .finalJeopardy
-            }
-            for playerIndex in players.indices {
-                players[playerIndex].canRespondToCurrentClue = (
-                    currentRound == .finalJeopardy
-                        && players[playerIndex].score > 0
-                )
             }
         case .finalJeopardy:
             return
