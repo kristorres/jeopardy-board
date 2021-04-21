@@ -65,7 +65,12 @@ struct PlayerView: View {
     
     /// The background color of this view.
     private var backgroundColor: Color {
-        player.canSelectClue ? Color.trebekBlue.opacity(0.5) : .clear
+        switch viewModel.currentRound {
+        case .jeopardy:
+            return player.canSelectClue ? Color.trebekBlue.opacity(0.5) : .clear
+        case .finalJeopardy:
+            return .clear
+        }
     }
     
     /// Indicates whether the response buttons are disabled.
