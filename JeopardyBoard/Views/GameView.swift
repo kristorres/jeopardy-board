@@ -6,6 +6,9 @@ struct GameView: View {
     /// The view model that binds this view to a *Jeopardy!* game.
     @ObservedObject var viewModel: JeopardyGameViewModel
     
+    /// The global app state.
+    @EnvironmentObject private var appState: AppState
+    
     /// Indicates whether a Daily Double clue is already selected.
     @State private var dailyDoubleIsAlreadySelected = false
     
@@ -43,7 +46,10 @@ struct GameView: View {
                         .frame(height: 100)
                         .padding()
                     if viewModel.currentRound == .finalJeopardy {
-                        FinalJeopardyClueView(clue: viewModel.finalJeopardyClue)
+                        FinalJeopardyClueView(
+                            clue: viewModel.finalJeopardyClue,
+                            onExit: revealChampions
+                        )
                     }
                     else if let clue = viewModel.selectedClue {
                         ClueView(clue: clue) {
@@ -132,6 +138,11 @@ struct GameView: View {
         onSubmitWager = {
             try self.viewModel.setDailyDoubleWager(to: $0)
         }
+    }
+    
+    /// Reveals the champions in the *Jeopardy!* game.
+    private func revealChampions() {
+        appState.currentViewKey = .champions(viewModel.currentLeaders)
     }
     
     /// Submits a contestant’s wager.

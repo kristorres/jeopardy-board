@@ -27,12 +27,13 @@ struct LeaderboardView: View {
                         .padding(.vertical, 16)
                 }
             }
-            .font(.custom("PT Sans", size: 64))
+                .font(.custom("PT Sans", size: 64))
         }
             .padding(48)
     }
 }
 
+#if DEBUG
 struct LeaderboardView_Previews: PreviewProvider {
     static var previews: some View {
         let players = [
@@ -43,3 +44,4 @@ struct LeaderboardView_Previews: PreviewProvider {
         return LeaderboardView(players: players, onExit: {}).scaledToWindow()
     }
 }
+#endif
