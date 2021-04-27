@@ -34,6 +34,33 @@ struct JeopardyGame: Codable {
     private(set) var dailyDoubleWager: Int?
     
     // -------------------------------------------------------------------------
+    // MARK:- Computed property
+    // -------------------------------------------------------------------------
+    
+    /// The current leaders in this *Jeopardy!* game.
+    ///
+    /// All leaders must have positive scores.
+    var currentLeaders: [Player] {
+        var leaders = [Player]()
+        for player in players {
+            if player.score > 0 {
+                if let leader = leaders.first {
+                    if player.score > leader.score {
+                        leaders = [player]
+                    }
+                    else if player.score == leader.score {
+                        leaders.append(player)
+                    }
+                }
+                else {
+                    leaders = [player]
+                }
+            }
+        }
+        return leaders
+    }
+    
+    // -------------------------------------------------------------------------
     // MARK:- Initializers
     // -------------------------------------------------------------------------
     

@@ -14,6 +14,13 @@ final class JeopardyGameViewModel: ObservableObject {
     // MARK:- Access to the model
     // -------------------------------------------------------------------------
     
+    /// The current leaders in the *Jeopardy!* game.
+    ///
+    /// All leaders must have positive scores.
+    var currentLeaders: [Player] {
+        game.currentLeaders
+    }
+    
     /// The current round in the *Jeopardy!* game.
     var currentRound: JeopardyGame.Round {
         game.currentRound

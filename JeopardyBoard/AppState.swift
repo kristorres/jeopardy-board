@@ -16,5 +16,9 @@ final class AppState: ObservableObject {
         /// The key to render a view that displays an interactive *Jeopardy!*
         /// game.
         case game(JeopardyGame)
+        
+        /// The key to render a view that displays the champions in a
+        /// *Jeopardy!* game.
+        case champions([Player])
     }
 }

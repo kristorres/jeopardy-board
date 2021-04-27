@@ -32,6 +32,8 @@ struct RootView: View {
             GameConfigView()
         case .game(let game):
             GameView(viewModel: JeopardyGameViewModel(game: game))
+        case .champions(let champions):
+            ChampionView(champions: champions)
         }
     }
 }

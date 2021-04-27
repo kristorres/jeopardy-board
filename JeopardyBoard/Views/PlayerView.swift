@@ -75,7 +75,9 @@ struct PlayerView: View {
     
     /// Indicates whether the response buttons are disabled.
     private var responseButtonsAreDisabled: Bool {
-        onSubmitWager != nil || !player.canRespondToCurrentClue
+        return editModeIsEnabled
+            || onSubmitWager != nil
+            || !player.canRespondToCurrentClue
     }
     
     /// The score color.
