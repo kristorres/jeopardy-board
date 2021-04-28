@@ -13,7 +13,7 @@ extension View {
     ///
     /// - Returns: The scaled view.
     func scaledToWindow() -> some View {
-        return self.baseFrame(minWidth: 1600, minHeight: 900)
+        return self.baseFrame(minWidth: 1100, minHeight: 625)
     }
     
     /// Wraps this view in a frame with the specified minimum width and height.
