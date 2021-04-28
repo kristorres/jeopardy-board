@@ -27,21 +27,22 @@ struct GameConfigView: View {
     private let minimumPlayerCount = 3
     
     var body: some View {
-        VStack(spacing: 48) {
-            Text("START A NEW GAME").font(.custom("PT Sans Bold", size: 48))
+        VStack(spacing: 32) {
+            Text("START A NEW GAME")
+                .font(.custom("PT Sans Bold", size: 48))
             
             VStack {
                 Button("UPLOAD CLUE SET", action: uploadClueSet)
                     .buttonStyle(TrebekButtonStyle())
                 Text(clueSetFilename ?? " ")
                     .font(.custom("PT Sans", size: 14))
-                    .padding(.top, 6)
+                    .padding(.top, 4)
             }
             
             VStack {
                 Text("CONTESTANTS")
                     .font(.custom("PT Sans", size: 32))
-                    .padding(12)
+                    .padding()
                 HStack(spacing: 12) {
                     TextField(
                         "Player Name",
@@ -71,7 +72,7 @@ struct GameConfigView: View {
                                 Spacer()
                                 removePlayerButton(for: player)
                             }
-                                .padding(.vertical, 6)
+                                .padding(.vertical, 4)
                         }
                     }
                         .font(.custom("PT Sans", size: 20))
@@ -86,7 +87,7 @@ struct GameConfigView: View {
                 .buttonStyle(TrebekButtonStyle())
                 .disabled(clueSet == nil || players.count < minimumPlayerCount)
         }
-            .padding(48)
+            .padding(32)
             .alert(item: $errorAlertInfo) {
                 Alert(title: Text($0.title), message: Text($0.message))
             }
