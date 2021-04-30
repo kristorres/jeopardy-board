@@ -121,14 +121,12 @@ struct GameConfigView: View {
     /// - Parameter player: The contestant to remove.
     private func removePlayerButton(for player: Player) -> some View {
         return Button(action: { self.removePlayer(player) }) {
-            Image(systemName: "xmark")
-                .font(.system(size: 20, weight: .bold))
-                .padding(12)
-                .background(Color.red)
-                .foregroundColor(.white)
-                .clipShape(Circle())
+            Label(
+                title: { Text("REMOVE") },
+                icon: { Image(systemName: "xmark.circle.fill") }
+            )
         }
-            .buttonStyle(PlainButtonStyle())
+            .buttonStyle(TrebekButtonStyle(colorMode: .error))
     }
     
     /// Creates and starts a new game with the uploaded clue set and
