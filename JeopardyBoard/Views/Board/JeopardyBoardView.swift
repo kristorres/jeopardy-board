@@ -39,8 +39,6 @@ struct JeopardyBoardView: View {
             }
         }
             .scaledToGameBoard()
-            .padding(gridItemSpacing)
-            .background(Color.black)
     }
 }
 

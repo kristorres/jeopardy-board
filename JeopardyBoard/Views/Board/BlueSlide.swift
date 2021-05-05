@@ -12,8 +12,10 @@ struct BlueSlide<Content>: View where Content: View {
         content()
             .padding(.vertical, 40)
             .padding(.horizontal, 80)
-            .scaledToGameBoard()
+            .aspectRatio(1.7778, contentMode: .fill)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.trebekBlue)
+            .scaledToGameBoard()
     }
 }
 
@@ -24,6 +26,7 @@ struct BlueSlide_Previews: PreviewProvider {
         return BlueSlide {
             Text(answer.uppercased())
                 .font(.custom("ITC Korinna Regular", size: 64))
+                .minimumScaleFactor(0.5)
                 .foregroundColor(.white)
                 .shadow(color: .black, radius: 0, x: 4, y: 4)
                 .multilineTextAlignment(.center)

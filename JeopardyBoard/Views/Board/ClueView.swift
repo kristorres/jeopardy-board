@@ -89,6 +89,7 @@ fileprivate extension Text {
     func formatForClue() -> some View {
         return self
             .font(.custom("ITC Korinna Regular", size: 64))
+            .minimumScaleFactor(0.5)
             .foregroundColor(.white)
             .shadow(color: .black, radius: 0, x: 4, y: 4)
             .multilineTextAlignment(.center)

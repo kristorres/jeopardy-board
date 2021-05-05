@@ -39,7 +39,7 @@ struct GameView: View {
         }
         else {
             HStack(spacing: 0) {
-                VStack(spacing: 0) {
+                VStack {
                     Image("jeopardy-logo")
                         .resizable()
                         .scaledToFit()

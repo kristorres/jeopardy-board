@@ -50,6 +50,7 @@ struct FinalJeopardyClueView: View {
             BlueSlide {
                 Text(categoryTitle.uppercased())
                     .font(.custom("Impact", size: 150))
+                    .minimumScaleFactor(0.75)
                     .foregroundColor(.white)
                     .shadow(color: .black, radius: 0, x: 4, y: 4)
                     .multilineTextAlignment(.center)

@@ -6,25 +6,19 @@ extension View {
     ///
     /// - Returns: The scaled view.
     func scaledToGameBoard() -> some View {
-        return self.baseFrame(minWidth: 775, minHeight: 450)
+        return self
+            .aspectRatio(1.7778, contentMode: .fit)
+            .frame(minWidth: 775, maxWidth: .infinity, minHeight: 450)
+            .padding(8)
+            .background(Color.black)
     }
     
     /// Scales this view to fit the window.
     ///
     /// - Returns: The scaled view.
     func scaledToWindow() -> some View {
-        return self.baseFrame(minWidth: 1125, minHeight: 625)
-    }
-    
-    /// Wraps this view in a frame with the specified minimum width and height.
-    ///
-    /// - Parameter minWidth:  The minimum width of the frame.
-    /// - Parameter minHeight: The minimum height of the frame.
-    ///
-    /// - Returns: The modified view.
-    private func baseFrame(minWidth: CGFloat, minHeight: CGFloat) -> some View {
         return self
-            .frame(minWidth: minWidth, minHeight: minHeight)
+            .frame(minWidth: 1125, minHeight: 625)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
