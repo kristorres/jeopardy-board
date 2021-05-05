@@ -6,14 +6,14 @@ extension View {
     ///
     /// - Returns: The scaled view.
     func scaledToGameBoard() -> some View {
-        return self.baseFrame(minWidth: 1200, minHeight: 700)
+        return self.baseFrame(minWidth: 775, minHeight: 450)
     }
     
     /// Scales this view to fit the window.
     ///
     /// - Returns: The scaled view.
     func scaledToWindow() -> some View {
-        return self.baseFrame(minWidth: 1100, minHeight: 625)
+        return self.baseFrame(minWidth: 1125, minHeight: 625)
     }
     
     /// Wraps this view in a frame with the specified minimum width and height.
