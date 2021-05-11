@@ -24,7 +24,7 @@ struct ChampionView: View {
                     .resizable()
                     .scaledToFit()
                     .border(Color.white, width: 12)
-                    .frame(height: 600)
+                    .frame(minHeight: 400, maxHeight: 600)
                     .shadow(radius: 8)
                 Text("OOOOH, SORRY!")
                     .font(.custom("PT Sans Narrow Bold", size: 48))
