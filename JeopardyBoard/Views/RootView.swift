@@ -9,18 +9,7 @@ struct RootView: View {
     var body: some View {
         currentView
             .scaledToWindow()
-            .background(
-                LinearGradient(
-                    gradient: Gradient(
-                        colors: [
-                            Color(red: 0.0706, green: 0.0745, blue: 0.098),
-                            Color(red: 0.0431, green: 0.1176, blue: 0.2353)
-                        ]
-                    ),
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-            )
+            .background(BackgroundView())
             .ignoresSafeArea()
             .preferredColorScheme(.dark)
     }

@@ -15,6 +15,7 @@
 		3026555B2605564500CB1D2A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026555A2605564500CB1D2A /* RootView.swift */; };
 		3026555D2605564600CB1D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555C2605564600CB1D2A /* Assets.xcassets */; };
 		302655602605564600CB1D2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026555F2605564600CB1D2A /* Preview Assets.xcassets */; };
+		305B140F2645ACDE00FACD85 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B140E2645ACDE00FACD85 /* BackgroundView.swift */; };
 		305C19442620422100922C9E /* ControlStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C19432620422100922C9E /* ControlStyles.swift */; };
 		305C196C2621137600922C9E /* PTSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 305C196B2621137600922C9E /* PTSans-Regular.ttf */; };
 		305C197A2621231500922C9E /* PTSansNarrow-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */; };
@@ -85,6 +86,7 @@
 		302655612605564600CB1D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		302655622605564600CB1D2A /* JeopardyBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JeopardyBoard.entitlements; sourceTree = "<group>"; };
 		3026556A26056DA600CB1D2A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		305B140E2645ACDE00FACD85 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		305C19432620422100922C9E /* ControlStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlStyles.swift; sourceTree = "<group>"; };
 		305C196B2621137600922C9E /* PTSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Regular.ttf"; sourceTree = "<group>"; };
 		305C19792621231500922C9E /* PTSansNarrow-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSansNarrow-Bold.ttf"; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 		3026556C2605715F00CB1D2A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				305B140E2645ACDE00FACD85 /* BackgroundView.swift */,
 				309B29782631E4C60083443E /* ChampionView.swift */,
 				3020C442261E6AD4006257AD /* GameConfigView.swift */,
 				30E62394262765A2001D2FE4 /* GameView.swift */,
@@ -478,6 +481,7 @@
 				30BC65122613E3F600AF0BC2 /* Player.swift in Sources */,
 				30E623A42627DB1F001D2FE4 /* JeopardyGameViewModel.swift in Sources */,
 				3026555B2605564500CB1D2A /* RootView.swift in Sources */,
+				305B140F2645ACDE00FACD85 /* BackgroundView.swift in Sources */,
 				3020C443261E6AD4006257AD /* GameConfigView.swift in Sources */,
 				30E62395262765A2001D2FE4 /* GameView.swift in Sources */,
 				309B29712630DD8E0083443E /* LeaderboardView.swift in Sources */,

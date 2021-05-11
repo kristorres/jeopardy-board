@@ -32,12 +32,7 @@ struct GameView: View {
     @State private var errorAlertInfo: ErrorAlertItem?
     
     var body: some View {
-        if leaderboardIsVisible {
-            LeaderboardView(players: viewModel.players) {
-                self.leaderboardIsVisible = false
-            }
-        }
-        else {
+        ZStack {
             HStack(spacing: 0) {
                 VStack {
                     Image("jeopardy-logo")
@@ -118,6 +113,12 @@ struct GameView: View {
                 .alert(item: $errorAlertInfo) {
                     Alert(title: Text($0.title), message: Text($0.message))
                 }
+            
+            if leaderboardIsVisible {
+                LeaderboardView(players: viewModel.players) {
+                    self.leaderboardIsVisible = false
+                }
+            }
         }
     }
     

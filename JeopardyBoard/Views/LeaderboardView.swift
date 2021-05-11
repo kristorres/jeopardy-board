@@ -30,6 +30,7 @@ struct LeaderboardView: View {
                 .font(.custom("PT Sans", size: 64))
         }
             .padding(48)
+            .background(BackgroundView())
     }
 }
 
