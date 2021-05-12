@@ -23,6 +23,9 @@ struct JeopardyGame: Codable {
                 players = players.filter {
                     $0.score > 0
                 }
+                for playerIndex in players.indices {
+                    players[playerIndex].canRespondToCurrentClue = true
+                }
             }
         }
     }
